@@ -24,6 +24,14 @@
                     $authcontroller = new AuthController();
                     $authcontroller->register($name, $lastname, $email, $phone_number, $created_by, $role, $password);
                 break;
+                case 'recovery':
+                    $authcontroller = new AuthController();
+                    $authcontroller->recoveryPass($_POST["email"]);
+                break;
+                case 'logout':
+                    $authcontroller = new AuthController();
+                    $authcontroller->logout($_POST["email"]);
+                break;
 			}
 		}
 
@@ -66,7 +74,7 @@
 				$_SESSION['role'] = $response->data->role;
 				$_SESSION['token'] = $response->data->token;
 
-                header("Location:".BASE_PATH."products?success");
+                header("Location:".BASE_PATH."products?sucess");
 
 			}else{
 
@@ -74,7 +82,6 @@
 			}
 
 		}
-
         public function register ($name, $lastname, $email, $phone_number, $created_by, $role, $password){
             $curl = curl_init();
             
@@ -106,7 +113,51 @@
                 header("Location:".BASE_PATH."?error=true");
             }
         }
+        public function recoveryPass ($email){
+            $curl = curl_init();
 
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://crud.jonathansoto.mx/api/forgot-password',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array('email' => $email),
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+            $response = json_decode($response);
+            // if (isset($response->code) &&  $response->code > 0) {
+            //     header("Location:".BASE_PATH."index");
+            // } else {
+            //     header("Location:".BASE_PATH."?error=true");
+            // }
+        }
+        public function logout($email){
+            $curl = curl_init();
+            
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://crud.jonathansoto.mx/api/logout',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_POSTFIELDS => array('email' => $email),
+              CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer' .$_SESSION['token'],
+              ),
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+            echo $response;
+            $response = json_decode($response);  
+        }
 	}
     
 ?>
