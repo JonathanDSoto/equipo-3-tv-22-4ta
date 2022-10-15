@@ -69,6 +69,7 @@
 
 				$_SESSION['id'] = $response->data->id;
 				$_SESSION['name'] = $response->data->name;
+                $_SESSION['email'] = $response->data->email;
 				$_SESSION['lastname'] = $response->data->lastname;
 				$_SESSION['avatar'] = $response->data->avatar;
 				$_SESSION['role'] = $response->data->role;
@@ -136,27 +137,36 @@
             //     header("Location:".BASE_PATH."?error=true");
             // }
         }
-        public function logout($email){
+        public function logout()
+        {
             $curl = curl_init();
-            
+    
             curl_setopt_array($curl, array(
-              CURLOPT_URL => 'https://crud.jonathansoto.mx/api/logout',
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '',
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 0,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => 'POST',
-              CURLOPT_POSTFIELDS => array('email' => $email),
-              CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer' .$_SESSION['token'],
-              ),
-            ));
+                CURLOPT_URL => 'https://crud.jonathansoto.mx/api/logout',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array('email' => $_SESSION['email']),
+                CURLOPT_HTTPHEADER => array(
+                  'Authorization: Bearer '.$_SESSION['token'],
+                ),
+              ));
+              
             $response = curl_exec($curl);
             curl_close($curl);
-            echo $response;
-            $response = json_decode($response);  
+            $response = json_decode($response);
+            if (isset($response->code) &&  $response->code > 0) {
+                $_SESSION = array();
+                session_destroy();
+                header("Location: ../index.php?sucess=true");
+            } else {
+                header("Location: ../index.php?error=true");
+                //var_dump('Authorization: Bearer ' .$_SESSION['token']. ' email:'.$_SESSION['email']);
+            }
         }
 	}
     
