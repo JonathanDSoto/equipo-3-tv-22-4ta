@@ -6,15 +6,20 @@
 			switch($_POST['action'])
 			{
 				case 'newUser':
-                    $userController = new UserController();
-                    $userController->createUser(
-                        $_POST['name'], $_POST['lastname'], $_POST['email'], $_POST['phone_number'], $_POST['created_by'], $_POST['role'], $_POST['password']);
+                    $name = strip_tags($_POST['name']);
+                    $lastname = strip_tags($_POST['lastname']);
+                    $email = strip_tags($_POST['email']);
+                    $phone_number = strip_tags($_POST['phone_number']);
+                    $password = strip_tags($_POST['password']);
+                    $profile_photo = new CURLFILE($_FILES['profile_photo_file']['tmp_name']);
+                    $usercontroller = new UserController();
+                    $usercontroller->createUser($name, $lastname, $email, $phone_number, $password, $profile_photo);
                 break;
 			}
 		}
 	}
     Class UserController {
-        public function createUser($name, $lastname, $email, $phone_number, $created_by, $role, $password){
+        public function createUser($name, $lastname, $email, $phone_number, $password){
             $curl = curl_init();
             curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://crud.jonathansoto.mx/api/users',
@@ -30,8 +35,8 @@
                 'lastname' => $lastname,
                 'email' => $email,
                 'phone_number' => $phone_number,
-                'created_by' => $created_by,
-                'role' => $role,
+                'created_by' => 'Equipo 3',
+                'role' => 'Administrator',
                 'password' => $password,
                 'profile_photo_file'=> new CURLFILE($_FILES['profile_photo_file']['tmp_name'])),
 

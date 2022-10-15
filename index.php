@@ -45,8 +45,6 @@ include_once "app/config.php"
     <input type="text" name="lastname"><br><br>
     <input type="email" name="email"><br><br>
     <input type="number" name="phone_number"><br><br>
-    <input type="text" name="created_by"><br><br>
-    <input type="text" name="role"><br><br>
     <input type="password" name="password"><br><br>
     <input type="file" name="profile_photo_file"><br><br>
     <input type="hidden" name="action" value="newUser">
