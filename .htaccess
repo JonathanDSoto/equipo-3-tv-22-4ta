@@ -1,0 +1,9 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine on
+#Rutas
+RewriteRule ^auth$ app/AuthController.php
+RewriteRule ^prod$ app/ProductController.php
+RewriteRule ^signup$ public/signup.php
+RewriteRule ^login$ index.php
+RewriteRule ^products/allProducts$ products/index.php
+RewriteRule ^product/([a-zA-Z0-9-]*)$ products/details.php?slug=$1
