@@ -39,8 +39,7 @@ include_once "app/config.php"
     <input type="hidden" name="email" value="<?= $_SESSION['email'] ?>">
     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
 </form> -->
-
-<form enctype="multipart/form-data" action="app/UsersController.php" method="post">
+<!-- <form enctype="multipart/form-data" action="app/UsersController.php" method="post">
     <input type="text" name="name"><br><br>
     <input type="text" name="lastname"><br><br>
     <input type="email" name="email"><br><br>
@@ -49,5 +48,10 @@ include_once "app/config.php"
     <input type="file" name="profile_photo_file"><br><br>
     <input type="hidden" name="action" value="newUser">
     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
-    <input type="submit" value="Agregar">
-</form>
+    <input type="submit" value="Enter">
+</form> -->
+<?php
+    include_once 'app/UsersController.php';
+    $controller = new UserController();
+    $controller -> getAllUsers();
+?>
