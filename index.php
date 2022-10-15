@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+
 <head>
 
     <meta charset="utf-8" />
@@ -37,16 +38,10 @@
                                     <div class="p-lg-5 p-4 auth-one-bg h-100">
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
-                                            <div class="mb-4">
-                                                <a class="d-block">
-                                                    <img src="assets/images/logo-light.png" alt="" height="18">
-                                                </a>
-                                            </div>
+
                                             <div class="mt-auto">
-                                                <div class="mb-3">
-                                                    <i class="ri-double-quotes-l display-4 text-success"></i>
-                                                </div>
-                                                <p class="text-center text-white pb-5 fs-15 fst-italic">" El que es bueno es bueno."</p>
+
+                                                <p class="text-center text-white pb-5 fs-15 fst-italic"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +54,7 @@
                                             <p class="text-muted">Sign in to continue to Velzon.</p>
                                         </div>
                                         <div class="mt-4">
-                                            <form action="https://themesbrand.com/velzon/html/material/index.html">
+                                            <form action="public/index.php">
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label>
@@ -111,7 +106,9 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Equipo 3
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Equipo 3
                             </p>
                         </div>
                     </div>
