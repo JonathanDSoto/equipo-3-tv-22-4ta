@@ -1,17 +1,13 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
-
-
 <head>
-
     <meta charset="utf-8" />
-    <title>Success Message</title>
+    <title>Log Out</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -43,7 +39,7 @@
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
-                                                <a href="index.html" class="d-block">
+                                                <a class="d-block">
                                                     <img src="assets/images/logo-light.png" alt="" height="18">
                                                 </a>
                                             </div>
@@ -51,7 +47,6 @@
                                                 <div class="mb-3">
                                                     <i class="ri-double-quotes-l display-4 text-success"></i>
                                                 </div>
-
                                                 <p class="text-center text-white pb-5 fs-15 fst-italic">" El que es bueno es bueno."</p>
                                             </div>
                                         </div>
@@ -61,16 +56,13 @@
 
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4 text-center">
-                                        <div class="avatar-lg mx-auto mt-2">
-                                            <div class="avatar-title bg-light text-success display-3 rounded-circle">
-                                                <i class="ri-checkbox-circle-fill"></i>
-                                            </div>
-                                        </div>
+                                        <lord-icon src="https://cdn.lordicon.com/hzomhqxz.json" trigger="loop" colors="primary:#4b38b3,secondary:#08a88a" style="width:180px;height:180px">
+                                        </lord-icon>
                                         <div class="mt-4 pt-2">
-                                            <h4>Well done !</h4>
-                                            <p class="text-muted mx-4">Aww yeah, you successfully read this important message.</p>
+                                            <h5>You are Logged Out</h5>
+                                            <p class="text-muted">Thank you for using <span class="fw-semibold">velzon</span> admin template</p>
                                             <div class="mt-4">
-                                                <a href="../index.php" class="btn btn-success w-100">Back to Dashboard</a>
+                                                <a href="index.html" class="btn btn-success w-100">Sign In</a>
                                             </div>
                                         </div>
                                     </div>
