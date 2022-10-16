@@ -42,9 +42,9 @@
                                     <div class="p-lg-5 p-4 auth-one-bg h-100">
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
-                                            
+
                                             <div class="mt-auto">
-                                                
+
                                                 <p class="text-center text-white pb-5 fs-15 fst-italic"></p>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                                     </div>
                                                 </div>
 
-                                                
+
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Password</label>
@@ -104,7 +104,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Confirm Password</label>
                                                     <div class="position-relative auth-pass-inputgroup">
@@ -124,14 +124,14 @@
                                                     <p id="pass-number" class="invalid fs-12 mb-0">A least <b>number</b> (0-9)</p>
                                                 </div>
 
-                                                
+
 
                                                 <div href="public/dashboard.php" class="mt-4">
                                                     <button class="btn btn-success w-100" type="submit">Sign Up</button>
                                                 </div>
                                             </form>
 
-                                            
+
 
 
 
