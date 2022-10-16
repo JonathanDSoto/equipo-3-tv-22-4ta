@@ -75,7 +75,7 @@
 				$_SESSION['role'] = $response->data->role;
 				$_SESSION['token'] = $response->data->token;
 
-                header("Location:".BASE_PATH."products?sucess");
+                header("Location:".BASE_PATH."public?sucess");
 
 			}else{
 

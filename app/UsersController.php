@@ -77,7 +77,7 @@
               CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
               CURLOPT_CUSTOMREQUEST => 'GET',
               CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer'.$_SESSION['token'],
+                'Authorization: Bearer '.$_SESSION['token'],
               ),
             ));
             
@@ -91,6 +91,35 @@
 			}else{
 				return array();
 			}
+        }
+        public function getEspecificUser($id){
+            $curl = curl_init();
+            
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://crud.jonathansoto.mx/api/users/'.$id,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+              CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer '.$_SESSION['token'] ,
+              ),
+            ));
+            
+            $response = curl_exec($curl);
+            curl_close($curl);
+			$response = json_decode($response);
+
+			if (isset($response->code) && $response->code>0) {
+				return $response->data;
+				
+			}else{
+				return array();
+			}
+            
         }
         public function editUser($name, $lastname, $email, $phone_number, $password, $id){
             $curl = curl_init();
@@ -151,7 +180,7 @@
     
             if( isset($response->code) &&  $response->code > 0) {
                 $var = $response->message;
-                header ("Location:../view/productos");
+                //header ("Location:../view/productos");
             } else{
                 return $response;
             }
