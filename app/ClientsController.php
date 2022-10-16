@@ -26,6 +26,11 @@
           $clientscontroller = new ClientsController();
           $usercontroller->editClients($name, $email, $phone_number, $password,$is_suscribed, $level_id, $id);
         break;
+        case 'deleteClients': 
+          $idEl = $_POST['idEliminar'];
+          $clientsController = new ClientsController();
+          $clientsController -> deleteClients($idEl);
+        break;
       }
 		}
 	}
@@ -126,9 +131,8 @@
           
         }
         public function getEspecificClients($id){
-
-          $curl = curl_init();
-
+          $curl = curl_init($id);
+          var_dump($id);
           curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://crud.jonathansoto.mx/api/clients/'.$id,
             CURLOPT_RETURNTRANSFER => true,
