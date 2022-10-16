@@ -1,3 +1,6 @@
+<?php
+include "app/config.php";
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -58,11 +61,11 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form action="https://themesbrand.com/velzon/html/material/index.html">
+                                            <form method="post" action="<?= BASE_PATH ?>auth">
 
                                                 <div class="mb-3">
                                                     <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="Name" placeholder="Enter Name" required>
+                                                    <input name="name" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
                                                     <div class="invalid-feedback">
                                                         Please enter Name
                                                     </div>
@@ -70,7 +73,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="Lastname" class="form-label">Lastname <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="Lastname" placeholder="Enter Lastname" required>
+                                                    <input name="lastname" type="text" class="form-control" id="Lastname" placeholder="Enter Lastname" required>
                                                     <div class="invalid-feedback">
                                                         Please enter Lastname
                                                     </div>
@@ -78,7 +81,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
-                                                    <input type="email" class="form-control" id="useremail" placeholder="Enter email address" required>
+                                                    <input name="email" type="email" class="form-control" id="useremail" placeholder="Enter email address" required>
                                                     <div class="invalid-feedback">
                                                         Please enter email
                                                     </div>
@@ -86,18 +89,16 @@
 
                                                 <div class="mb-3">
                                                     <label for="Phone_number" class="form-label">Phone number <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="Phone_number" placeholder="Enter Phone number" required>
+                                                    <input name="phone_number" type="text" class="form-control" id="Phone_number" placeholder="Enter Phone number" required>
                                                     <div class="invalid-feedback">
                                                         Please enter Phone number
                                                     </div>
                                                 </div>
 
-
-
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup">
-                                                        <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                        <input name="password" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <div class="invalid-feedback">
                                                             Please enter password
@@ -108,7 +109,7 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Confirm Password</label>
                                                     <div class="position-relative auth-pass-inputgroup">
-                                                        <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Confirm password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                        <input name="password" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Confirm password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <div class="invalid-feedback">
                                                             Please Confirm Password
@@ -124,16 +125,12 @@
                                                     <p id="pass-number" class="invalid fs-12 mb-0">A least <b>number</b> (0-9)</p>
                                                 </div>
 
-
-
                                                 <div href="public/dashboard.php" class="mt-4">
                                                     <button class="btn btn-success w-100" type="submit">Sign Up</button>
                                                 </div>
+                                                <input type="hidden" name="action" value="register">
+                                                <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                             </form>
-
-
-
-
 
                                         </div>
 
