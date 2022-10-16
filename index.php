@@ -1,3 +1,6 @@
+<?php
+include "app/config.php";
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -54,11 +57,11 @@
                                             <p class="text-muted">Sign in to continue to Velzon.</p>
                                         </div>
                                         <div class="mt-4">
-                                            <form action="public/index.php">
+                                            <form method="post" action="<?= BASE_PATH ?>auth">
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label>
-                                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                    <input name="email" type="text" class="form-control" id="username" placeholder="Enter username" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <div class="float-end">
@@ -66,7 +69,7 @@
                                                     </div>
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input">
+                                                        <input name="password" type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
                                                 </div>
@@ -77,6 +80,8 @@
                                                 <div class="mt-4">
                                                     <button href="public/dashboard.php" class="btn btn-success w-100" type="submit">Sign In</button>
                                                 </div>
+                                                <input type="hidden" name="action" value="access">
+                                                <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                             </form>
                                         </div>
 
