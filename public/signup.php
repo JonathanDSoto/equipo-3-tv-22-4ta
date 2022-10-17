@@ -1,5 +1,5 @@
 <?php
-include "app/config.php";
+include "../app/config.php";
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -61,7 +61,7 @@ include "app/config.php";
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="post" action="<?= BASE_PATH ?>auth">
+                                            <form method="post" action="../app/UsersController.php" enctype="multipart/form-data">
 
                                                 <div class="mb-3">
                                                     <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
@@ -94,7 +94,7 @@ include "app/config.php";
                                                         Please enter Phone number
                                                     </div>
                                                 </div>
-
+                                                <input name="profile_photo_file" type="file" class="form-control" placeholder="Profile photo" aria-label="Cover" required>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup">
@@ -128,7 +128,7 @@ include "app/config.php";
                                                 <div href="public/dashboard.php" class="mt-4">
                                                     <button class="btn btn-success w-100" type="submit">Sign Up</button>
                                                 </div>
-                                                <input type="hidden" name="action" value="register">
+                                                <input type="hidden" name="action" value="newUser">
                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                             </form>
 
