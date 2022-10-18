@@ -55,27 +55,27 @@ include "app/config.php";
                                     <div class="p-lg-5 p-4">
                                         <div>
                                             <h5 class="text-primary">Welcome Back !</h5>
-                                            <p class="text-muted">Sign in to continue to Velzon.</p>
+                                            <p class="text-muted">Sign in to continue.</p>
                                         </div>
                                         <?php
-                                        if(isset($_POST['error']) && $_POST['error']=='true'){
-                                            echo  `<div>
+                                        if(isset($_GET['error']) && $_GET['error']==='true'){
+                                            echo  '<div>
                                             <p class="text-danger">Incorrect user data, try again</p>
-                                        </div>`;
+                                        </div>';
                                         }
                                         ?>
                                         <div class="mt-4">
                                             <form method="post" action="<?= BASE_PATH ?>auth" id="form">
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Username</label>
+                                                    <label for="username" class="form-label">Username <?= $_GET['error']?></label>
                                                     <input name="email" type="text" class="form-control" id="username" placeholder="Enter email" required>
                     				                <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported.</p>
 
                                                 </div>
                                                 <div class="mb-3">
                                                     <div class="float-end">
-                                                        <a href="passreset.php" class="text-muted">Forgot password?</a>
+                                                        <a href="<?= BASE_PATH?>public/passreset" class="text-muted">Forgot password?</a>
                                                     </div>
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">

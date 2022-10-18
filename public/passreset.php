@@ -1,3 +1,6 @@
+<?php
+include "../app/config.php";
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 <head>
@@ -64,15 +67,17 @@
                                             Enter your email and instructions will be sent to you!
                                         </div>
                                         <div class="p-2">
-                                            <form>
+                                            <form method="POST" action="<?= BASE_PATH ?>auth">
                                                 <div class="mb-4">
                                                     <label class="form-label">Email</label>
-                                                    <input type="email" class="form-control" id="email" placeholder="Enter email address">
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email address">
                                                 </div>
 
                                                 <div class="text-center mt-4">
                                                     <button class="btn btn-success w-100" type="submit">Send Reset Link</button>
                                                 </div>
+                                                <input type="hidden" name="action" value="recovery">
+                                                <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                             </form><!-- end form -->
                                         </div>
 
