@@ -23,6 +23,7 @@ include "app/config.php";
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/details.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -56,12 +57,21 @@ include "app/config.php";
                                             <h5 class="text-primary">Welcome Back !</h5>
                                             <p class="text-muted">Sign in to continue to Velzon.</p>
                                         </div>
+                                        <?php
+                                        if(isset($_POST['error']) && $_POST['error']=='true'){
+                                            echo  `<div>
+                                            <p class="text-danger">Incorrect user data, try again</p>
+                                        </div>`;
+                                        }
+                                        ?>
                                         <div class="mt-4">
-                                            <form method="post" action="<?= BASE_PATH ?>auth">
+                                            <form method="post" action="<?= BASE_PATH ?>auth" id="form">
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label>
-                                                    <input name="email" type="text" class="form-control" id="username" placeholder="Enter username" required>
+                                                    <input name="email" type="text" class="form-control" id="username" placeholder="Enter email" required>
+                    				                <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported.</p>
+
                                                 </div>
                                                 <div class="mb-3">
                                                     <div class="float-end">
@@ -72,13 +82,14 @@ include "app/config.php";
                                                         <input name="password" type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
+                    				                <p class="formulario__input-error text-danger" id="grupo_password">The password must have a minimum of 8 characters and a maximum of 14</p>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
                                                     <label class="form-check-label" for="auth-remember-check">Remember me</label>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <button href="public/dashboard.php" class="btn btn-success w-100" type="submit">Sign In</button>
+                                                    <button href="public/dashboard.php" class="btn btn-success w-100" id="send" type="submit">Sign In</button>
                                                 </div>
                                                 <input type="hidden" name="action" value="access">
                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
@@ -133,6 +144,7 @@ include "app/config.php";
     <script src="assets/js/plugins.js"></script>
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
+    <script src="assets/js/config/login.js"></script>
 </body>
 
 

@@ -6,6 +6,6 @@
     }
 
     if(!defined(('BASE_PATH'))){
-        define('BASE_PATH','http://localhost:8888/');
+        define('BASE_PATH','http://localhost/equipo-3-tv-22-4ta/');
     }
 ?>  
