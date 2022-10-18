@@ -68,7 +68,7 @@ include "app/config.php";
                                             <form method="post" action="<?= BASE_PATH ?>auth" id="form">
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Username <?= $_GET['error']?></label>
+                                                    <label for="username" class="form-label">Username</label>
                                                     <input name="email" type="text" class="form-control" id="username" placeholder="Enter email" required>
                     				                <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported.</p>
 

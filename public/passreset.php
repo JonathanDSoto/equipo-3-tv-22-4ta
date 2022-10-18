@@ -70,7 +70,7 @@ include "../app/config.php";
                                             <form method="POST" action="<?= BASE_PATH ?>auth">
                                                 <div class="mb-4">
                                                     <label class="form-label">Email</label>
-                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email address">
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email address" required>
                                                 </div>
 
                                                 <div class="text-center mt-4">
@@ -82,7 +82,7 @@ include "../app/config.php";
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Wait, I remember my password... <a href="index.html" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
+                                            <p class="mb-0">Wait, I remember my password... <a href="<?= BASE_PATH?>login" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
                                         </div>
                                     </div>
                                 </div>

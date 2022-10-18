@@ -25,6 +25,7 @@ include "../app/config.php";
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/details.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -61,38 +62,32 @@ include "../app/config.php";
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="post" action="../app/UsersController.php" enctype="multipart/form-data">
+                                            <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
 
                                                 <div class="mb-3">
                                                     <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
                                                     <input name="name" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
-                                                    <div class="invalid-feedback">
-                                                        Please enter Name
-                                                    </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_name">The name can only contain letters and spaces and minimum 2 characters maximum 20.</p>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="Lastname" class="form-label">Lastname <span class="text-danger">*</span></label>
                                                     <input name="lastname" type="text" class="form-control" id="Lastname" placeholder="Enter Lastname" required>
-                                                    <div class="invalid-feedback">
-                                                        Please enter Lastname
-                                                    </div>
+                    				                <p class="formulario__input-error text-danger" id="grupo_lastname">The lastname can only contain letters and spaces and minimum 2 characters maximum 20.</p>
+                                                    
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
                                                     <input name="email" type="email" class="form-control" id="useremail" placeholder="Enter email address" required>
-                                                    <div class="invalid-feedback">
-                                                        Please enter email
-                                                    </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported</p>
+
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="Phone_number" class="form-label">Phone number <span class="text-danger">*</span></label>
                                                     <input name="phone_number" type="text" class="form-control" id="Phone_number" placeholder="Enter Phone number" required>
-                                                    <div class="invalid-feedback">
-                                                        Please enter Phone number
-                                                    </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_phone_number">The number can only contain 10 to 14 numbers.</p>
                                                 </div>
                                                 <input name="profile_photo_file" type="file" class="form-control" placeholder="Profile photo" aria-label="Cover" required>
                                                 <div class="mb-3">
@@ -100,25 +95,21 @@ include "../app/config.php";
                                                     <div class="position-relative auth-pass-inputgroup">
                                                         <input name="password" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-                                                        <div class="invalid-feedback">
-                                                            Please enter password
-                                                        </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_password">The password must have a minimun of 8 characters</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Confirm Password</label>
                                                     <div class="position-relative auth-pass-inputgroup">
-                                                        <input name="password" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Confirm password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                        <input name="password2" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Confirm password" id="password2-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-                                                        <div class="invalid-feedback">
-                                                            Please Confirm Password
-                                                        </div>
                                                     </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_password2">The password must be the same</p>
                                                 </div>
 
                                                 <div id="password-contain" class="p-3 bg-light mb-2 rounded">
-                                                    <h5 class="fs-13">Password must contain:</h5>
+                                                    <h5 class="fs-13">It is recommended that the password contain:</h5>
                                                     <p id="pass-length" class="invalid fs-12 mb-2">Minimum <b>8 characters</b></p>
                                                     <p id="pass-lower" class="invalid fs-12 mb-2">At <b>lowercase</b> letter (a-z)</p>
                                                     <p id="pass-upper" class="invalid fs-12 mb-2">At least <b>uppercase</b> letter (A-Z)</p>
@@ -126,7 +117,7 @@ include "../app/config.php";
                                                 </div>
 
                                                 <div href="public/dashboard.php" class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit">Sign Up</button>
+                                                    <button class="btn btn-success w-100" type="submit" id="send">Sign Up</button>
                                                 </div>
                                                 <input type="hidden" name="action" value="newUser">
                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
@@ -184,6 +175,7 @@ include "../app/config.php";
     <script src="../assets/js/pages/form-validation.init.js"></script>
     <!-- password create init -->
     <script src="../assets/js/pages/passowrd-create.init.js"></script>
+    <script src="../assets/js/config/registerU.js"></script>
 </body>
 
 
