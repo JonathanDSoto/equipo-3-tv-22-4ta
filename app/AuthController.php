@@ -75,11 +75,11 @@
 				$_SESSION['role'] = $response->data->role;
 				$_SESSION['token'] = $response->data->token;
 
-                header("Location:".BASE_PATH."public?sucess");
+                header("Location:".BASE_PATH."public?sucess=true");
 
 			}else{
 
-				header("Location:".BASE_PATH."?error");
+				header("Location:".BASE_PATH."?error=true");
 			}
 
 		}
@@ -131,11 +131,11 @@
             $response = curl_exec($curl);
             curl_close($curl);
             $response = json_decode($response);
-            // if (isset($response->code) &&  $response->code > 0) {
-            //     header("Location:".BASE_PATH."index");
-            // } else {
-            //     header("Location:".BASE_PATH."?error=true");
-            // }
+            if (isset($response->code) &&  $response->code > 0) {
+                header("Location:".BASE_PATH."index=true");
+            } else {
+                header("Location:".BASE_PATH."?error=true");
+            }
         }
         public function logout()
         {
