@@ -90,7 +90,7 @@
           }else{
             return array();
           }
-            }
+        }
         public function getEspecificUser($id){
           $curl = curl_init();
           
