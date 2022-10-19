@@ -9,24 +9,24 @@
 					$description = strip_tags($_POST['description']);
 					$slug = strip_tags($_POST['slug']);
 					
-					$tagsConotroller = new TagsConotroller();
-					$tagsConotroller->createTags($name, $description, $slug);
+					$tagsController = new TagsController();
+					$tagsController->createTags($name, $description, $slug);
 				break;
                 case 'editTags':
                     $id = strip_tags($_POST['id']);
-                    $tagsConotroller = new TagsConotroller();
-					$tagsConotroller->editTags($id, $name, $description, $slug);
+                    $tagsController = new TagsController();
+					$tagsController->editTags($id, $name, $description, $slug);
                 break;
                 case 'deleteTags':
                     $id = strip_tags($_POST['id']); 
-                    $tagsConotroller = new TagsConotroller();
-					$tagsConotroller->deleteTags($id);
+                    $tagsController = new TagsController();
+					$tagsController->deleteTags($id);
                 break;
 			}
 		}
 	}
 
-	Class TagsConotroller
+	Class TagsController
 	{
 		public function createTags($name, $description, $slug)
 		{
