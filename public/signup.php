@@ -94,8 +94,8 @@ include "../app/config.php";
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="Phone_number" class="form-label">Profile photo <span class="text-danger">*</span></label>
-                                                    <input name="profile_photo_file" type="file" class="form-control" placeholder="Profile photo" aria-label="Cover" required>
-                                                    <p class="formulario__input-error text-danger" id="grupo_photo">The photo is necesary.</p>
+                                                    <input name="profile_photo_file" id="profile_photo_file" type="file" class="form-control" placeholder="Profile photo" aria-label="Cover" required>
+                                                    <p class="formulario__input-error text-danger" id="grupo_photo">The photo is necesary (just .jpg .png .jpeg .svg)</p>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">

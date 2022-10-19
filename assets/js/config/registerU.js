@@ -13,7 +13,8 @@ const campos = {
     lastname: false,
     email: false,
     phone_number: false,
-    password: false
+    password: false,
+    photo: false
 }
 
 const validarCampo = (expresion, input, campo) => {
@@ -38,6 +39,20 @@ const validarPass = () => {
         campos['password'] = true
     }
 }
+const validarFoto = () => {
+    const input1 = document.getElementById('profile_photo_file')
+    const ruta = input1.value.toLowerCase()
+    
+    const exts = /(.jpg|.png|.jpeg|.svg)$/i
+
+    if (!exts.exec(ruta)) {
+        document.querySelector('#grupo_photo').classList.add('formulario__input-error-activo')
+        campos['photo'] = false
+    } else {
+        document.querySelector('#grupo_photo').classList.remove('formulario__input-error-activo')
+        campos['photo'] = true
+    }
+}
 
 var validarForm = (e) => {
     switch (e.target.name) {
@@ -59,6 +74,9 @@ var validarForm = (e) => {
         case "password2":
             validarPass()
             break;
+        case "profile_photo_file":
+            validarFoto()
+            break;
     }
 
 }
@@ -70,7 +88,7 @@ inputs.forEach((input) => {
 
 
 document.addEventListener('mousemove', e => {
-    if (campos.name && campos.email && campos.password && campos.phone_number && campos.lastname) {
+    if (campos.photo && campos.name && campos.email && campos.password && campos.phone_number && campos.lastname) {
         document.getElementById('send').disabled = false
     } else {
         document.getElementById('send').disabled = true
