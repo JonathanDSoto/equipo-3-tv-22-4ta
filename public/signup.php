@@ -62,34 +62,57 @@ include "../app/config.php";
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
+                                            <form method="post" action="<?= BASE_PATH ?>auth" enctype="multipart/form-data" id="form">
 
-                                                <div class="mb-3">
-                                                    <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
-                                                    <input name="name" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
-                                                    <p class="formulario__input-error text-danger" id="grupo_name">The name can only contain letters and spaces and minimum 2 characters maximum 20.</p>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
+                                                        <input name="name" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
+                                                        <p class="formulario__input-error text-danger" id="grupo_name">The name can only contain letters and spaces and minimum 2 characters maximum 20.</p>
+                                                    </div>
+
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="Lastname" class="form-label">Lastname <span class="text-danger">*</span></label>
+                                                        <input name="lastname" type="text" class="form-control" id="Lastname" placeholder="Enter Lastname" required>
+                                                        <p class="formulario__input-error text-danger" id="grupo_lastname">The lastname can only contain letters and spaces and minimum 2 characters maximum 20.</p>
+
+                                                    </div>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="Lastname" class="form-label">Lastname <span class="text-danger">*</span></label>
-                                                    <input name="lastname" type="text" class="form-control" id="Lastname" placeholder="Enter Lastname" required>
-                    				                <p class="formulario__input-error text-danger" id="grupo_lastname">The lastname can only contain letters and spaces and minimum 2 characters maximum 20.</p>
-                                                    
-                                                </div>
-
-                                                <div class="mb-3">
+                                                <div class="row">
+                                                <div class="col-sm-12 col-md-6">
                                                     <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
                                                     <input name="email" type="email" class="form-control" id="useremail" placeholder="Enter email address" required>
                                                     <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported</p>
-
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="col-sm-12 col-md-6">
                                                     <label for="Phone_number" class="form-label">Phone number <span class="text-danger">*</span></label>
                                                     <input name="phone_number" type="text" class="form-control" id="Phone_number" placeholder="Enter Phone number" required>
                                                     <p class="formulario__input-error text-danger" id="grupo_phone_number">The number can only contain 10 to 14 numbers.</p>
                                                 </div>
-                                                <input name="profile_photo_file" type="file" class="form-control" placeholder="Profile photo" aria-label="Cover" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="Phone_number" class="form-label">Profile photo <span class="text-danger">*</span></label>
+                                                    <input name="profile_photo_file" type="file" class="form-control" placeholder="Profile photo" aria-label="Cover" required>
+                                                    <p class="formulario__input-error text-danger" id="grupo_photo">The photo is necesary.</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="role" class="form-label">Rol</label>
+                                                        <select name="role"  class="form-select" id="role">
+                                                            <option value="Cliente">Cliente</option>
+                                                            <option value="Usuario">Usuario</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="create_by" class="form-label">Create by</label>
+                                                        <select name="create_by" class="form-select" id="create_by">
+                                                            <option value="Jonatha Soto">Jonatha Soto</option>
+                                                            <option value="Equipo Dev 3">Equipo Dev 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup">
@@ -119,7 +142,7 @@ include "../app/config.php";
                                                 <div href="public/dashboard.php" class="mt-4">
                                                     <button class="btn btn-success w-100" type="submit" id="send">Sign Up</button>
                                                 </div>
-                                                <input type="hidden" name="action" value="newUser">
+                                                <input type="hidden" name="action" value="register">
                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                             </form>
 
