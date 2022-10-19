@@ -243,7 +243,7 @@
                             <ul class="navbar-nav" id="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                        <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Home</span>
+                                        <i class="bx bx-store-alt"></i> <span data-key="t-dashboards">Home</span>
                                     </a>
                                     <div class="collapse menu-dropdown" id="sidebarDashboards">
                                         <ul class="nav nav-sm flex-column">
@@ -265,7 +265,7 @@
                             <ul class="navbar-nav" id="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                        <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Categorias</span>
+                                        <i class="mdi mdi-grid-large"></i> <span data-key="t-dashboards">Categorias</span>
                                     </a>
                                     <div class="collapse menu-dropdown" id="sidebarDashboards">
                                         <ul class="nav nav-sm flex-column">
@@ -289,7 +289,7 @@
                             <ul class="navbar-nav" id="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                        <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Marcas</span>
+                                        <i class="ri-pantone-line"></i> <span data-key="t-dashboards">Marcas</span>
                                     </a>
                                     <div class="collapse menu-dropdown" id="sidebarDashboards">
                                         <ul class="nav nav-sm flex-column">
@@ -323,14 +323,10 @@
                 <!-- ============================================================== -->
                 <!-- Start right Content here -->
                 <!-- ============================================================== -->
-                <div class="content-main col-9">
-                    <div class="main-content col-9 bg-red">
+                <div class="content-main ">
+                    <div class=" main-content col-9 bg-red">
                         <div class="page-content bg-red">
-                            <div class="container-fluid">
-                                <!-- start page title -->
-                                <div class="row">
-                                </div>
-                                <!-- end page title -->
+                            <div class="container-fluid ">
                                 <div class="row">
                                     <div class="card" style="width: 18rem;">
                                         <img src="..." class="card-img-top" alt="...">
@@ -340,16 +336,12 @@
                                             <a href="#" class="btn btn-primary">Go somewhere</a>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-                            <!-- container-fluid -->
                         </div>
                     </div>
-                    <!-- End Page-content -->
-                    <!-- end main content-->
                 </div>
+                <!-- end main content-->
             </div>
         </div>
         <footer class="footer">
