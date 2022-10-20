@@ -3,6 +3,7 @@ include "../app/config.php";
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+
 <head>
 
     <meta charset="utf-8" />
@@ -42,9 +43,9 @@ include "../app/config.php";
                                     <div class="p-lg-5 p-4 auth-one-bg h-100">
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
-                                            
+
                                             <div class="mt-auto">
-                                                
+
 
                                                 <p class="text-center text-white pb-5 fs-15 fst-italic"></p>
                                             </div>
@@ -82,7 +83,7 @@ include "../app/config.php";
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Wait, I remember my password... <a href="<?= BASE_PATH?>login" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
+                                            <p class="mb-0">Wait, I remember my password... <a href="<?= BASE_PATH ?>login" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +109,9 @@ include "../app/config.php";
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Equipo 3
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Equipo 3
                             </p>
                         </div>
                     </div>

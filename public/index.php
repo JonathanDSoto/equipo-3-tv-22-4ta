@@ -76,83 +76,6 @@
                                 <span class="mdi mdi-magnify search-widget-icon"></span>
                                 <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                             </div>
-                            <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
-                                <div data-simplebar style="max-height: 320px;">
-                                    <!-- item-->
-                                    <div class="dropdown-header">
-                                        <h6 class="text-overflow text-muted mb-0 text-uppercase">Recent Searches</h6>
-                                    </div>
-
-                                    <div class="dropdown-item bg-transparent text-wrap">
-                                        <a href="index.html" class="btn btn-soft-secondary btn-sm btn-rounded">how to setup <i class="mdi mdi-magnify ms-1"></i></a>
-                                        <a href="index.html" class="btn btn-soft-secondary btn-sm btn-rounded">buttons <i class="mdi mdi-magnify ms-1"></i></a>
-                                    </div>
-                                    <!-- item-->
-                                    <div class="dropdown-header mt-2">
-                                        <h6 class="text-overflow text-muted mb-1 text-uppercase">Pages</h6>
-                                    </div>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ri-bubble-chart-line align-middle fs-18 text-muted me-2"></i>
-                                        <span>Analytics Dashboard</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ri-lifebuoy-line align-middle fs-18 text-muted me-2"></i>
-                                        <span>Help Center</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ri-user-settings-line align-middle fs-18 text-muted me-2"></i>
-                                        <span>My account settings</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <div class="dropdown-header mt-2">
-                                        <h6 class="text-overflow text-muted mb-2 text-uppercase">Members</h6>
-                                    </div>
-
-                                    <div class="notification-list">
-                                        <!-- item -->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                            <div class="d-flex">
-                                                <img src="../assets/images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                <div class="flex-1">
-                                                    <h6 class="m-0">Angela Bernier</h6>
-                                                    <span class="fs-11 mb-0 text-muted">Manager</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- item -->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                            <div class="d-flex">
-                                                <img src="../assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                <div class="flex-1">
-                                                    <h6 class="m-0">David Grasso</h6>
-                                                    <span class="fs-11 mb-0 text-muted">Web Designer</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- item -->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                            <div class="d-flex">
-                                                <img src="../assets/images/users/avatar-5.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                <div class="flex-1">
-                                                    <h6 class="m-0">Mike Bunch</h6>
-                                                    <span class="fs-11 mb-0 text-muted">React Developer</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="text-center pt-3 pb-1">
-                                    <a href="pages-search-results.html" class="btn btn-primary btn-sm">View All Results <i class="ri-arrow-right-line ms-1"></i></a>
-                                </div>
-                            </div>
                         </form>
                     </div>
 
@@ -206,198 +129,523 @@
 
         <!-- ========== App Menu ========== -->
 
-        <div class="row">
-            <div class="side-bar-menu col-3">
-                <!-- inicia sidebar -->
-                <div class="app-menu navbar-menu">
-                    <!-- LOGO -->
-                    <div class="navbar-brand-box">
-                        <!-- Dark Logo-->
-                        <a href="index.html" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="../assets/images/logo-sm.png" alt="" height="22">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="../assets/images/logo-dark.png" alt="" height="17">
-                            </span>
-                        </a>
-                        <!-- Light Logo-->
-                        <a href="index.html" class="logo logo-light">
-                            <span class="logo-sm">
-                                <img src="../assets/images/logo-sm.png" alt="" height="22">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="../assets/images/logo-light.png" alt="" height="17">
-                            </span>
-                        </a>
-                        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
-                            <i class="ri-record-circle-line"></i>
-                        </button>
-                    </div>
+         <?php include '../assets/templates/sidebar.template.php'?>
+        <div class="main-content">
 
-                    <div id="scrollbar">
-                        <div class="container-fluid">
+            <div class="page-content">
 
-                            <div id="two-column-menu">
-                            </div>
-                            <ul class="navbar-nav" id="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                        <i class="bx bx-store-alt"></i> <span data-key="t-dashboards">Home</span>
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">Best Selling Products</h4>
+                            <div class="flex-shrink-0">
+                                <div class="dropdown card-header-dropdown">
+                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="fw-semibold text-uppercase fs-12">Sort by:
+                                        </span><span class="text-muted">Today<i class="mdi mdi-chevron-down ms-1"></i></span>
                                     </a>
-                                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                                        <ul class="nav nav-sm flex-column">
-                                            <li class="nav-item">
-                                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Productos </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="index.html" class="nav-link" data-key="t-ecommerce"> Cupones </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Ordenes </a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </li> <!-- end Home Menu -->
-                            </ul>
-
-                            <ul class="navbar-nav" id="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                        <i class="mdi mdi-grid-large"></i> <span data-key="t-dashboards">Categorias</span>
-                                    </a>
-                                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                                        <ul class="nav nav-sm flex-column">
-                                            <li class="nav-item">
-                                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Productos </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> Categorias </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="index.html" class="nav-link" data-key="t-ecommerce"> Cupones </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Ordenes </a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </li> <!-- end categorias Menu -->
-                            </ul>
-                            <ul class="navbar-nav" id="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                        <i class="ri-pantone-line"></i> <span data-key="t-dashboards">Marcas</span>
-                                    </a>
-                                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                                        <ul class="nav nav-sm flex-column">
-                                            <li class="nav-item">
-                                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Productos </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> Categorias </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="index.html" class="nav-link" data-key="t-ecommerce"> Cupones </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Ordenes </a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </li> <!-- end Marcas Menu -->
-                            </ul>
-
-                            <!-- Sidebar -->
-                        </div>
-
-                        <div class="sidebar-background"></div>
-                    </div>
-                    <!-- termina Sidebar -->
-                </div>
-                <!-- Vertical Overlay-->
-                <div class="vertical-overlay"></div>
-                <!-- ============================================================== -->
-                <!-- Start right Content here -->
-                <!-- ============================================================== -->
-                <div class="content-main ">
-                    <div class=" main-content col-9 bg-red">
-                        <div class="page-content bg-red">
-                            <div class="container-fluid ">
-                                <div class="row">
-                                    <div class="card" style="width: 18rem;">
-                                        <img src="..." class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                        </div>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="#">Today</a>
+                                        <a class="dropdown-item" href="#">Yesterday</a>
+                                        <a class="dropdown-item" href="#">Last 7 Days</a>
+                                        <a class="dropdown-item" href="#">Last 30 Days</a>
+                                        <a class="dropdown-item" href="#">This Month</a>
+                                        <a class="dropdown-item" href="#">Last Month</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- end card header -->
+
+                        <div class="card-body">
+                            <div class="table-responsive table-card">
+                                <table class="table table-hover table-centered align-middle table-nowrap mb-0">
+                                    <tbody>
+                                        <!-- Producto -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- fin Producto -->
+                                        <!-- relleno -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                        <span class="text-muted">24 Apr 2021</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <span class="text-muted">Price</span>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
+                                                <span class="text-muted">Precentations</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
+                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="offcanvas-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- fin relleno -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="align-items-center mt-4 pt-2 justify-content-between d-flex ">
+                                <div class="flex-shrink-0 ">
+                                    <div class="text-muted ">
+                                        Showing <span class="fw-semibold ">5</span> of <span class="fw-semibold ">25</span> Results
+                                    </div>
+                                </div>
+                                <ul class="pagination pagination-separated pagination-sm mb-0 ">
+                                    <li class="page-item disabled ">
+                                        <a href="# " class="page-link ">←</a>
+                                    </li>
+                                    <li class="page-item ">
+                                        <a href="# " class="page-link ">1</a>
+                                    </li>
+                                    <li class="page-item active ">
+                                        <a href="# " class="page-link ">2</a>
+                                    </li>
+                                    <li class="page-item ">
+                                        <a href="# " class="page-link ">3</a>
+                                    </li>
+                                    <li class="page-item ">
+                                        <a href="# " class="page-link ">→</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                <!-- end main content-->
+
+
+                <!-- .col-->
             </div>
         </div>
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> © UABCS EQUIPO 3.
-                    </div>
+    </div>
+    <div class="content-main ">
 
+        <!-- end row-->
+    </div>
+    <footer class="footer ">
+        <div class="container-fluid ">
+            <div class="row ">
+                <div class="col-sm-6 ">
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> © UABCS EQUIPO 3.
                 </div>
-            </div>
-        </footer>
-        <!-- END layout-wrapper -->
 
-
-
-        <!--start back-to-top-->
-        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-            <i class="ri-arrow-up-line"></i>
-        </button>
-        <!--end back-to-top-->
-
-        <!--preloader-->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner-border text-primary avatar-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
             </div>
         </div>
+    </footer>
+    <!-- END layout-wrapper -->
 
-        <!-- JAVASCRIPT -->
-        <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="../assets/libs/node-waves/waves.min.js"></script>
-        <script src="../assets/libs/feather-icons/feather.min.js"></script>
-        <script src="../assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-        <script src="../assets/js/plugins.js"></script>
 
-        <!-- apexcharts -->
-        <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
 
-        <!-- Vector map-->
-        <script src="../assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
-        <script src="../assets/libs/jsvectormap/maps/world-merc.js"></script>
+    <!--start back-to-top-->
+    <button onclick="topFunction() " class="btn btn-danger btn-icon " id="back-to-top ">
+        <i class="ri-arrow-up-line "></i>
+    </button>
+    <!--end back-to-top-->
 
-        <!--Swiper slider js-->
-        <script src="../assets/libs/swiper/swiper-bundle.min.js"></script>
+    <!--preloader-->
+    <div id="preloader ">
+        <div id="status ">
+            <div class="spinner-border text-primary avatar-sm " role="status ">
+                <span class="visually-hidden ">Loading...</span>
+            </div>
+        </div>
+    </div>
 
-        <!-- Dashboard init -->
-        <script src="../assets/js/pages/dashboard-ecommerce.init.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="../assets/libs/simplebar/simplebar.min.js "></script>
+    <script src="../assets/libs/node-waves/waves.min.js "></script>
+    <script src="../assets/libs/feather-icons/feather.min.js "></script>
+    <script src="../assets/js/pages/plugins/lord-icon-2.1.0.js "></script>
+    <script src="../assets/js/plugins.js "></script>
 
-        <!-- App js -->
-        <script src="../assets/js/app.js"></script>
+    <!-- apexcharts -->
+    <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
+
+    <!-- Vector map-->
+    <script src="../assets/libs/jsvectormap/js/jsvectormap.min.js "></script>
+    <script src="../assets/libs/jsvectormap/maps/world-merc.js "></script>
+
+    <!--Swiper slider js-->
+    <script src="../assets/libs/swiper/swiper-bundle.min.js "></script>
+
+    <!-- Dashboard init -->
+    <script src="../assets/js/pages/dashboard-ecommerce.init.js "></script>
+
+    <!-- App js -->
+    <script src="../assets/js/app.js "></script>
 </body>
 
 

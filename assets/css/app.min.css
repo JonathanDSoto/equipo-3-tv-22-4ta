@@ -457,6 +457,21 @@
     width: 32px
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 0 20px;
+}
+.todo {
+    justify-content: center;
+    display: flex;
+    height: auto;
+    width: 100%;
+
+}
+
 .topbar-badge-sm {
     right: 0;
     top: 7px !important
