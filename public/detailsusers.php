@@ -59,11 +59,6 @@
                                 <h3 class="text-white mb-1">Jeff The Killer</h3>
                             </div>
                         </div>
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <a href="edituser.php" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
-                            </div>
-                        </div>
                         <!--end col-->
                     </div>
                     <!--end row-->
@@ -99,6 +94,8 @@
                                                         <th class="ps-0" scope="row">Phone Number :</th>
                                                         <td class="text-muted">(52) 987 234 6543</td>
                                                     </tr>
+
+
                                                 </tbody>
                                             </table>
                                         </div>
