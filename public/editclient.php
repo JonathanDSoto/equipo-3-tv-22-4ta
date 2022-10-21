@@ -65,7 +65,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <h5 class="fs-16 mb-1">Jeff The Killer</h5>
+                                        <h5 class="fs-16 mb-1">Slender Man</h5>
                                     </div>
                                 </div>
                             </div>
@@ -89,15 +89,15 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">First Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Jeff">
+                                                            <label for="firstnameInput" class="form-label">Name</label>
+                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Slender Man">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Last Name</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="The Killer">
+                                                            <label for="lastnameInput" class="form-label">Address</label>
+                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="5 de mayo y Ayuntamiento">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
@@ -111,17 +111,10 @@
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="emailInput" class="form-label">Email Address</label>
-                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="JeffvsSlenderman@gmail.com">
+                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="MRSlenderman@gmail.com">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="cityInput" class="form-label">Role</label>
-                                                            <input type="text" class="form-control" id="cityInput" placeholder="City" value="Admin" />
-                                                        </div>
-                                                    </div>
-
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
                                                             <button type="submit" class="btn btn-primary">Updates</button>

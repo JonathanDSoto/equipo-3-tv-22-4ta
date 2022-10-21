@@ -56,12 +56,7 @@
                         <!--end col-->
                         <div class="col">
                             <div class="p-2">
-                                <h3 class="text-white mb-1">Jeff The Killer</h3>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <a href="edituser.php" class="btn btn-success"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
+                                <h3 class="text-white mb-1">Slender Man</h3>
                             </div>
                         </div>
                         <!--end col-->
@@ -81,24 +76,27 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Name :</th>
-                                                        <td class="text-muted">Jeff</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Last Name :</th>
-                                                        <td class="text-muted">The Killer</td>
+                                                        <td class="text-muted">Slender Man</td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Email :</th>
-                                                        <td class="text-muted">JeffvsSlenderman@gmail.com</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Role :</th>
-                                                        <td class="text-muted">Admin</td>
+                                                        <td class="text-muted">MRSlenderman@gmail.com</td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Phone Number :</th>
                                                         <td class="text-muted">(52) 987 234 6543</td>
                                                     </tr>
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Address</th>
+                                                        <td class="text-muted">5 de mayo y Ayuntamiento</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Role :</th>
+                                                        <td class="text-muted">Cliente</td>
+                                                    </tr>
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>

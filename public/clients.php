@@ -51,15 +51,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Usuarios</h4>
-
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Tabla</a></li>
-                                        <li class="breadcrumb-item active">Usuarios</li>
-                                    </ol>
-                                </div>
-
+                                <h4 class="mb-sm-0">Clientes</h4>
                             </div>
                         </div>
                     </div>
@@ -74,7 +66,9 @@
                                         <div class="row g-4 mb-3">
                                             <div class="col-sm-auto">
                                                 <div>
-                                                    <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
+                                                    <a href="addclient.php">
+                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
+                                                    </a>
                                                     <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                                 </div>
                                             </div>
@@ -93,7 +87,8 @@
                                                         <th class="" data-sort="num">#</th>
                                                         <th class="" data-sort="id">ID</th>
                                                         <th class="" data-sort="name">Nombre</th>
-                                                        <th class="" data-sort="lastname">Apellido</th>
+                                                        <th class="" data-sort="phone">Phone Number</th>
+                                                        <th class="" data-sort="address">Direccion</th>
                                                         <th class="" data-sort="email">Correo electrónico</th>
                                                         <th class="" data-sort="rol">Rol</th>
                                                         <th class="" data-sort="action">Action</th>
@@ -109,20 +104,21 @@
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
                                                         <td class="num">1</td>
                                                         <td class="id">1</td>
-                                                        <td class="name">Slender</td>
-                                                        <td class="lastname">Man</td>
+                                                        <td class="name">Slender Man</td>
+                                                        <td class="phone">(52) 987 234 6543</td>
+                                                        <td class="address">5 de mayo y ayuntamiento</td>
                                                         <td class="email">MRSlenderman@gmail.com</td>
-                                                        <td class="rol">Admin</td>
+                                                        <td class="rol">Cliente</td>
 
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="View">
-                                                                    <a href="detailsusers.php">
+                                                                    <a href="detailsclient.php">
                                                                         <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                     </a>
                                                                 </div>
                                                                 <div class="edit">
-                                                                    <a href="">
+                                                                    <a href="editclient.php">
                                                                         <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                     </a>
                                                                 </div>
@@ -186,12 +182,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="../assets/libs/simplebar/simplebar.min.js "></script>
-    <script src="../assets/libs/node-waves/waves.min.js "></script>
-    <script src="../assets/libs/feather-icons/feather.min.js "></script>
-    <script src="../assets/js/pages/plugins/lord-icon-2.1.0.js "></script>
-    <script src="../assets/js/plugins.js "></script>
+    <?php include '../assets/layouts/js.template.php' ?>
 
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>

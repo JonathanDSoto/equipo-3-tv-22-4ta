@@ -65,7 +65,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <h5 class="fs-16 mb-1">Jeff The Killer</h5>
+                                        <h5 class="fs-16 mb-1">Name</h5>
                                     </div>
                                 </div>
                             </div>
@@ -89,42 +89,35 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">First Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Jeff">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Last Name</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="The Killer">
+                                                            <label for="firstnameInput" class="form-label">Full Name</label>
+                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your Name" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="phonenumberInput" class="form-label">Phone Number</label>
-                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="(52) 987 234 6543">
+                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="emailInput" class="form-label">Email Address</label>
-                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="JeffvsSlenderman@gmail.com">
+                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
-                                                            <label for="cityInput" class="form-label">Role</label>
-                                                            <input type="text" class="form-control" id="cityInput" placeholder="City" value="Admin" />
+                                                            <label for="AddressInput" class="form-label">Address</label>
+                                                            <input type="text" class="form-control" id="AddressInput" placeholder="Enter Your Address" value="" />
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Updates</button>
+                                                            <button type="submit" class="btn btn-primary">Add</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
                                                         </div>
                                                     </div>
