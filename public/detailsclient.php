@@ -70,7 +70,7 @@
                             <div class="row">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title mb-3">Info</h5>
+                                        <h3>Info</h3>
                                         <div class="table-responsive">
                                             <table class="table table-borderless mb-0">
                                                 <tbody>
@@ -94,9 +94,6 @@
                                                         <th class="ps-0" scope="row">Role :</th>
                                                         <td class="text-muted">Cliente</td>
                                                     </tr>
-
-
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -106,6 +103,158 @@
                         </div>
                     </div>
                 </div><!-- .row-->
+                <div class="row">
+                    <!-- Tab panes -->
+                    <div class="tab-content pt-4 text-muted ">
+                        <div class="tab-pane active" id="overview-tab" role="tabpanel">
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2>Nivel</h2>
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Nivel:</th>
+                                                        <td class="text-muted">Premium</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2>Ordenes</h2>
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Numero de ordenes:</th>
+                                                        <td class="text-muted">1</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .row-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <div id="customerList">
+                                    <div class="row g-4 mb-3">
+                                        <div class="col-sm-auto">
+                                            <div>
+                                                <h2>Compras</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive table-card mt-3 mb-1">
+                                        <table class="table align-middle table-nowrap" id="customerTable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th class="" data-sort="id">ID</th>
+                                                    <th class="" data-sort="name">Codigo de compra</th>
+                                                    <th class="" data-sort="phone">Nombre</th>
+                                                    <th class="" data-sort="address">Direccion</th>
+                                                    <th class="" data-sort="email">Precio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list form-check-all">
+                                                <tr>
+                                                    <td class="id">13</td>
+                                                    <td class="name">gamrog01</td>
+                                                    <td class="phone">Laptop Gamer Asus ROG G513RC 15.6\" AMD Ryzen 7 8 GB RAM 512 GB SSD</td>
+                                                    <td class="address">5 de mayo y ayuntamiento</td>
+                                                    <td class="email">$8599</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                    <div class="d-flex justify-content-end">
+                                        <div class="pagination-wrap hstack gap-2">
+                                            <a class="page-item pagination-prev disabled" href="#">
+                                                Previous
+                                            </a>
+                                            <ul class="pagination listjs-pagination mb-0"></ul>
+                                            <a class="page-item pagination-next" href="#">
+                                                Next
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- end card -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <div id="customerList">
+                                    <div class="row g-4 mb-3">
+                                        <div class="col-sm-auto">
+                                            <div>
+                                                <h2>Direcciones</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive table-card mt-3 mb-1">
+                                        <table class="table align-middle table-nowrap" id="customerTable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th class="" data-sort="num">#</th>
+                                                    <th class="" data-sort="address">Direccion</th>
+                                                    <th class="" data-sort="email">Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list form-check-all">
+                                                <tr>
+                                                    <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                    <td class="num">1</td>
+                                                    <td class="address">5 de mayo y ayuntamiento</td>
+                                                    <td class="email">MRSlenderman@gmail.com</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                    <div class="d-flex justify-content-end">
+                                        <div class="pagination-wrap hstack gap-2">
+                                            <a class="page-item pagination-prev disabled" href="#">
+                                                Previous
+                                            </a>
+                                            <ul class="pagination listjs-pagination mb-0"></ul>
+                                            <a class="page-item pagination-next" href="#">
+                                                Next
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- end card -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
             </div>
         </div>
     </div>

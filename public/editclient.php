@@ -133,6 +133,92 @@
                         <!--end col-->
                     </div>
                     <!--end row-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div id="customerList">
+                                        <H3>Address</H3>
+                                        <div class="row g-4 mb-3">
+                                            <div class="col-sm-auto">
+                                                <div>
+                                                    <a href="address.php">
+                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
+                                                    </a>
+                                                    <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="table-responsive table-card mt-3 mb-1">
+                                            <table class="table align-middle table-nowrap" id="customerTable">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th scope="col" style="width: 50px;">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                            </div>
+                                                        </th>
+                                                        <th class="" data-sort="num">#</th>
+                                                        <th class="" data-sort="address">Direccion</th>
+                                                        <th class="" data-sort="email">Email</th>
+                                                        <th class="" data-sort="rol">Role</th>
+                                                        <th class="" data-sort="action">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="list form-check-all">
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                            </div>
+                                                        </th>
+                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                        <td class="num">1</td>
+                                                        <td class="address">5 de mayo y ayuntamiento</td>
+                                                        <td class="email">MRSlenderman@gmail.com</td>
+                                                        <td class="rol">Cliente</td>
+
+                                                        <td>
+                                                            <div class="d-flex gap-2">
+                                                                <div class="edit">
+                                                                    <a href="editaddress.php">
+                                                                        <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="remove">
+                                                                    <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+                                        <div class="d-flex justify-content-end">
+                                            <div class="pagination-wrap hstack gap-2">
+                                                <a class="page-item pagination-prev disabled" href="#">
+                                                    Previous
+                                                </a>
+                                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                                <a class="page-item pagination-next" href="#">
+                                                    Next
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div><!-- end card -->
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!--end row-->
                 </div>
             </div><!-- End Page-content -->
         </div>
