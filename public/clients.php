@@ -119,19 +119,18 @@ $clients = $clientController->getAllClients();
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="detailsclient.php?id=<?= $user->id ?>">
+                                                                            <a href="detailsusers.php?id=<?= $client->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="editclient.php">
+                                                                            <a href="edituser.php">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <button onclick="eliminar(<?= $client->id ?>)" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                                         </div>
-                                                                        <input type="hidden" id="basepath" value="<?= BASE_PATH ?>">
                                                                     </div>
                                                                 </td>
                                                             </tr>

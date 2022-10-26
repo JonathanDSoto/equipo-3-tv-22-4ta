@@ -131,8 +131,7 @@ $users = $userController->getAllUsers();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <button onclick="eliminar(<?= $user->id ?>)" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                                            <input type="hidden" id="basepath" value="<?= BASE_PATH ?>">
+                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delUser&id=<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>
@@ -142,18 +141,6 @@ $users = $userController->getAllUsers();
                                                 </tbody>
                                             </table>
 
-                                        </div>
-
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="#">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="#">
-                                                    Next
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -196,44 +183,6 @@ $users = $userController->getAllUsers();
     <<?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript">
-        function eliminar(id) {
-            swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this imaginary file!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        var bodyFormData = new FormData();
-                        var basepath = document.getElementById("basepath").value;
-                        bodyFormData.append('idEliminar', id);
-                        bodyFormData.append('action', 'deleteUser');
-                        bodyFormData.append('super_token', "<?= $_SESSION['super_token'] ?>");
-
-                        axios.post(basepath + 'product', bodyFormData)
-                            .then(function(response) {
-                                if (response.data) {
-                                    swal("Poof! Your imaginary file has been deleted!", {
-                                        icon: "success",
-                                    });
-                                } else {
-                                    swal("Error", {
-                                        icon: "error",
-                                    });;
-                                }
-                            })
-                            .catch(function(error) {
-                                console.log(error);
-                            });
-                    } else {
-                        swal("Your imaginary file is safe!");
-                    }
-                });
-        }
-    </script>
     <!-- apexcharts -->
         <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
         <!-- Vector map-->

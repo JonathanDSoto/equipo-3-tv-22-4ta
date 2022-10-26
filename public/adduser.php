@@ -52,44 +52,23 @@ include "../app/config.php";
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-xxl-3">
-                            <div class="card mt-n5">
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/addimage.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image  shadow" alt="user-profile-image">
-                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body shadow">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
-                                                </label>
-                                            </div>
+                    <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card mt-n5">
+                                    <div class="card-body p-4">
+                                        <div class="card-header">
+                                            <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
+                                                        <i class="fas fa-home"></i> Personal Details
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <h5 class="fs-16 mb-1">Name</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-xxl-9">
-                            <div class="card mt-xxl-n5">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
-                                                <i class="fas fa-home"></i> Personal Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                            <form action="javascript:void(0);">
-                                                <form method="post" action="../app/UsersController.php" enctype="multipart/form-data">
+                                        <div class="card-body p-4">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
@@ -111,18 +90,29 @@ include "../app/config.php";
                                                                 <input name="phone_number" type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
                                                             </div>
                                                         </div>
-                                                        <!--end col-->
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="emailInput" class="form-label">Email Address</label>
-                                                                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
+                                                                <label for="photo" class="form-label">Profile Photo</label>
+                                                                <input name="profile_photo_file" type="file" class="form-control" id="photo" placeholder="Enter your phone number" value="">
                                                             </div>
                                                         </div>
                                                         <!--end col-->
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
-                                                                <label for="RoleInput" class="form-label">Role</label>
-                                                                <input name="role" type="text" class="form-control" id="RoleInput" placeholder="Enter Your Role" value="" />
+                                                                <label for="emailInput" class="form-label">Email Address</label>
+                                                                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="password" class="form-label">Password</label>
+                                                                <input name="password" type="password" class="form-control" id="password" placeholder="Enter Your Password" value="" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="password" class="form-label">Confirm your password</label>
+                                                                <input name="password2" type="password" class="form-control" id="password" placeholder="Enter Your Password" value="" />
                                                             </div>
                                                         </div>
 
@@ -137,15 +127,15 @@ include "../app/config.php";
                                                         <!--end col-->
                                                     </div>
                                                     <!--end row-->
-                                                </form>
-                                            </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                        <!--end col-->
-                    </div>
+                    </form>
                     <!--end row-->
                 </div>
             </div><!-- End Page-content -->
@@ -190,6 +180,7 @@ include "../app/config.php";
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
+    <script src="../assets/js/config/newUser.js "></script>
 </body>
 
 </html>

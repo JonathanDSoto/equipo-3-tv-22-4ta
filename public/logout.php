@@ -56,7 +56,7 @@
                                             <h5>You are Logged Out</h5>
                                             <p class="text-muted">Thank you for using <span class="fw-semibold">velzon</span> admin template</p>
                                             <div class="mt-4">
-                                                <a href="index.html" class="btn btn-success w-100">Sign In</a>
+                                                <a href="../index.php" class="btn btn-success w-100">Sign In</a>
                                             </div>
                                         </div>
                                     </div>
