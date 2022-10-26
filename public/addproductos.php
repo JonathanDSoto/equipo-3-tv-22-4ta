@@ -1,6 +1,3 @@
-<?php
-include "../app/config.php";
-?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -58,7 +55,7 @@ include "../app/config.php";
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/addimage.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image  shadow" alt="user-profile-image">
+                                            <img src="../assets/images/addimage.png" alt="user-profile-image">
                                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -68,7 +65,6 @@ include "../app/config.php";
                                                 </label>
                                             </div>
                                         </div>
-                                        <h5 class="fs-16 mb-1">Name</h5>
                                     </div>
                                 </div>
                             </div>
@@ -79,8 +75,8 @@ include "../app/config.php";
                                 <div class="card-header">
                                     <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
-                                                <i class="fas fa-home"></i> Personal Details
+                                            <a class="nav-link active" data-bs-toggle="tab" role="tab">
+                                                <i class="fas fa-home"></i> Product Details
                                             </a>
                                         </li>
                                     </ul>
@@ -89,48 +85,51 @@ include "../app/config.php";
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                             <form action="javascript:void(0);">
-                                                <form method="post" action="../app/ClientsController.php">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-3">
-                                                                <label for="firstnameInput" class="form-label">Full Name</label>
-                                                                <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter your Name" value="">
-                                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="firstnameInput" class="form-label">Product Name</label>
+                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter product name" value="">
                                                         </div>
-                                                        <!--end col-->
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-3">
-                                                                <label for="phonenumberInput" class="form-label">Phone Number</label>
-                                                                <input name="phone_number" type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
-                                                            </div>
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-3">
-                                                                <label for="emailInput" class="form-label">Email Address</label>
-                                                                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
-                                                            </div>
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-lg-4">
-                                                            <div class="mb-3">
-                                                                <label for="AddressInput" class="form-label">Password</label>
-                                                                <input name="password" type="password" class="form-control" id="AddressInput" placeholder="Enter Your Address" value="" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-lg-12">
-                                                            <div class="hstack gap-2 justify-content-end">
-                                                                <button type="submit" class="btn btn-primary">Add</button>
-                                                                <button type="button" class="btn btn-soft-success">Cancel</button>
-                                                                <input type="hidden" name="action" value="newClients">
-                                                                <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
-                                                            </div>
-                                                        </div>
-                                                        <!--end col-->
                                                     </div>
-                                                    <!--end row-->
-                                                </form>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="lastnameInput" class="form-label">Product description</label>
+                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter Product description" value="">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="phonenumberInput" class="form-label">Phone Number</label>
+                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="emailInput" class="form-label">Email Address</label>
+                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="RoleInput" class="form-label">Role</label>
+                                                            <input type="text" class="form-control" id="RoleInput" placeholder="Enter Your Role" value="" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <button type="submit" class="btn btn-primary">Add</button>
+                                                            <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                </div>
+                                                <!--end row-->
                                             </form>
                                         </div>
                                     </div>
