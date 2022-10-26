@@ -125,7 +125,7 @@
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
                                                             <button type="submit" class="btn btn-primary">Updates</button>
-                                                            <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                            <a href="users.php" type="button" class="btn btn-soft-success">Cancel</a>
                                                         </div>
                                                     </div>
                                                     <!--end col-->

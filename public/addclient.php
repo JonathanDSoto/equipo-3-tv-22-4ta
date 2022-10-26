@@ -105,7 +105,7 @@ include "../app/config.php";
                                                 <div class="col-lg-12">
                                                     <div class="hstack gap-2 justify-content-end">
                                                         <button type="submit" class="btn btn-primary">Add</button>
-                                                        <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                        <a href="clients.php" type="button" class="btn btn-soft-success">Cancel</a>
                                                         <input type="hidden" name="action" value="newClients">
                                                         <input type="hidden" name="level_id" value="1">
                                                         <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">

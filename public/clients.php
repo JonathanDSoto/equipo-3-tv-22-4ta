@@ -75,7 +75,6 @@ $clients = $clientController->getAllClients();
                                                     <a href="addclient.php">
                                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                                     </a>
-                                                    <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                                 </div>
                                             </div>
 
@@ -84,13 +83,7 @@ $clients = $clientController->getAllClients();
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
-                                                    <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
-                                                        </th>
-                                                        <th class="" data-sort="num">#</th>
+                                                    <tr> 
                                                         <th class="" data-sort="id">ID</th>
                                                         <th class="" data-sort="name">Name</th>
                                                         <th class="" data-sort="email">Email</th>
@@ -103,13 +96,9 @@ $clients = $clientController->getAllClients();
                                                     <?php if (isset($clients) && count($clients)) : ?>
                                                         <?php foreach ($clients as $client) : ?>
                                                             <tr>
-                                                                <th scope="row">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                                    </div>
-                                                                </th>
+
                                                                 <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                                <td class="num">1</td>
+                            
                                                                 <td class="id"><?= $client->id ?></td>
                                                                 <td class="name"><?= $client->name ?></td>
                                                                 <td class="email"><?= $client->email ?></td>
@@ -119,12 +108,12 @@ $clients = $clientController->getAllClients();
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="detailsusers.php?id=<?= $client->id ?>">
+                                                                            <a href="detailsclient.php?id=<?= $client->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="edituser.php">
+                                                                            <a href="editclient.php">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
@@ -141,17 +130,7 @@ $clients = $clientController->getAllClients();
 
                                         </div>
 
-                                        <div class="d-flex justify-content-end">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="#">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="#">
-                                                    Next
-                                                </a>
-                                            </div>
-                                        </div>
+                                         
                                     </div>
 
                                 </div><!-- end card -->
@@ -193,45 +172,7 @@ $clients = $clientController->getAllClients();
     <?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript">
-        function eliminar(id) {
-            swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this imaginary file!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        var bodyFormData = new FormData();
-                        var basepath = document.getElementById("basepath").value;
-                        bodyFormData.append('idEliminar', id);
-                        bodyFormData.append('action', 'deleteClients');
-                        bodyFormData.append('super_token', "<?= $_SESSION['super_token'] ?>");
-
-                        axios.post(basepath + 'product', bodyFormData)
-                            .then(function(response) {
-                                if (response.data) {
-                                    swal("Poof! Your imaginary file has been deleted!", {
-                                        icon: "success",
-                                    });
-                                } else {
-                                    swal("Error", {
-                                        icon: "error",
-                                    });;
-                                }
-                            })
-                            .catch(function(error) {
-                                console.log(error);
-                            });
-                    } else {
-                        swal("Your imaginary file is safe!");
-                    }
-                });
-        }
-    </script>
-
+    
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 

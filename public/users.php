@@ -75,7 +75,6 @@ $users = $userController->getAllUsers();
                                                     <a href="adduser.php">
                                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                                     </a>
-                                                    <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                                 </div>
                                             </div>
 
@@ -85,12 +84,6 @@ $users = $userController->getAllUsers();
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                            </div>
-                                                        </th>
-                                                        <th class="" data-sort="num">#</th>
                                                         <th class="" data-sort="id">ID</th>
                                                         <th class="" data-sort="name">Name</th>
                                                         <th class="" data-sort="lastname">Last name</th>
@@ -103,14 +96,9 @@ $users = $userController->getAllUsers();
                                                 <tbody class="list form-check-all">
                                                     <?php if (isset($users) && count($users)) : ?>
                                                         <?php foreach ($users as $user) : ?>
-                                                            <tr>
-                                                                <th scope="row">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                                    </div>
-                                                                </th>
+                                                            <tr> 
                                                                 <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                                <td class="num">1</td>
+                                                                 
                                                                 <td class="id"><?= $user->id ?></td>
                                                                 <td class="name"><?= $user->name ?></td>
                                                                 <td class="lastname"><?= $user->lastname ?></td>
