@@ -28,6 +28,8 @@ include "../app/config.php";
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/details.css" rel="stylesheet" type="text/css" />
+
 
 
 </head>
@@ -75,26 +77,34 @@ include "../app/config.php";
                                                                 <label for="firstnameInput" class="form-label">First Name</label>
                                                                 <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="">
                                                             </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
+
                                                         </div>
                                                         <!--end col-->
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="lastnameInput" class="form-label">Last Name</label>
-                                                                <input name="lastname" type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="">
+                                                                <label for="lastname" class="form-label">Last Name</label>
+                                                                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Enter your lastname" value="">
                                                             </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+
                                                         </div>
                                                         <!--end col-->
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="phonenumberInput" class="form-label">Phone Number</label>
-                                                                <input name="phone_number" type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
+                                                                <label for="phone_number" class="form-label">Phone Number</label>
+                                                                <input name="phone_number" type="text" class="form-control" id="phone_number" placeholder="Enter your phone number" value="">
                                                             </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_phone_number">The number can only contain 10 to 14 numbers.</p>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="photo" class="form-label">Profile Photo</label>
-                                                                <input name="profile_photo_file" type="file" class="form-control" id="photo" placeholder="Enter your phone number" value="">
+                                                                <label for="profile_photo_file" class="form-label">Profile Photo</label>
+                                                                <input name="profile_photo_file" type="file" class="form-control" id="profile_photo_file" placeholder="Enter your phone number" value="">
                                                             </div>
+                                                            <p class="formulario__input-error text-danger" id="grupo_photo">The photo is necesary (just .jpg .png .jpeg .svg)</p>
+
+
                                                         </div>
                                                         <!--end col-->
                                                         <div class="col-lg-4">
@@ -102,23 +112,28 @@ include "../app/config.php";
                                                                 <label for="emailInput" class="form-label">Email Address</label>
                                                                 <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
                                                             </div>
+                                                            <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported</p>
                                                         </div>
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label for="password" class="form-label">Password</label>
                                                                 <input name="password" type="password" class="form-control" id="password" placeholder="Enter Your Password" value="" />
                                                             </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_password">The password must have a minimun of 8 characters</p>
+
                                                         </div>
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
-                                                                <label for="password" class="form-label">Confirm your password</label>
-                                                                <input name="password2" type="password" class="form-control" id="password" placeholder="Enter Your Password" value="" />
+                                                                <label for="password2" class="form-label">Confirm your password</label>
+                                                                <input name="password2" type="password" class="form-control" id="password2" placeholder="Enter Your Password" value="" />
                                                             </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_password2">The password must be the same</p>
+
                                                         </div>
 
                                                         <div class="col-lg-12">
                                                             <div class="hstack gap-2 justify-content-end">
-                                                                <button type="submit" class="btn btn-primary">Add</button>
+                                                                <button type="submit" class="btn btn-primary" id="send">Add</button>
                                                         <a href="users.php" type="button" class="btn btn-soft-success">Cancel</a>
                                                                 
                                                                 <input type="hidden" name="action" value="newUser">
@@ -181,7 +196,7 @@ include "../app/config.php";
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
-    <script src="../assets/js/config/newUser.js "></script>
+    <script src="../assets/js/config/newU.js"></script>
 </body>
 
 </html>
