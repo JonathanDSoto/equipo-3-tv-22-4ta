@@ -4,6 +4,8 @@ include "../app/ClientsController.php";
 $clientController = new ClientsController();
 $id = $_GET['id'];
 $clientDetails = $clientController->getEspecificClients($id);
+$orders = $clientDetails->orders;
+$addressess = $clientDetails->addresses;
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -63,7 +65,7 @@ $clientDetails = $clientController->getEspecificClients($id);
                         <!--end col-->
                         <div class="col">
                             <div class="p-2">
-                                <h3 class="text-white mb-1">Slender Man</h3>
+                                <h3 class="text-white mb-1"><?= $clientDetails->name ?></h3>
                             </div>
                         </div>
                         <!--end col-->
@@ -92,6 +94,14 @@ $clientDetails = $clientController->getEspecificClients($id);
                                                     <tr>
                                                         <th class="ps-0" scope="row">Phone Number :</th>
                                                         <td class="text-muted"><?= $clientDetails->phone_number ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="ps-0" scope="row">Subscribed :</th>
+                                                        <td class="text-muted"><?php if (($clientDetails->is_suscribed) == 1) {
+                                                                                    echo 'Yes';
+                                                                                } else {
+                                                                                    echo 'No';
+                                                                                } ?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -129,9 +139,31 @@ $clientDetails = $clientController->getEspecificClients($id);
                                             <table class="table table-borderless mb-0">
                                                 <tbody>
                                                     <tr>
-                                                        <th class="ps-0" scope="row">Numero de ordenes:</th>
-                                                        <td class="text-muted">1</td>
+                                                        <th>Folio</th>
+                                                        <th>Mount</th>
+                                                        <th>Direction ID</th>
+                                                        <th>Status</th>
+                                                        <th>Paid</th>
+                                                        <th>Details</th>
                                                     </tr>
+                                                    <?php foreach ($orders as $orden) : ?>
+                                                        <tr>
+                                                            <td class="text-muted">#<?= $orden->folio ?></td>
+                                                            <td class="text-muted">$<?= $orden->total ?></td>
+                                                            <td class="text-muted">#<?= $orden->address_id ?></td>
+                                                            <td class="text-muted"><?php if (($orden->order_status_id) == 1) {
+                                                                                        echo 'Pediente de pago';
+                                                                                    } else {
+                                                                                        echo 'Pagada';
+                                                                                    } ?></td>
+                                                            <td class="text-muted"><?php if (($orden->is_paid) == 1) {
+                                                                                        echo 'Yes';
+                                                                                    } else {
+                                                                                        echo 'No';
+                                                                                    } ?></td>
+                                                            <td class="text-muted"><a href="detailsOrden.php?idOrden=<?= $orden->id ?>" class="btn btn-info">See</a></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -141,63 +173,6 @@ $clientDetails = $clientController->getEspecificClients($id);
                         </div>
                     </div>
                 </div><!-- .row-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-
-                            <div class="card-body">
-                                <div id="customerList">
-                                    <div class="row g-4 mb-3">
-                                        <div class="col-sm-auto">
-                                            <div>
-                                                <h2>Compras</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="table-responsive table-card mt-3 mb-1">
-                                        <table class="table align-middle table-nowrap" id="customerTable">
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th class="" data-sort="id">ID</th>
-                                                    <th class="" data-sort="name">Codigo de compra</th>
-                                                    <th class="" data-sort="phone">Nombre</th>
-                                                    <th class="" data-sort="address">Direccion</th>
-                                                    <th class="" data-sort="email">Precio</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="list form-check-all">
-                                                <tr>
-                                                    <td class="id">13</td>
-                                                    <td class="name">gamrog01</td>
-                                                    <td class="phone">Laptop Gamer Asus ROG G513RC 15.6\" AMD Ryzen 7 8 GB RAM 512 GB SSD</td>
-                                                    <td class="address">5 de mayo y ayuntamiento</td>
-                                                    <td class="email">$8599</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-
-                                    <div class="d-flex justify-content-end">
-                                        <div class="pagination-wrap hstack gap-2">
-                                            <a class="page-item pagination-prev disabled" href="#">
-                                                Previous
-                                            </a>
-                                            <ul class="pagination listjs-pagination mb-0"></ul>
-                                            <a class="page-item pagination-next" href="#">
-                                                Next
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div><!-- end card -->
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <!-- end col -->
-                </div>
                 <!-- end row -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -211,39 +186,37 @@ $clientDetails = $clientController->getEspecificClients($id);
                                                 <h2>Direcciones</h2>
                                             </div>
                                         </div>
+                                        <div class="col-sm-2">
+                                            <a href="address.php?user=<?= $clientDetails->id?>" class="btn btn-secondary"> Add</a>
+                                        </div>
                                     </div>
 
                                     <div class="table-responsive table-card mt-3 mb-1">
                                         <table class="table align-middle table-nowrap" id="customerTable">
-                                            <thead class="table-light">
+                                            <tbody>
                                                 <tr>
-                                                    <th class="" data-sort="num">#</th>
-                                                    <th class="" data-sort="address">Direccion</th>
-                                                    <th class="" data-sort="email">Email</th>
+                                                    <th>Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Street</th>
+                                                    <th>Apartament</th>
+                                                    <th>Postal Code</th>
+                                                    <th>City</th>
+                                                    <th>Options</th>
                                                 </tr>
-                                            </thead>
-                                            <tbody class="list form-check-all">
-                                                <tr>
-                                                    <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                    <td class="num">1</td>
-                                                    <td class="address">5 de mayo y ayuntamiento</td>
-                                                    <td class="email">MRSlenderman@gmail.com</td>
-                                                </tr>
+                                                <?php foreach ($addressess as $address) : ?>
+                                                    <tr>
+                                                        <td class="text-muted"><?= $address-> first_name?></td>
+                                                        <td class="text-muted"><?= $address->last_name ?></td>
+                                                        <td class="text-muted"><?= $address->street_and_use_number ?></td>
+                                                        <td class="text-muted"><?= $address->apartment ?></td>
+                                                        <td class="text-muted"><?= $address->postal_code ?></td>
+                                                        <td class="text-muted"><?= $address->city ?></td>
+                                                        <td class="text-muted"><a href="eliminar.php?action=delAdd&idAddress=<?= $address->id ?>" class="btn btn-danger">Delete</a></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
 
-                                    </div>
-
-                                    <div class="d-flex justify-content-end">
-                                        <div class="pagination-wrap hstack gap-2">
-                                            <a class="page-item pagination-prev disabled" href="#">
-                                                Previous
-                                            </a>
-                                            <ul class="pagination listjs-pagination mb-0"></ul>
-                                            <a class="page-item pagination-next" href="#">
-                                                Next
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
 

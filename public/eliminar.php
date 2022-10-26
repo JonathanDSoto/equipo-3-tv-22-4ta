@@ -18,5 +18,7 @@ if (isset($_GET['action'])) {
             $sesion = new AuthController;
             $salir = $sesion->logout();
             break;
+        case 'delAdd':
+            break;
     }
 }
