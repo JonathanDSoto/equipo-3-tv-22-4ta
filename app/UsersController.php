@@ -56,13 +56,12 @@
 
             curl_close($curl);
             $response = json_decode($response);
-
-            if (isset($response->code) &&  $response->code > 0) {
-                header("Location: ../index.php?sucess=true");
-            } else {
-                header("Location: ../index.php?error=true");
-                //var_dump('Authorization: Bearer ' .$_SESSION['token']. ' email:'.$_SESSION['email'].'    Data '.$name.$lastname. $email. $phone_number. $password.$profile_photo);
-            }
+  
+          if( isset($response->code) &&  $response->code > 0) {
+              header ("Location:../public/users.php?success=true");
+            } else{
+              header ("Location:../public/users.php?error=true");
+          }
         }
         public function getAllUsers() {
           $curl = curl_init();
@@ -133,7 +132,7 @@
               CURLOPT_CUSTOMREQUEST => 'PUT',
               CURLOPT_POSTFIELDS => 'name='.$name.'&lastname='.$lastname.'&email='.$email.'&phone_number='.$phone_number.'&created_by=Equipo%204&role=Administrador&password='.$password.'&id='.$id,
               CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer' .$_SESSION['token'],
+                'Authorization: Bearer ' .$_SESSION['token'],
                 'Content-Type: application/x-www-form-urlencoded',
               ),
             ));
@@ -141,15 +140,12 @@
             $response = curl_exec($curl);
             
             curl_close($curl);
-            $response = json_decode($response); 
-
-            if (isset($response->code) && $response->code > 0) { 
-
-              header("Location:../products?success");
-
-            }else{
-
-              header("Location:../products?error");
+            $response = json_decode($response);
+  
+            if( isset($response->code) &&  $response->code > 0) {
+                header ("Location:../public/users.php?success=true");
+              } else{
+                header ("Location:../public/users.php?error=true");
             }
         }
         public function deleteUser($id){
@@ -165,7 +161,7 @@
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'DELETE',
             CURLOPT_HTTPHEADER => array(
-              'Authorization: Bearer'.$_SESSION['token'],
+              'Authorization: Bearer '.$_SESSION['token'],
             ),
           ));
           
@@ -176,10 +172,9 @@
           $response = json_decode($response);
   
           if( isset($response->code) &&  $response->code > 0) {
-              $var = $response->message;
-              //header ("Location:../view/productos");
-          } else{
-              return $response;
+              header ("Location:../public/users.php?success=true");
+            } else{
+              header ("Location:../public/users.php?error=true");
           }
         }
     }
