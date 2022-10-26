@@ -129,7 +129,7 @@ $clients = $clientController->getAllClients();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <button onclick="eliminar(<?= $product->id ?>)" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                                                            <button onclick="eliminar(<?= $client->id ?>)" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
                                                                         </div>
                                                                         <input type="hidden" id="basepath" value="<?= BASE_PATH ?>">
                                                                     </div>

@@ -131,7 +131,7 @@ $users = $userController->getAllUsers();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                                                            <button onclick="eliminar(<?= $user->id ?>)" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
                                                                             <input type="hidden" id="basepath" value="<?= BASE_PATH ?>">
                                                                         </div>
                                                                     </div>
