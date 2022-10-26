@@ -28,6 +28,7 @@ include "../app/config.php";
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/details.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -67,6 +68,8 @@ include "../app/config.php";
                                                         <label for="firstnameInput" class="form-label">Full Name</label>
                                                         <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter your Name" value="">
                                                     </div>
+                    				                <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
+                                                    
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6">
@@ -74,26 +77,30 @@ include "../app/config.php";
                                                         <label for="emailInput" class="form-label">Email Address</label>
                                                         <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
                                                     </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported.</p>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="phonenumberInput" class="form-label">Phone Number</label>
                                                         <input name="phone_number" type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
                                                     </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_phone_number">Only numbers (10-14) are accepted</p>
                                                 </div>
                                                 <!--end col-->
                                                 <!--end col-->
                                                 <div class="col-lg-3">
                                                     <div class="mb-3">
-                                                        <label for="AddressInput" class="form-label">Password</label>
-                                                        <input name="password" type="password" class="form-control" id="AddressInput" placeholder="Enter Your Address" value="" />
+                                                        <label for="password" class="form-label">Password</label>
+                                                        <input name="password" type="password" class="form-control" id="password" placeholder="Enter Your Address" value="" />
                                                     </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_password">Minimum 8 characters</p>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="mb-3">
-                                                        <label for="AddressInput" class="form-label">Confirm password</label>
-                                                        <input name="password2" type="password" class="form-control" id="AddressInput" placeholder="Enter Your Address" value="" />
+                                                        <label for="password2" class="form-label">Confirm password</label>
+                                                        <input name="password2" type="password" class="form-control" id="password2" placeholder="Enter Your Address" value="" />
                                                     </div>
+                                                    <p class="formulario__input-error text-danger" id="grupo_password2">The passwords must be the same</p>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="1" name="is_suscribed" id="is_suscribed">
@@ -104,7 +111,7 @@ include "../app/config.php";
 
                                                 <div class="col-lg-12">
                                                     <div class="hstack gap-2 justify-content-end">
-                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                        <button type="submit" class="btn btn-primary" id="send">Add</button>
                                                         <a href="clients.php" type="button" class="btn btn-soft-success">Cancel</a>
                                                         <input type="hidden" name="action" value="newClients">
                                                         <input type="hidden" name="level_id" value="1">
@@ -166,7 +173,7 @@ include "../app/config.php";
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
-    <script src="../assets/js/config/newClient.js "></script>
+    <script src="../assets/js/config/newC.js "></script>
 </body>
 
 </html>
