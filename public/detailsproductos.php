@@ -75,7 +75,7 @@
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="apps-ecommerce-add-product.html" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-pencil-fill align-bottom"></i></a>
+                                                            <a href="apps-ecommerce-add-product.html" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-5-line"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="mt-3">
                                                             <h5 class="fs-14">Price :</h5>
-                                                            <h6>$30</h6>
+                                                            <h6>$30.00</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -106,11 +106,8 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="mt-3">
-                                                            <h5 class="fs-14">Features :</h5>
-                                                            <h6>Base Tequila Blanco Gluten Free,
-                                                                Sabor Autentico Horchata, Canela Tostada y Agua de arroz natural,
-                                                                15% Alc. Vol,
-                                                                Botella con recubrimiento especial SOFT TOUCH</h6>
+                                                            <h5 class="fs-14">Peso en Gramos :</h5>
+                                                            <h6>7500</h6>
                                                         </div>
                                                     </div>
                                                 </div>

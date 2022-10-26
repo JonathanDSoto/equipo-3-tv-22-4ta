@@ -55,7 +55,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/addimage.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image  shadow" alt="user-profile-image">
+                                            <img src="../assets/images/addimage.png" alt="user-profile-image">
                                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -65,7 +65,6 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <h5 class="fs-16 mb-1">Name</h5>
                                     </div>
                                 </div>
                             </div>
@@ -76,8 +75,8 @@
                                 <div class="card-header">
                                     <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
-                                                <i class="fas fa-home"></i> Personal Details
+                                            <a class="nav-link active" data-bs-toggle="tab" role="tab">
+                                                <i class="fas fa-home"></i> Product Details
                                             </a>
                                         </li>
                                     </ul>
@@ -89,8 +88,15 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Full Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your Name" value="">
+                                                            <label for="firstnameInput" class="form-label">Product Name</label>
+                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter product name" value="">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="lastnameInput" class="form-label">Product description</label>
+                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter Product description" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
@@ -110,8 +116,8 @@
                                                     <!--end col-->
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
-                                                            <label for="AddressInput" class="form-label">Address</label>
-                                                            <input type="text" class="form-control" id="AddressInput" placeholder="Enter Your Address" value="" />
+                                                            <label for="RoleInput" class="form-label">Role</label>
+                                                            <input type="text" class="form-control" id="RoleInput" placeholder="Enter Your Role" value="" />
                                                         </div>
                                                     </div>
 

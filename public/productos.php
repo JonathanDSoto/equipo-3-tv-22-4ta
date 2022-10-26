@@ -44,11 +44,27 @@
         <div class="main-content">
 
             <div class="page-content">
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0">Productos</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
 
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Productos</h4>
+                            <div class="col-sm-auto flex-grow-1">
+                                <div>
+                                    <a href="addproductos.php">
+                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
+                                    </a>
+                                </div>
+                            </div>
+
                             <div class="flex-shrink-0">
                                 <div class="dropdown card-header-dropdown">
                                     <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,21 +93,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -117,21 +133,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -155,21 +171,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -193,21 +209,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -231,21 +247,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -269,21 +285,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -307,21 +323,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -345,21 +361,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -383,21 +399,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -421,21 +437,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -459,21 +475,21 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
                                                     </div>
                                                     <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Jabon </a></h5>
+                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
                                                         <span class="text-muted">24 Apr 2021</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
+                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
                                                 <span class="text-muted">Price</span>
                                             </td>
                                             <td>
-                                                <h5 class="fs-14 my-1 fw-normal">Baño</h5>
-                                                <span class="text-muted">Tag</span>
+                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
+                                                <span class="text-muted">Stock</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
