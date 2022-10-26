@@ -1,3 +1,10 @@
+<?php
+include "../app/config.php";
+include "../app/ClientsController.php";
+$clientController = new ClientsController();
+$id = $_GET['id'];
+$clientDetails = $clientController->getEspecificClients($id);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -76,23 +83,15 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Name :</th>
-                                                        <td class="text-muted">Slender Man</td>
+                                                        <td class="text-muted"><?= $clientDetails->name ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Email :</th>
-                                                        <td class="text-muted">MRSlenderman@gmail.com</td>
+                                                        <td class="text-muted"><?= $clientDetails->email ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Phone Number :</th>
-                                                        <td class="text-muted">(52) 987 234 6543</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Address</th>
-                                                        <td class="text-muted">5 de mayo y Ayuntamiento</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Role :</th>
-                                                        <td class="text-muted">Cliente</td>
+                                                        <td class="text-muted"><?= $clientDetails->phone_number ?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -116,7 +115,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Nivel:</th>
-                                                        <td class="text-muted">Premium</td>
+                                                        <td class="text-muted"><?= $clientDetails->level->name ?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

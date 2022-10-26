@@ -1,3 +1,9 @@
+<?php
+include "../app/config.php";
+include "../app/ClientsController.php";
+$clientController = new ClientsController();
+$clients = $clientController->getAllClients();
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -86,48 +92,51 @@
                                                         </th>
                                                         <th class="" data-sort="num">#</th>
                                                         <th class="" data-sort="id">ID</th>
-                                                        <th class="" data-sort="name">Nombre</th>
-                                                        <th class="" data-sort="phone">Phone Number</th>
-                                                        <th class="" data-sort="address">Direccion</th>
-                                                        <th class="" data-sort="email">Correo electrónico</th>
-                                                        <th class="" data-sort="rol">Rol</th>
+                                                        <th class="" data-sort="name">Name</th>
+                                                        <th class="" data-sort="email">Email</th>
+                                                        <th class="" data-sort="phone_number">Phone number</th>
+                                                        <th class="" data-sort="level">Subscription</th>
                                                         <th class="" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
-                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                        <td class="num">1</td>
-                                                        <td class="id">1</td>
-                                                        <td class="name">Slender Man</td>
-                                                        <td class="phone">(52) 987 234 6543</td>
-                                                        <td class="address">5 de mayo y ayuntamiento</td>
-                                                        <td class="email">MRSlenderman@gmail.com</td>
-                                                        <td class="rol">Cliente</td>
+                                                    <?php if (isset($clients) && count($clients)) : ?>
+                                                        <?php foreach ($clients as $client) : ?>
+                                                            <tr>
+                                                                <th scope="row">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                                    </div>
+                                                                </th>
+                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                                <td class="num">1</td>
+                                                                <td class="id"><?= $client->id ?></td>
+                                                                <td class="name"><?= $client->name ?></td>
+                                                                <td class="email"><?= $client->email ?></td>
+                                                                <td class="phone_number"><?= $client->phone_number ?></td>
+                                                                <td class="level"><?= $client->level->name ?></td>
 
-                                                        <td>
-                                                            <div class="d-flex gap-2">
-                                                                <div class="View">
-                                                                    <a href="detailsclient.php">
-                                                                        <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="edit">
-                                                                    <a href="editclient.php">
-                                                                        <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="remove">
-                                                                    <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                                <td>
+                                                                    <div class="d-flex gap-2">
+                                                                        <div class="View">
+                                                                            <a href="detailsclient.php?id=<?= $user->id ?>">
+                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="edit">
+                                                                            <a href="editclient.php">
+                                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="remove">
+                                                                            <button onclick="eliminar(<?= $product->id ?>)" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                                                        </div>
+                                                                        <input type="hidden" id="basepath" value="<?= BASE_PATH ?>">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
 
@@ -183,6 +192,46 @@
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        function eliminar(id) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var bodyFormData = new FormData();
+                        var basepath = document.getElementById("basepath").value;
+                        bodyFormData.append('idEliminar', id);
+                        bodyFormData.append('action', 'deleteClients');
+                        bodyFormData.append('super_token', "<?= $_SESSION['super_token'] ?>");
+
+                        axios.post(basepath + 'product', bodyFormData)
+                            .then(function(response) {
+                                if (response.data) {
+                                    swal("Poof! Your imaginary file has been deleted!", {
+                                        icon: "success",
+                                    });
+                                } else {
+                                    swal("Error", {
+                                        icon: "error",
+                                    });;
+                                }
+                            })
+                            .catch(function(error) {
+                                console.log(error);
+                            });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        }
+    </script>
 
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>

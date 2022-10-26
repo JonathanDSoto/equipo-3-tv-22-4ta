@@ -1,3 +1,6 @@
+<?php
+include "../app/config.php";
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -86,51 +89,55 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                             <form action="javascript:void(0);">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">First Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="">
+                                                <form method="post" action="../app/UsersController.php" enctype="multipart/form-data">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="firstnameInput" class="form-label">First Name</label>
+                                                                <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Last Name</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="">
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="lastnameInput" class="form-label">Last Name</label>
+                                                                <input name="lastname" type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Phone Number</label>
-                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="phonenumberInput" class="form-label">Phone Number</label>
+                                                                <input name="phone_number" type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="emailInput" class="form-label">Email Address</label>
-                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="emailInput" class="form-label">Email Address</label>
+                                                                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="RoleInput" class="form-label">Role</label>
-                                                            <input type="text" class="form-control" id="RoleInput" placeholder="Enter Your Role" value="" />
+                                                        <!--end col-->
+                                                        <div class="col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="RoleInput" class="form-label">Role</label>
+                                                                <input name="role" type="text" class="form-control" id="RoleInput" placeholder="Enter Your Role" value="" />
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="col-lg-12">
-                                                        <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Add</button>
-                                                            <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                        <div class="col-lg-12">
+                                                            <div class="hstack gap-2 justify-content-end">
+                                                                <button type="submit" class="btn btn-primary">Add</button>
+                                                                <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                                <input type="hidden" name="action" value="newUser">
+                                                                <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
+                                                            </div>
                                                         </div>
+                                                        <!--end col-->
                                                     </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
+                                                    <!--end row-->
+                                                </form>
                                             </form>
                                         </div>
                                     </div>

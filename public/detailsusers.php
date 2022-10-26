@@ -1,3 +1,10 @@
+<?php
+include "../app/config.php";
+include "../app/UsersController.php";
+$userController = new UserController();
+$id = $_GET['id'];
+$userDetails = $userController->getEspecificUser($id);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -50,13 +57,13 @@
                     <div class="row g-4 ">
                         <div class="col-auto">
                             <div class="avatar-lg">
-                                <img src="../assets/images/users/avatar-1.jpg" alt="user-img" class="img-thumbnail rounded-circle" />
+                                <img src="<?= $userDetails->avatar ?>" alt="user-img" class="img-thumbnail rounded-circle" />
                             </div>
                         </div>
                         <!--end col-->
                         <div class="col">
                             <div class="p-2">
-                                <h3 class="text-white mb-1">Jeff The Killer</h3>
+                                <h3 class="text-white mb-1"><?= $userDetails->name ?> <?= $userDetails->lastname ?></h3>
                             </div>
                         </div>
                         <!--end col-->
@@ -76,26 +83,24 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Name :</th>
-                                                        <td class="text-muted">Jeff</td>
+                                                        <td class="text-muted"><?= $userDetails->name ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Last Name :</th>
-                                                        <td class="text-muted">The Killer</td>
+                                                        <td class="text-muted"><?= $userDetails->lastname ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Email :</th>
-                                                        <td class="text-muted">JeffvsSlenderman@gmail.com</td>
+                                                        <td class="text-muted"><?= $userDetails->email ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Role :</th>
-                                                        <td class="text-muted">Admin</td>
+                                                        <td class="text-muted"><?= $userDetails->role ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Phone Number :</th>
-                                                        <td class="text-muted">(52) 987 234 6543</td>
+                                                        <td class="text-muted"><?= $userDetails->phone_number ?></td>
                                                     </tr>
-
-
                                                 </tbody>
                                             </table>
                                         </div>
