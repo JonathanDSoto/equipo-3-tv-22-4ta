@@ -196,7 +196,7 @@ include "../app/config.php";
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
-    <script src="../assets/js/config/newU.js"></script>
+    <script src="../assets/js/config/newAddress.js"></script>
 </body>
 
 </html>

@@ -19,6 +19,10 @@ if (isset($_GET['action'])) {
             $salir = $sesion->logout();
             break;
         case 'delAdd':
+            $obj = new ClientsController;
+            $objt = strip_tags($_GET['idAddress']);
+            $del = $obj->deleteAddress($objt);
+            break;
             break;
     }
 }
