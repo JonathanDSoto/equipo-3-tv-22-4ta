@@ -47,7 +47,7 @@ include "../app/config.php";
             <div class="page-content">
                 <div class="container-fluid">
                     <!--end col-->
-                    <div class="col-xxl-9">
+                    <div class="col-xxl-12">
                         <div class="card mt-xxl-n5">
                             <div class="card-header">
                                 <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
@@ -140,7 +140,7 @@ include "../app/config.php";
 
 
     <!--start back-to-top-->
-    <button onclick="topFunction() " class="btn btn-danger btn-icon " id="back-to-top ">
+    <button onclick="topFunction()" class="btn btn-danger btn-icon " id="back-to-top ">
         <i class="ri-arrow-up-line "></i>
     </button>
 
@@ -173,7 +173,7 @@ include "../app/config.php";
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
-    <script src="../assets/js/config/newC.js "></script>
+    <script src="../assets/js/config/newCl.js"></script>
 </body>
 
 </html>

@@ -9,9 +9,9 @@ const expresiones = {
     telefono: /^\d{10,14}$/ // 10 a 14 numeros.
 }
 const campos = {
-    name: false,
-    email: false,
-    phone_number: false,
+    name: true,
+    email: true,
+    phone_number: true,
     password: false,
 }
 

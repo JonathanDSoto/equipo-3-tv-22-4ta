@@ -113,7 +113,7 @@ $clients = $clientController->getAllClients();
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="editclient.php">
+                                                                            <a href="editclient.php?id=<?= $client->id?>">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
