@@ -55,7 +55,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/addimage.png" alt="user-profile-image">
+                                            <img src="../assets/images/granmalotamarindo.jpg" alt="user-profile-image" width="300" height="600">
                                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -88,66 +88,43 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Product Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter product name" value="">
+                                                            <label for="ProductNameInput" class="form-label">Product Name</label>
+                                                            <input type="text" class="form-control" id="ProductNameInput" placeholder="Enter product name" value="Gran Malo Tamarindo">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Product description</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter Product description" value="">
+                                                            <label for="ProductdescriptionInput" class="form-label">Product description</label>
+                                                            <input type="text" class="form-control" id="ProductdescriptionInput" placeholder="Enter Product description" value="Una bebida para tomar con los cuates">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Price</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter Price" value="">
+                                                            <label for="WeightingramsInput" class="form-label">Weight in grams</label>
+                                                            <input type="text" class="form-control" id="WeightingramsInput" placeholder="Enter Weight" value="10000">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Stock</label>
-                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter Stock" value="">
+                                                            <label for="PriceInput" class="form-label">Price</label>
+                                                            <input type="text" class="form-control" id="PriceInput" placeholder="Enter Price" value="$30.00">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                    <div class="demo-zone">
-                                                        <label><b>Tags: </b></label>
-                                                        <select id="demoShort" multiple="" size="3" aria-label="size 3 select example">
-                                                            <option value="Licores"> Licores</option>
-                                                            <option value="Alcohol">Alcohol</option>
-                                                            <option value="Juegos">Juegos</option>
-                                                            <option value="pantallas">pantallas</option>
-                                                            <option value="martillos">martillos</option>
-                                                        </select>
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="StockInput" class="form-label">Stock</label>
+                                                            <input type="text" class="form-control" id="StockInput" placeholder="Enter Stock" value="47">
+                                                        </div>
                                                     </div>
-                                                    <div class="demo-zone">
-                                                        <label><b>Categories : </b></label>
-                                                        <select id="demoShort2">
-                                                            <option value="Nothing"></option>
-                                                            <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
-                                                            <option value="Herramientas">Herramientas</option>
-                                                            <option value="Patio">Patio</option>
-                                                            <option value="Baño">Baño</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="demo-zone">
-                                                        <label><b>Brands : </b></label>
-                                                        <select id="demoShort3">
-                                                            <option value="Nothing"></option>
-                                                            <option value="Gran Malo">Gran Malo</option>
-                                                            <option value="Nike">Nike</option>
-                                                            <option value="Logitech">Logitech</option>
-                                                            <option value="Sabritas">Sabritas</option>
-                                                        </select>
-                                                    </div>
+                                                    <!--end col-->
 
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Add</button>
+                                                            <button type="submit" class="btn btn-primary">Save</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
                                                         </div>
                                                     </div>

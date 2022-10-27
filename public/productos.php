@@ -93,7 +93,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -133,7 +133,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -171,7 +171,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -209,7 +209,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -247,7 +247,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -285,7 +285,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -323,7 +323,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -361,7 +361,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -399,7 +399,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -437,7 +437,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
@@ -475,7 +475,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" />
+                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
                                                     </div>
                                                     <div>
                                                         <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>

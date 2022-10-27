@@ -51,7 +51,7 @@
                                                 <div class="swiper product-thumbnail-slider p-2 rounded bg-light">
                                                     <div class="swiper-wrapper">
                                                         <div class="swiper-slide">
-                                                            <img src="../assets/images/granmalohorchata.jpg" alt="bebida alcoholica" width="300" height="400">
+                                                            <img src="../assets/images/granmalohorchata.jpg" alt="bebida alcoholica" width="300" height="600">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -75,7 +75,7 @@
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="apps-ecommerce-add-product.html" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-5-line"></i></a>
+                                                            <a href="" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-5-line"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -89,7 +89,16 @@
                                                         <span class="mdi mdi-star text-warning"></span>
                                                     </div>
                                                 </div>
-                                                <h5>Precentations</h5>
+                                                <div class="present">
+                                                    <h5>Precentations</h5>
+                                                    <ul>
+
+                                                        <a href=""><img src="../assets/images/granmalohorchatapeque.jpg" alt="bebida alcoholica" width="40" height="40"></a>
+                                                        <a href=""><img src="../assets/images/granmalopeque.jpg" alt="bebida alcoholica" width="40" height="40"></a>
+                                                    </ul>
+                                                </div>
+
+
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="mt-3">
@@ -99,35 +108,37 @@
                                                     </div>
                                                 </div>
                                                 <!-- end row -->
+                                                <div class="col-sm-12">
+                                                    <div class="mt-3">
+                                                        <h5 class="fs-14">Stock :</h5>
+                                                        <h6>47</h6>
+                                                    </div>
+                                                </div>
                                                 <div class="mt-4 text-muted">
                                                     <h5 class="fs-14">Description :</h5>
                                                     <h6>Una bebida para tomar con los cuates</h6>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="mt-3">
-                                                            <h5 class="fs-14">Peso en Gramos :</h5>
-                                                            <h6>7500</h6>
-                                                        </div>
+                                                <div class="col-sm-12">
+                                                    <div class="mt-3">
+                                                        <h5 class="fs-14">Features :</h5>
+                                                        <h6>-Base Tequila Blanco Gluten Free</h6>
+                                                        <h6>-Sabor Autentico Horchata, Canela Tostada y Agua de arroz natural</h6>
+                                                        <h6>-15% Alc. Vol</h6>
+                                                        <h6>-Botella con recubrimiento especial SOFT TOUCH</h6>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="mt-3">
-                                                            <h5 class="fs-14">Tags :</h5>
-                                                            <h6>Alcohol</h6>
-                                                        </div>
+                                                <div class="col-sm-12">
+                                                    <div class="mt-3">
+                                                        <h5 class="fs-14">Tags :</h5>
+                                                        <h6>Licores</h6>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="mt-3">
-                                                            <h5 class="fs-14">Stock :</h5>
-                                                            <h6>47</h6>
-                                                        </div>
+                                                <div class="col-sm-12">
+                                                    <div class="mt-3">
+                                                        <h5 class="fs-14">Categories :</h5>
+                                                        <h6>Alimentos Y Bebidas</h6>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <!-- end col -->
