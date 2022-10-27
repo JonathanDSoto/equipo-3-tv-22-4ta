@@ -1,3 +1,10 @@
+<?php
+include "../app/config.php";
+include "../app/UsersController.php";
+$userController = new UserController();
+$id = $_GET['id'];
+$userDetails = $userController->getEspecificUser($id);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -25,7 +32,8 @@
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="../assets/css/details.css" rel="stylesheet" type="text/css" />
+ 
 
 </head>
 
@@ -49,97 +57,95 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-xxl-3">
-                            <div class="card mt-n5">
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xl img-thumbnail user-profile-image  shadow" alt="user-profile-image">
-                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body shadow">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
-                                                </label>
+                    <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card mt-n5">
+                                    <div class="card-body p-4">
+                                        <div class="card-header">
+                                            <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
+                                                        <i class="fas fa-home"></i> Personal Details
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="firstnameInput" class="form-label">First Name</label>
+                                                                <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="<?= $userDetails->name ?>">
+                                                            </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
+
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="lastname" class="form-label">Last Name</label>
+                                                                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Enter your lastname" value="<?= $userDetails->lastname ?>">
+                                                            </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="phone_number" class="form-label">Phone Number</label>
+                                                                <input name="phone_number" type="text" class="form-control" id="phone_number" placeholder="Enter your phone number" value="<?= $userDetails->phone_number ?>">
+                                                            </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_phone_number">The number can only contain 10 to 14 numbers.</p>
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="emailInput" class="form-label">Email Address</label>
+                                                                <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="<?= $userDetails->email ?>">
+                                                            </div>
+                                                            <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="password" class="form-label">Password</label>
+                                                                <input name="password" type="password" class="form-control" id="password" placeholder="Enter Your Password" value="" />
+                                                            </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_password">The password must have a minimun of 8 characters</p>
+
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="mb-3">
+                                                                <label for="password2" class="form-label">Confirm your password</label>
+                                                                <input name="password2" type="password" class="form-control" id="password2" placeholder="Enter Your Password" value="" />
+                                                            </div>
+                    				                        <p class="formulario__input-error text-danger" id="grupo_password2">The password must be the same</p>
+
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+                                                            <div class="hstack gap-2 justify-content-end">
+                                                                <button type="submit" class="btn btn-primary" id="send">Add</button>
+                                                                <a href="users.php" type="button" class="btn btn-soft-success">Cancel</a>
+                                                                <input type="hidden" name="id" value="<?= $userDetails->id ?>">
+                                                                <input type="hidden" name="action" value="editUser">
+                                                                <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
+                                                            </div>
+                                                        </div>
+                                                        <!--end col-->
+                                                    </div>
+                                                    <!--end row-->
+                                                </div>
                                             </div>
                                         </div>
-                                        <h5 class="fs-16 mb-1">Jeff The Killer</h5>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-xxl-9">
-                            <div class="card mt-xxl-n5">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
-                                                <i class="fas fa-home"></i> Personal Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                            <form action="javascript:void(0);">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">First Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Jeff">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Last Name</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="The Killer">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Phone Number</label>
-                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="(52) 987 234 6543">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="emailInput" class="form-label">Email Address</label>
-                                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="JeffvsSlenderman@gmail.com">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-3">
-                                                            <label for="cityInput" class="form-label">Role</label>
-                                                            <input type="text" class="form-control" id="cityInput" placeholder="City" value="Admin" />
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="col-lg-12">
-                                                        <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Updates</button>
-                                                            <a href="users.php" type="button" class="btn btn-soft-success">Cancel</a>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </form>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!--end col-->
-                    </div>
-                    <!--end row-->
+                    </form>
                 </div>
             </div><!-- End Page-content -->
         </div>
@@ -183,6 +189,7 @@
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
+    <script src="../assets/js/config/editU.js"></script>
 </body>
 
 </html>

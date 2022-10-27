@@ -114,7 +114,7 @@ $users = $userController->getAllUsers();
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="edituser.php">
+                                                                            <a href="edituser.php?id=<?= $user->id ?>">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
