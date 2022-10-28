@@ -1,3 +1,16 @@
+<?php
+include "../app/config.php";
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
+
+$brandController = new BrandsController();
+$brands = $brandController->getAllBrands();
+$categoryController = new CategoryController();
+$categories = $categoryController->getAllCategories();
+$TagController = new TagsController();
+$tags = $TagController->getAllTags();
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -49,99 +62,87 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-xxl-3">
-                            <div class="card mt-n5">
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/addimage.png" alt="user-profile-image">
-                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body shadow">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
-                                                </label>
+
+                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-xxl-3">
+                                <div class="card mt-n5">
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
+                                                <img src="../assets/images/addimage.png" alt="user-profile-image">
+                                                <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                                                    <input name="imagen" id="profile-img-file-input" type="file" class="profile-img-file-input">
+                                                    <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
+                                                        <span class="avatar-title rounded-circle bg-light text-body shadow">
+                                                            <i class="ri-camera-fill"></i>
+                                                        </span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-xxl-9">
-                            <div class="card mt-xxl-n5">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" role="tab">
-                                                <i class="fas fa-home"></i> Product Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                            <form action="javascript:void(0);">
+                            <!--end col-->
+                            <div class="col-xxl-9">
+                                <div class="card mt-xxl-n5">
+                                    <div class="card-header">
+                                        <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-bs-toggle="tab" role="tab">
+                                                    <i class="fas fa-home"></i> Product Details
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body p-4">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="firstnameInput" class="form-label">Product Name</label>
-                                                            <input type="text" class="form-control" id="firstnameInput" placeholder="Enter product name" value="">
+                                                            <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter product name" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="lastnameInput" class="form-label">Product description</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter Product description" value="">
+                                                            <input name="description" type="text" class="form-control" id="lastnameInput" placeholder="Enter product description" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Price</label>
-                                                            <input type="text" class="form-control" id="lastnameInput" placeholder="Enter Price" value="">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="phonenumberInput" class="form-label">Stock</label>
-                                                            <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter Stock" value="">
+                                                            <label for="lastnameInput" class="form-label">Features</label>
+                                                            <input name="features" type="text" class="form-control" id="lastnameInput" placeholder="Enter product features" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="demo-zone">
                                                         <label><b>Tags: </b></label>
-                                                        <select id="demoShort" multiple="" size="3" aria-label="size 3 select example">
-                                                            <option value="Licores"> Licores</option>
-                                                            <option value="Alcohol">Alcohol</option>
-                                                            <option value="Juegos">Juegos</option>
-                                                            <option value="pantallas">pantallas</option>
-                                                            <option value="martillos">martillos</option>
+                                                        <select name="tags" id="demoShort">
+                                                            <?php foreach ($tags as $tag) : ?>
+                                                                <option value="<?= $tag->id ?>"><?= $tag->name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <div class="demo-zone">
                                                         <label><b>Categories : </b></label>
-                                                        <select id="demoShort2">
-                                                            <option value="Nothing"></option>
-                                                            <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
-                                                            <option value="Herramientas">Herramientas</option>
-                                                            <option value="Patio">Patio</option>
-                                                            <option value="Baño">Baño</option>
+                                                        <select name="categories" id="demoShort2">
+                                                            <?php foreach ($categories as $category) : ?>
+                                                                <option value="<?= $category->id ?>"><?= $category->name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <div class="demo-zone">
                                                         <label><b>Brands : </b></label>
-                                                        <select id="demoShort3">
-                                                            <option value="Nothing"></option>
-                                                            <option value="Gran Malo">Gran Malo</option>
-                                                            <option value="Nike">Nike</option>
-                                                            <option value="Logitech">Logitech</option>
-                                                            <option value="Sabritas">Sabritas</option>
+                                                        <select name="marca" id="demoShort3">
+                                                            <?php foreach ($brands as $brand) : ?>
+                                                                <option value="<?= $brand->id ?>"><?= $brand->name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
 
@@ -149,23 +150,25 @@
                                                         <div class="hstack gap-2 justify-content-end">
                                                             <button type="submit" class="btn btn-primary">Add</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                            <input type="hidden" name="action" value="create">
+                                                            <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                 </div>
                                                 <!--end row-->
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end col-->
-                    </div>
-                    <!--end row-->
+                    </form>
                 </div>
-            </div><!-- End Page-content -->
+            </div>
         </div>
+    </div>
+    </div>
+    <!--end col-->
+    </div>
+    <!--end row-->
+    </div>
+    </div><!-- End Page-content -->
+    </div>
     </div>
     <?php include '../assets/layouts/footer.template.php' ?>
     <!-- END layout-wrapper -->

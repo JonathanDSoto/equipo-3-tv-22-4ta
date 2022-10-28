@@ -1,3 +1,10 @@
+<?php
+include "../app/config.php";
+include "../app/ProducstController.php";
+$productController = new ProductosController();
+$slug = $_GET['slug'];
+$productDetails = $productController->spcfP($slug);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -51,7 +58,7 @@
                                                 <div class="swiper product-thumbnail-slider p-2 rounded bg-light">
                                                     <div class="swiper-wrapper">
                                                         <div class="swiper-slide">
-                                                            <img src="../assets/images/granmalohorchata.jpg" alt="bebida alcoholica" width="300" height="600">
+                                                            <img src="<?= $productDetails->cover ?>" alt="<?= $productDetails->name ?>" width="300" height="600">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -63,14 +70,14 @@
                                             <div class="mt-xl-0 mt-5">
                                                 <div class="d-flex">
                                                     <div class="flex-grow-1">
-                                                        <h4>Gran Malo Horchata</h4>
+                                                        <h4><?= $productDetails->name ?></h4>
                                                         <div class="hstack gap-3 flex-wrap">
-                                                            <div><a href="Marcas.php" class="text-primary d-block">Gran Malo</a></div>
+                                                            <div><a href="Marcas.php" class="text-primary d-block"><?= $productDetails->brand->name ?></a></div>
                                                         </div>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="editproductos.php" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
+                                                            <a href="editproductos.php?slug=<?= $productDetails->slug ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="flex-shrink-0">
@@ -116,27 +123,28 @@
                                                 </div>
                                                 <div class="mt-4 text-muted">
                                                     <h5 class="fs-14">Description :</h5>
-                                                    <h6>Una bebida para tomar con los cuates</h6>
+                                                    <h6><?= $productDetails->description ?></h6>
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="mt-3">
                                                         <h5 class="fs-14">Features :</h5>
-                                                        <h6>-Base Tequila Blanco Gluten Free</h6>
-                                                        <h6>-Sabor Autentico Horchata, Canela Tostada y Agua de arroz natural</h6>
-                                                        <h6>-15% Alc. Vol</h6>
-                                                        <h6>-Botella con recubrimiento especial SOFT TOUCH</h6>
+                                                        <h6><?= $productDetails->features ?></h6>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="mt-3">
                                                         <h5 class="fs-14">Tags :</h5>
-                                                        <h6>Licores</h6>
+                                                        <?php foreach ($productDetails->tags as $tag) : ?>
+                                                            <h6><?= $tag->name ?></h6>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="mt-3">
                                                         <h5 class="fs-14">Categories :</h5>
-                                                        <h6>Alimentos Y Bebidas</h6>
+                                                        <?php foreach ($productDetails->categories as $category) : ?>
+                                                            <h6><?= $category->name ?></h6></br>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>
                                             </div>

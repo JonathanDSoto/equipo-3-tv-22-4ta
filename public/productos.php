@@ -1,3 +1,10 @@
+<?php
+include "../app/config.php";
+include '../app/ProducstController.php';
+
+$productController = new ProductosController();
+$products = $productController->productos();
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -87,428 +94,53 @@
                         <div class="card-body">
                             <div class="table-responsive table-card">
                                 <table class="table table-hover table-centered align-middle table-nowrap mb-0">
-                                    <tbody>
+                                    <tbody class="list form-check-all">
                                         <!-- Producto -->
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <?php if (isset($products) && count($products)) : ?>
+                                            <?php foreach ($products as $product) : ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                                <img src="<?= $product->cover ?>" alt="<?= $product->name ?>" class="img-fluid d-block" height="40px" width="40px" />
+                                                            </div>
+                                                            <div>
+                                                                <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset"><?= $product->name ?></a></h5>
+                                                                <span class="text-muted"><?= $product->features ?></span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="fs-14 my-1 fw-normal"><?= $product->description ?></h5>
+                                                        <span class="text-muted">Description</span>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="fs-14 my-1 fw-normal"><?= $product->brand->name ?></h5>
+                                                        <span class="text-muted">Brand</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex gap-2">
+                                                            <div class="View">
+                                                                <a href="detailsproductos.php?slug=<?= $product->slug ?>">
+                                                                    <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                </a>
+                                                            </div>
+                                                            <div class="edit">
+                                                                <a href="editproductos.php?slug=<?= $product->slug ?>">
+                                                                    <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                </a>
+                                                            </div>
+                                                            <div class="remove">
+                                                                <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                         <!-- fin Producto -->
                                         <!-- relleno -->
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="../assets/images/granmalohorchata.jpg" alt="" class="img-fluid d-block" height="40px" width="40px" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="detailsproductos.php" class="text-reset">Gran Malo Horchata </a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$30.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">47</h5>
-                                                <span class="text-muted">Stock</span>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="View">
-                                                        <a href="detailsproductos.php">
-                                                            <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="edit">
-                                                        <a href="editproductos.php">
-                                                            <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                        </a>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+
                                         <!-- fin relleno -->
                                     </tbody>
                                 </table>

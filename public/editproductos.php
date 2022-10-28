@@ -1,3 +1,20 @@
+<?php
+include "../app/config.php";
+include "../app/ProducstController.php";
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
+
+$productController = new ProductosController();
+$slug = $_GET['slug'];
+$productDetails = $productController->spcfP($slug);
+$brandController = new BrandsController();
+$brands = $brandController->getAllBrands();
+$categoryController = new CategoryController();
+$categories = $categoryController->getAllCategories();
+$TagController = new TagsController();
+$tags = $TagController->getAllTags();
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -49,13 +66,14 @@
                         </div>
                     </div>
 
+                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-xxl-3">
                             <div class="card mt-n5">
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="../assets/images/granmalohorchata.jpg" alt="user-profile-image" width="300" height="600">
+                                            <img src="<?= $productDetails->cover ?>" alt="<?= $productDetails->name ?>" width="300" height="600">
                                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -84,26 +102,25 @@
                                 <div class="card-body p-4">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                            <form action="javascript:void(0);">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="ProductNameInput" class="form-label">Product Name</label>
-                                                            <input type="text" class="form-control" id="ProductNameInput" placeholder="Enter product name" value="Gran Malo Horchata">
+                                                            <input name="name" type="text" class="form-control" id="ProductNameInput" placeholder="Enter product name" value="<?= $productDetails->name ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="ProductdescriptionInput" class="form-label">Product description</label>
-                                                            <input type="text" class="form-control" id="ProductdescriptionInput" placeholder="Enter Product description" value="Una bebida para tomar con los cuates">
+                                                            <input name="description" type="text" class="form-control" id="ProductdescriptionInput" placeholder="Enter Product description" value="<?= $productDetails->description ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="FeaturesInput" class="form-label">Features</label>
-                                                            <input type="text" class="form-control" id="FeaturesInput" placeholder="Enter Price" value="-Base Tequila Blanco Gluten Free -Sabor Autentico Horchata, Canela Tostada y Agua de arroz natural -15% Alc. Vol -Botella con recubrimiento especial SOFT TOUCH">
+                                                            <input name="features" type="text" class="form-control" id="FeaturesInput" placeholder="Enter Price" value="<?= $productDetails->features ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
@@ -143,30 +160,26 @@
                                                     <!--end col-->
                                                     <div class="demo-zone">
                                                         <label><b>Tags: </b></label>
-                                                        <select id="demoShort" multiple="" size="3">
-                                                            <option value="Licores">Licores</option>
-                                                            <option value="Alcohol">Alcohol</option>
-                                                            <option value="Bebidas">Bebidas</option>
-                                                            <option value="pantallas">pantallas</option>
-                                                            <option value="martillos">martillos</option>
+                                                        <select name="tags" id="demoShort">
+                                                            <?php foreach ($tags as $tag) : ?>
+                                                                <option value="<?= $tag->id ?>"><?= $tag->name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <div class="demo-zone">
                                                         <label><b>Categories : </b></label>
-                                                        <select id="demoShort2">
-                                                            <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
-                                                            <option value="Herramientas">Herramientas</option>
-                                                            <option value="Patio">Patio</option>
-                                                            <option value="Baño">Baño</option>
+                                                        <select name="categories" id="demoShort2">
+                                                            <?php foreach ($categories as $category) : ?>
+                                                                <option value="<?= $category->id ?>"><?= $category->name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <div class="demo-zone">
                                                         <label><b>Brands : </b></label>
-                                                        <select id="demoShort3">
-                                                            <option value="Gran Malo">Gran Malo</option>
-                                                            <option value="Nike">Nike</option>
-                                                            <option value="Logitech">Logitech</option>
-                                                            <option value="Sabritas">Sabritas</option>
+                                                        <select name="marca" id="demoShort3">
+                                                            <?php foreach ($brands as $brand) : ?>
+                                                                <option value="<?= $brand->id ?>"><?= $brand->name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
 
@@ -174,6 +187,8 @@
                                                         <div class="hstack gap-2 justify-content-end">
                                                             <button type="submit" class="btn btn-primary">Save</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
+                                                            <input type="hidden" name="action" value="update">
+                                                            <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
