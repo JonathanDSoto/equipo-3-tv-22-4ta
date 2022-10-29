@@ -11,8 +11,8 @@
  $categoriess = new CategoryController;
  $categories = $categoriess->getCategories();
 
- $productos = $tagss->getProducts($_GET['tagId']);
-
+ $productos = $brandss->getProducts($_GET['brand']);
+ 
 if (!isset($_SESSION['token'])) {
     header("Location:".BASE_PATH."/index.php");
 }?>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['token'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0">Tags</h4>
+                            <h4 class="mb-sm-0">Brands</h4>
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,8 @@ if (!isset($_SESSION['token'])) {
                                         <!-- Producto -->
                                         <?php if (isset($productos) && sizeof($productos) > 0) {
                                                 foreach ($productos as $lista) :
-                                                $srt = $lista->name . '||' . $lista->description . '||' . $lista->features . '||' . $lista->brand_id . '||' . $lista->id;
-                                                include '../assets/layouts/products.template.php';
+                                                $srt = $lista->name . '||' . $lista->description . '||' . $lista->features . '||' . $_GET['brand'] . '||' . $lista->id;
+                                                include '../assets/layouts/productsWI.template.php';
                                             endforeach; }
                                             else{
                                                 echo '

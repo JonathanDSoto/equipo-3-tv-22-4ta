@@ -6,13 +6,16 @@
  $tagss = new TagController();
  $tags = $tagss->getTags();
 
+ $tagss = new TagController();
+ $tags = $tagss->getTags();
+ 
  $brandss = new BrandController;
  $marcas = $brandss->getBrands();
  $categoriess = new CategoryController;
  $categories = $categoriess->getCategories();
-
- $productos = $tagss->getProducts($_GET['tagId']);
-
+ 
+ $productos = $categoriess->getProducts($_GET['categoria']);
+ 
 if (!isset($_SESSION['token'])) {
     header("Location:".BASE_PATH."/index.php");
 }?>
@@ -66,7 +69,7 @@ if (!isset($_SESSION['token'])) {
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0">Tags</h4>
+                            <h4 class="mb-sm-0">Categories</h4>
                         </div>
                     </div>
                 </div>
