@@ -58,7 +58,7 @@ include "app/config.php";
                                             <p class="text-muted">Sign in to continue.</p>
                                         </div>
                                         <?php
-                                        if(isset($_GET['error']) && $_GET['error']==='true'){
+                                        if (isset($_GET['error']) && $_GET['error'] === 'true') {
                                             echo  '<div>
                                             <p class="text-danger">Incorrect user data, try again</p>
                                         </div>';
@@ -70,19 +70,19 @@ include "app/config.php";
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label>
                                                     <input name="email" type="text" class="form-control" id="username" placeholder="Enter email" required>
-                    				                <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported.</p>
+                                                    <p class="formulario__input-error text-danger" id="grupo_email">The format is not supported.</p>
 
                                                 </div>
                                                 <div class="mb-3">
                                                     <div class="float-end">
-                                                        <a href="<?= BASE_PATH?>public/passreset" class="text-muted">Forgot password?</a>
+                                                        <a href="<?= BASE_PATH ?>public/passreset" class="text-muted">Forgot password?</a>
                                                     </div>
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input name="password" type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
-                    				                <p class="formulario__input-error text-danger" id="grupo_password">The password must have a minimum of 8 characters and a maximum of 14</p>
+                                                    <p class="formulario__input-error text-danger" id="grupo_password">The password must have a minimum of 8 characters and a maximum of 14</p>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">

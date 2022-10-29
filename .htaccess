@@ -13,3 +13,5 @@ RewriteRule ^public/signup$ public/successmgs.php
 RewriteRule ^login$ index.php
 RewriteRule ^products/allProducts$ products/index.php
 RewriteRule ^product/([a-zA-Z0-9-]*)$ products/details.php?slug=$1
+
+RewriteRule ^index$ public/index.php

@@ -139,9 +139,6 @@ $products = $productController->productos();
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                         <!-- fin Producto -->
-                                        <!-- relleno -->
-
-                                        <!-- fin relleno -->
                                     </tbody>
                                 </table>
                             </div>
