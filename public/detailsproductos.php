@@ -79,11 +79,37 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                             <div><a href="Marcas.php" class="text-primary d-block"><?= $productDetails->brand->name ?></a></div>
                                                         </div>
                                                     </div>
-                                                    <div class="flex-shrink-0">
-                                                        <div>
-                                                            <a href="addprecentation.php?idp=<?= $productDetails->brand->name ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
-                                                        </div>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Actions
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <div class="row">
+                                                                    <div>
+                                                                        <a href="addprecentation.php?idp=<?= $productDetails->brand->name ?>" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="row">
+                                                                    <div>
+                                                                        <a href="eliminar.php?action=deleteP&idP=<?php echo $productDetails->id ?>" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="delete">Delete Product</a>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="row">
+                                                                    <div>
+                                                                        <a href="editproductos.php?slug=<?php echo $productDetails->slug ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">Edit Product</a>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
                                                     </div>
+
+
+
                                                 </div>
 
                                                 <div class="d-flex flex-wrap gap-2 align-items-center mt-3">
@@ -102,7 +128,7 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                         if (isset($precentaciones)) {
                                                             foreach ($precentaciones as $pres) : ?>
                                                                 <div class="col-md-3 col-sm-4">
-                                                                    <a href="detailsprecentation.php?idP=<?= $pres->id?>">
+                                                                    <a href="detailsprecentation.php?idP=<?= $pres->id ?>">
                                                                         <img src="<?= $pres->cover ?>" alt="" class="img-thumbnail" style="width: 200px;" />
                                                                     </a>
                                                                 </div>
@@ -126,25 +152,25 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                         <div class="mt-3">
                                                             <h5 class="fs-14">Tags :</h5>
                                                             <ul>
-                                                                
+
                                                                 <?php foreach ($productDetails->tags as $tag) : ?>
                                                                     <li><a href="pTags.php?tagId=<?php echo $tag->id ?>"><?= $tag->name ?></a></li>
-                                                                    <?php endforeach; ?>
-                                                                </ul>
-                                                            </div>
+                                                                <?php endforeach; ?>
+                                                            </ul>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="mt-3">
-                                                                <h5 class="fs-14">Categories :</h5>
-                                                                <ul>
-                                                                    
-                                                                    <?php foreach ($productDetails->categories as $category) : ?>
-                                                                        <li><a href="pCategoria.php?categoria=<?php echo $category->id ?>"><?= $category->name ?></a></li>
-                                                                        <?php endforeach; ?>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mt-3">
+                                                            <h5 class="fs-14">Categories :</h5>
+                                                            <ul>
+
+                                                                <?php foreach ($productDetails->categories as $category) : ?>
+                                                                    <li><a href="pCategoria.php?categoria=<?php echo $category->id ?>"><?= $category->name ?></a></li>
+                                                                <?php endforeach; ?>
+                                                            </ul>
                                                         </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- end col -->

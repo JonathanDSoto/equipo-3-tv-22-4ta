@@ -5,7 +5,7 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="index.php" class="logo logo-dark">
+                <a href="productos.php" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="../assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -14,7 +14,7 @@
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="index.php" class="logo logo-light">
+                <a href="productos.php" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="../assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -26,13 +26,10 @@
                     <i class="ri-record-circle-line"></i>
                 </button>
             </div>
-
-    <div id="scrollbar">
-        <div class="container-fluid">
-
-            <div id="two-column-menu">
-            </div>
-
+            <div id="scrollbar">
+                <div class="container-fluid">
+                    <div id="two-column-menu">
+                    </div>
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
@@ -45,7 +42,7 @@
                                         <a href="addproductos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="productos.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
+                                        <a href="index.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
                                     </li>
                                 </ul>
                             </div>
@@ -56,7 +53,13 @@
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarTables">
                                 <ul class="nav nav-sm flex-column">
-
+                                    <?php foreach($tags as $t): ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-key="t-line" href="pTags.php?tagId=<?php echo $t->id ?>">
+                                            <?php echo $t->name; ?>
+                                        </a>
+                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </li>
@@ -82,15 +85,17 @@
                             <div class="collapse menu-dropdown" id="sidebarCharts">
                                 <ul class="nav nav-sm flex-column">
                                     <!-- inicio categoria -->
+                                    <?php foreach($categories as $categ): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pCategoria.php?categoria=">
+                                        <a class="nav-link" data-key="t-line" href="pCategoria.php?categoria=<?php echo $categ->id ?>">
+                                            <?php echo $categ->name; ?>
                                         </a>
                                     </li>
+                                    <?php endforeach; ?>
                                     <!-- fin categoria -->
                                 </ul>
                             </div>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarIcons" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarIcons">
                                 <i class="fa-sharp fa-solid fa-mug-hot"></i> <span data-key="t-icons">Marcas</span>
@@ -98,55 +103,60 @@
                             <div class="collapse menu-dropdown" id="sidebarIcons">
                                 <ul class="nav nav-sm flex-column">
                                     <!-- inicio marca -->
-
+                                    <?php foreach($marcas as $marca): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pBrand.php?brand=">
-
+                                        <a class="nav-link" data-key="t-line" href="pBrand.php?brand=<?php echo $marca->id ?>">
+                                            <?php echo $marca->name; ?>
                                         </a>
                                     </li>
+                                    <?php endforeach; ?>
                                     <!-- fin marca -->
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaps">
+                                <i class="fa-sharp fa-solid fa-face-smile"></i> <span data-key="t-maps">Usuario</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarMaps">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="adduser.php" class="nav-link" data-key="t-line"> Agregar usuarios </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="users.php" class="nav-link" data-key="t-line"> Ver usuarios </a>
+                                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaps">
-                        <i class="fa-sharp fa-solid fa-face-smile"></i> <span data-key="t-maps">Usuario</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarMaps">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="adduser.php" class="nav-link" data-key="t-line"> Agregar usuarios </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="users.php" class="nav-link" data-key="t-line"> Ver usuarios </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarMultilevel" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMultilevel">
-                        <i class="fa-sharp fa-solid fa-user-plus"></i> <span data-key="t-multi-level">Clientes</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarMultilevel">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="addclient.php" class="nav-link" data-key="t-line"> Agregar clientes </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="clients.php" class="nav-link" data-key="t-line"> Ver clientes </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-            </ul>
-            <!-- Sidebar -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarMultilevel" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMultilevel">
+                                <i class="fa-sharp fa-solid fa-user-plus"></i> <span data-key="t-multi-level">Clientes</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarMultilevel">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="addclient.php" class="nav-link" data-key="t-line"> Agregar clientes </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="clients.php" class="nav-link" data-key="t-line"> Ver clientes </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Sidebar -->
+                </div>
+                <div class="sidebar-background"></div>
+            </div>
+            <!-- termina Sidebar -->
         </div>
-        <div class="sidebar-background"></div>
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <!-- end main content-->
     </div>
-    <!-- termina Sidebar -->
 </div>
-<div class="vertical-overlay"></div>
