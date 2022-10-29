@@ -2,7 +2,10 @@
 include "../app/config.php";
 
 include '../assets/layouts/includes.php';
-$idP = $_GET['idp'];
+include '../app/PresentationController.php';
+$p = new PresentationController;
+$idPr = $_GET['idPr'];
+$precentacion = $p->spcfP($idPr);
 
 ?><doctype html>
     <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -40,12 +43,10 @@ $idP = $_GET['idp'];
         <!-- Begin page -->
         <div id="layout-wrapper">
             <!-- Inicia navbar -->
-            <?php include '../assets/layouts/navbar.template.php' 
-            ?>
+            <?php include '../assets/layouts/navbar.template.php' ?>
             <!-- Termina navbar -->
             <!-- Inicia sidebar -->
-            <?php include '../assets/layouts/sidebar.template.php' 
-            ?>
+            <?php include '../assets/layouts/sidebar.template.php' ?>
             <!-- Termina sidebar -->
             <!-- ========== App Menu ========== -->
             <div class="main-content">
@@ -73,21 +74,21 @@ $idP = $_GET['idp'];
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="description" class="form-label">Description</label>
-                                                                    <input name="description" type="text" class="form-control" id="description" placeholder="Enter the description" value="">
+                                                                    <input name="description" type="text" class="form-control" id="description" value="<?= $precentacion->description?>">
                                                                 </div>
                                                                 <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="weight_in_grams" class="form-label">weight In grams</label>
-                                                                    <input name="weight_in_grams" type="text" class="form-control" id="weight_in_grams" placeholder="Enter the weight_in_grams" value="">
+                                                                    <input name="weight_in_grams" type="text" class="form-control" id="weight_in_grams" value="<?= $precentacion->weight_in_grams?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_weight_in_grams">Just numbers.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_weight_in_grams">Just number</p>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="code" class="form-label"> code</label>
-                                                                    <input name="code" type="text" class="form-control" id="code" placeholder="Enter the weight_in_grams" value="">
+                                                                    <input name="code" type="text" class="form-control" id="code" value="<?= $precentacion->code?>">
                                                                 </div>
                                                                 <p class="formulario__input-error text-danger" id="grupo_weight_in_grams">The format only accepts letters and spaces.</p>
                                                             </div>
@@ -101,48 +102,42 @@ $idP = $_GET['idp'];
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="stock" class="form-label">Stock</label>
-                                                                    <input name="stock" type="text" class="form-control" id="stock" placeholder="Enter the stock" value="">
+                                                                    <input name="stock" type="text" class="form-control" id="stock" value="<?= $precentacion->stock?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_stock">Just numbers.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_stock">Just number.</p>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="stock_min" class="form-label">Stock min</label>
-                                                                    <input name="stock_min" type="text" class="form-control" id="stock_min" placeholder="Enter the minimun stock" value="">
+                                                                    <input name="stock_min" type="text" class="form-control" id="stock_min" value="<?= $precentacion->stock_min?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_stock_min">Just numbers.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_stock_min">Just number.</p>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="stock_max" class="form-label">Stock max</label>
-                                                                    <input name="stock_max" type="text" class="form-control" id="stock_max" placeholder="Enter the stock maximun" value="">
+                                                                    <input name="stock_max" type="text" class="form-control" id="stock_max" value="<?= $precentacion->stock_max?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_stock_max">Just numbers.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_stock_max">Just number.</p>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="amount" class="form-label">amount</label>
-                                                                    <input name="amount" type="text" class="form-control" id="amount" placeholder="Enter the amount" value="">
+                                                                    <input name="amount" type="text" class="form-control" id="amount" value="<?= $precentacion->current_price->amount?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_amount">Just numbers.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_amount">Just number.</p>
 
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="imagen" class="form-label">imagen</label>
-                                                                    <input name="imagen" type="file" class="form-control" id="imagen" placeholder="Enter the features" value="">
-                                                                </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_imagen">The photo is necesary (just .jpg .png .jpeg .svg).</p>
-
-                                                            </div>
+                                                            
                                                             <!--end col-->
 
                                                             <div class="col-lg-12">
                                                                 <div class="hstack gap-2 justify-content-end">
-                                                                    <button type="submit" class="btn btn-primary" id="send">Add</button>
+                                                                    <button type="submit" class="btn btn-primary" id="send">Update</button>
                                                                     <a href="" type="button" class="btn btn-soft-success">Cancel</a>
-                                                                    <input type="hidden" name="action" value="create">
-                                                                    <input type="hidden" name="product_id" value="<?= $idP ?>">
+                                                                    <input type="hidden" name="action" value="update">
+                                                                    <input type="hidden" name="product_id" value="<?= $precentacion -> product_id ?>">
+                                                                    <input type="hidden" name="id" value="<?= $idPr ?>">
                                                                     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                                 </div>
                                                             </div>

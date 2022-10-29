@@ -76,7 +76,7 @@ $precentacion = $p->spcfP($idP);
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="editproductos.php?slug=<?= $precentacion->slug ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
+                                                            <a href="updateprecentation.php?idPr=<?= $precentacion->id ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="flex-shrink-0">
