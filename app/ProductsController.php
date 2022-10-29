@@ -13,7 +13,7 @@ if (isset($_POST['action'])) {
             $cover = new CURLFILE($_FILES['imagen']['tmp_name']);
             $categories =$_POST['categories'];
             $tags = $_POST['tags']; 
-        
+
             $productsController = new ProductosController();
             $productsController->createProduct($name,$slug,$description,$features,$brand_id,$cover,$categories,$tags);
         break;
@@ -85,12 +85,10 @@ class ProductosController
         curl_close($curl);
         $response = json_decode($response);
 
-        if (isset($response->code) && $response->code > 0) {
-
-            header("Location:../products?success");
+        if (isset($response->code) &&  $response->code > 0) {
+            header("Location:" . BASE_PATH . "/public/productos.php?success=true");
         } else {
-
-            var_dump($data);
+            header("Location:" . BASE_PATH . "/public/productos.php?error=true");
         }
     }
     public function updateProduct($name, $slug, $description, $features, $brand_id, $id, $categories, $tags)
@@ -129,12 +127,10 @@ class ProductosController
         curl_close($curl);
         $response = json_decode($response);
 
-        if (isset($response->code) && $response->code > 0) {
-
-            header("Location:../products?success");
+        if (isset($response->code) &&  $response->code > 0) {
+            header("Location:" . BASE_PATH . "/public/productos.php?success=true");
         } else {
-
-            var_dump($data);
+            header("Location:" . BASE_PATH . "/public/productos.php?error=true");
         }
     }
     public function productos()
@@ -229,13 +225,9 @@ class ProductosController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            $var = $response->message;
-            header("Location:../view/productos");
-            // header ("Location:../view/productos.php?delete=true");
+            header("Location:" . BASE_PATH . "/public/productos.php?success=true");
         } else {
-            // header ("Location:../view/productos.php?delete=false");
-            return $response;
-            //header ("Location:../view/productos");
+            header("Location:" . BASE_PATH . "/public/productos.php?error=true");
         }
     }
 

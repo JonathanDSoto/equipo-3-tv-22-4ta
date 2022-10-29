@@ -1,6 +1,8 @@
 <?php
 include "../app/config.php";
 include "../app/UsersController.php";
+include '../assets/layouts/includes.php';
+
 $userController = new UserController();
 $id = $_GET['id'];
 $userDetails = $userController->getEspecificUser($id);

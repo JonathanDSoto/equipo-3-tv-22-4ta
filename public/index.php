@@ -1,3 +1,24 @@
+<?php
+include '../app/AuthController.php';
+include '../app/ProductsController.php';
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
+
+$tagss = new TagController();
+$tags = $tagss->getTags();
+
+$brandss = new BrandController;
+$marcas = $brandss->getBrands();
+$categoriess = new CategoryController;
+$categories = $categoriess->getCategories();
+$producto = new ProductosController;
+$products = $producto->productos();
+$user = new AuthController;
+
+if (!isset($_SESSION['token'])) {
+    header("Location:".BASE_PATH."/index.php");
+}?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -45,25 +66,24 @@
         <div class="main-content">
 
             <div class="page-content">
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0">Productos</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
 
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Best Selling Products</h4>
-                            <div class="flex-shrink-0">
-                                <div class="dropdown card-header-dropdown">
-                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="fw-semibold text-uppercase fs-12">Sort by:
-                                        </span><span class="text-muted">Today<i class="mdi mdi-chevron-down ms-1"></i></span>
+                            <div class="col-sm-auto flex-grow-1">
+                                <div>
+                                    <a href="addproductos.php">
+                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Today</a>
-                                        <a class="dropdown-item" href="#">Yesterday</a>
-                                        <a class="dropdown-item" href="#">Last 7 Days</a>
-                                        <a class="dropdown-item" href="#">Last 30 Days</a>
-                                        <a class="dropdown-item" href="#">This Month</a>
-                                        <a class="dropdown-item" href="#">Last Month</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -72,425 +92,16 @@
                         <div class="card-body">
                             <div class="table-responsive table-card">
                                 <table class="table table-hover table-centered align-middle table-nowrap mb-0">
-                                    <tbody>
+                                <tbody>
                                         <!-- Producto -->
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <?php foreach ($products as $lista) :
+                                                $srt = $lista->name . '||' . $lista->description . '||' . $lista->features . '||' . $lista->brand_id . '||' . $lista->id;
+                                                include '../assets/layouts/products.template.php';
+                                            endforeach; ?>
                                         <!-- fin Producto -->
-                                        <!-- relleno -->
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                        <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                        <span class="text-muted">24 Apr 2021</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                <span class="text-muted">Price</span>
-                                            </td>
-                                            <td>
-                                                <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                <span class="text-muted">Precentations</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                                                    <div class="offcanvas-header">
-                                                        <h5 class="offcanvas-title" id="offcanvasTopLabel">Nombre</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, officiis! Laboriosam eligendi neque libero quis, veritatis
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- fin relleno -->
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="align-items-center mt-4 pt-2 justify-content-between d-flex ">
-                                <div class="flex-shrink-0 ">
-                                    <div class="text-muted ">
-                                        Showing <span class="fw-semibold ">5</span> of <span class="fw-semibold ">25</span> Results
-                                    </div>
-                                </div>
-                                <ul class="pagination pagination-separated pagination-sm mb-0 ">
-                                    <li class="page-item disabled ">
-                                        <a href="# " class="page-link ">←</a>
-                                    </li>
-                                    <li class="page-item ">
-                                        <a href="# " class="page-link ">1</a>
-                                    </li>
-                                    <li class="page-item active ">
-                                        <a href="# " class="page-link ">2</a>
-                                    </li>
-                                    <li class="page-item ">
-                                        <a href="# " class="page-link ">3</a>
-                                    </li>
-                                    <li class="page-item ">
-                                        <a href="# " class="page-link ">→</a>
-                                    </li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -542,6 +153,11 @@
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
+    <script>
+            function desc(name,target){
+                swal(name,target);
+            }
+        </script>
 </body>
 
 

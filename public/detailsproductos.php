@@ -1,6 +1,8 @@
 <?php
 include "../app/config.php";
-include "../app/ProducstController.php";
+include "../app/ProductsController.php";
+include '../assets/layouts/includes.php';
+
 $productController = new ProductosController();
 $slug = $_GET['slug'];
 $productDetails = $productController->spcfP($slug);

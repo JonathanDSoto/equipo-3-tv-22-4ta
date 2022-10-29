@@ -2,6 +2,7 @@
 include '../app/AuthController.php';
 include '../app/UsersController.php';
 include '../app/ClientsController.php';
+include '../app/ProductsController.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'delUser':
@@ -13,6 +14,11 @@ if (isset($_GET['action'])) {
             $obj = new ClientsController;
             $objt = strip_tags($_GET['id']);
             $del = $obj->deleteClients($objt);
+            break;
+        case 'deleteP':
+            $obj = new ProductosController;
+            $objt = strip_tags($_GET['idP']);
+            $del = $obj->delete($objt);
             break;
         case 'logout':
             $sesion = new AuthController;

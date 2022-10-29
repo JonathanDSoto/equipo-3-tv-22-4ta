@@ -1,30 +1,31 @@
-
-<!-- inicia sidebar -->
-<div class="app-menu navbar-menu">
-    <!-- LOGO -->
-    <div class="navbar-brand-box">
-        <!-- Dark Logo-->
-        <a href="index.php" class="logo logo-dark">
-            <span class="logo-sm">
-                <img src="../assets/images/logo-sm.png" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="../assets/images/logo-dark.png" alt="" height="17">
-            </span>
-        </a>
-        <!-- Light Logo-->
-        <a href="index.php" class="logo logo-light">
-            <span class="logo-sm">
-                <img src="../assets/images/logo-sm.png" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="../assets/images/logo-light.png" alt="" height="17">
-            </span>
-        </a>
-        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
-            <i class="ri-record-circle-line"></i>
-        </button>
-    </div>
+<div class="row">
+    <div class="side-bar-menu col-3">
+        <!-- inicia sidebar -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="index.php" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="../assets/images/logo-sm.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="../assets/images/logo-dark.png" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="index.php" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="../assets/images/logo-sm.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="../assets/images/logo-light.png" alt="" height="17">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
 
     <div id="scrollbar">
         <div class="container-fluid">
@@ -32,88 +33,81 @@
             <div id="two-column-menu">
             </div>
 
-            <ul class="navbar-nav" id="navbar-nav">
-                <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="fa-sharp fa-solid fa-circle-plus"></i> <span data-key="t-dashboards">Productos</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="addproductos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="productos.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarTables" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTables">
-                        <i class="mdi mdi-grid-large"></i> <span data-key="t-tables">Etiquetas</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarTables">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="addtags.php" class="nav-link" data-key="t-marketplace"> Agregar Etiquetas </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="tags.php" class="nav-link" data-key="t-explore-now"> Ver lista de Etiquetas </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#sidebarnft" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarnft" data-key="t-nft-marketplace">
-                        <i class="fa-solid fa-ticket-simple"></i> <span data-key="t-dashboards">Cupones</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarnft">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="cupones.php" class="nav-link" data-key="t-marketplace"> Agregar cupon </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="cupones.php" class="nav-link" data-key="t-explore-now"> Ver lista de cupones </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCharts">
-                        <i class="fa-sharp fa-solid fa-hand-holding-heart"></i> <span data-key="t-charts">Categorias</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarCharts">
-                        <ul class="nav nav-sm flex-column">
-                            <!-- inicio categoria -->
-                            <li class="nav-item">
-                                <a href="addcategorias.php" class="nav-link" data-key="t-marketplace"> Agregar Categoria </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-key="t-line" href="Categorias.php">Ver Categorias</a>
-                            </li>
-                            <!-- fin categoria -->
-                        </ul>
-                    </div>
-                </li>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="fa-sharp fa-solid fa-circle-plus"></i> <span data-key="t-dashboards">Productos</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarDashboards">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="addproductos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="productos.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarTables" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTables">
+                                <i class="mdi mdi-grid-large"></i> <span data-key="t-tables">Etiquetas</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarTables">
+                                <ul class="nav nav-sm flex-column">
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarIcons" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarIcons">
-                        <i class="fa-sharp fa-solid fa-mug-hot"></i> <span data-key="t-icons">Marcas</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarIcons">
-                        <ul class="nav nav-sm flex-column">
-                            <!-- inicio marca -->
-                            <li class="nav-item">
-                                <a href="addbrands.php" class="nav-link" data-key="t-marketplace"> Agregar Marca </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-key="t-line" href="brands.php">Ver Marcas</a>
-                            </li>
-                            <!-- fin marca -->
-                        </ul>
-                    </div>
-                </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#sidebarnft" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarnft" data-key="t-nft-marketplace">
+                                <i class="fa-solid fa-ticket-simple"></i> <span data-key="t-dashboards">Cupones</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarnft">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="cupones.php" class="nav-link" data-key="t-marketplace"> Agregar cupon </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="cupones.php" class="nav-link" data-key="t-explore-now"> Ver lista de cupones </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCharts">
+                                <i class="fa-sharp fa-solid fa-hand-holding-heart"></i> <span data-key="t-charts">Categorias</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarCharts">
+                                <ul class="nav nav-sm flex-column">
+                                    <!-- inicio categoria -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-key="t-line" href="pCategoria.php?categoria=">
+                                        </a>
+                                    </li>
+                                    <!-- fin categoria -->
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarIcons" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarIcons">
+                                <i class="fa-sharp fa-solid fa-mug-hot"></i> <span data-key="t-icons">Marcas</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarIcons">
+                                <ul class="nav nav-sm flex-column">
+                                    <!-- inicio marca -->
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-key="t-line" href="pBrand.php?brand=">
+
+                                        </a>
+                                    </li>
+                                    <!-- fin marca -->
+                                </ul>
+                            </div>
+                        </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaps">
