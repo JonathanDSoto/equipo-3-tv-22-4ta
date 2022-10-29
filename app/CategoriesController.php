@@ -11,7 +11,7 @@ if (isset($_POST["action"])) {
                 $category_id = strip_tags($_POST['marca']);
                 $brand = new CategoryController();
                 $brand->createCat($name, $description, $slug, $category_id);
-                break;
+            break;
             case 'update':
                 $id = strip_tags($_POST['id']);
                 $name = strip_tags($_POST['name']);
@@ -20,7 +20,7 @@ if (isset($_POST["action"])) {
                 $slug = strip_tags(strtr($_POST['name'], " ", "-"));
                 $cat = new CategoryController();
                 $cat->updateCat($id, $name, $description, $slug, $category_id);
-                break;
+            break;
             case 'delete':
                 $id = strip_tags($_POST['idCat']);
                 $cat = new CategoryController();
