@@ -1,5 +1,6 @@
 <?php
 include "../app/config.php";
+include '../assets/layouts/includes.php';
 
 $id = $_GET['user'];
 ?>

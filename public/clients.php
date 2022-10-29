@@ -1,5 +1,6 @@
 <?php
 include "../app/config.php";
+include '../assets/layouts/includes.php';
 include "../app/ClientsController.php";
 $clientController = new ClientsController();
 $clients = $clientController->getAllClients();

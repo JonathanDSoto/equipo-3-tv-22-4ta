@@ -1,19 +1,12 @@
 <?php
 include "../app/config.php";
 include "../app/ProducstController.php";
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+include '../assets/layouts/includes.php';
 
 $productController = new ProductosController();
 $slug = $_GET['slug'];
 $productDetails = $productController->spcfP($slug);
-$brandController = new BrandsController();
-$brands = $brandController->getAllBrands();
-$categoryController = new CategoryController();
-$categories = $categoryController->getAllCategories();
-$TagController = new TagsController();
-$tags = $TagController->getAllTags();
+
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">

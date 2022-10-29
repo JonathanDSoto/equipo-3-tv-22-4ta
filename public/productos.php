@@ -1,22 +1,22 @@
 <?php
 include '../app/AuthController.php';
-include '../app/BrandsController.php';
 include '../app/ProductsController.php';
+include '../app/BrandsController.php';
 include '../app/CategoriesController.php';
 include '../app/TagsController.php';
 
+$tagss = new TagController();
+$tags = $tagss->getTags();
 
-$producto = new ProductosController;
-$products = $producto->productos();
 $brandss = new BrandController;
 $marcas = $brandss->getBrands();
 $categoriess = new CategoryController;
 $categories = $categoriess->getCategories();
+$producto = new ProductosController;
+$products = $producto->productos();
 $user = new AuthController;
 
 
-$tagss = new TagController();
-$tags = $tagss->getTags();
 
 
 if (!isset($_SESSION['token'])) {

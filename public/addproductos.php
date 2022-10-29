@@ -1,15 +1,8 @@
 <?php
 include "../app/config.php";
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
 
-$brandController = new BrandsController();
-$brands = $brandController->getAllBrands();
-$categoryController = new CategoryController();
-$categories = $categoryController->getAllCategories();
-$TagController = new TagsController();
-$tags = $TagController->getAllTags();
+include '../assets/layouts/includes.php';
+
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
