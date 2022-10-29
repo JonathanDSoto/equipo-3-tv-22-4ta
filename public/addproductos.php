@@ -49,34 +49,8 @@ include '../assets/layouts/includes.php';
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <div class="position-relative mx-n4 mt-n4">
-                        <div class="profile-wid-bg profile-setting-img">
-                            <img src="../assets/images/profile-bg.jpg" class="profile-wid-img" alt="">
-                        </div>
-                    </div>
-
-
-                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data">
+                    <form method="post" action="../app/ProductsController.php" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-xxl-3">
-                                <div class="card mt-n5">
-                                    <div class="card-body p-4">
-                                        <div class="text-center">
-                                            <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                                <img src="../assets/images/addimage.png" alt="user-profile-image">
-                                                <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                                    <input name="imagen" id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                                    <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                        <span class="avatar-title rounded-circle bg-light text-body shadow">
-                                                            <i class="ri-camera-fill"></i>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <!--end col-->
                             <div class="col-xxl-9">
                                 <div class="card mt-xxl-n5">
@@ -95,53 +69,88 @@ include '../assets/layouts/includes.php';
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="firstnameInput" class="form-label">Product Name</label>
-                                                            <input name="name" type="text" class="form-control" id="firstnameInput" placeholder="Enter product name" value="">
+                                                            <label for="name" class="form-label">Product Name</label>
+                                                            <input name="name" type="text" class="form-control" id="name" placeholder="Enter product name" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Product description</label>
-                                                            <input name="description" type="text" class="form-control" id="lastnameInput" placeholder="Enter product description" value="">
+                                                            <label for="description" class="form-label">Product description</label>
+                                                            <input name="description" type="text" class="form-control" id="description" placeholder="Enter product description" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="lastnameInput" class="form-label">Features</label>
-                                                            <input name="features" type="text" class="form-control" id="lastnameInput" placeholder="Enter product features" value="">
+                                                            <label for="features" class="form-label">Features</label>
+                                                            <input name="features" type="text" class="form-control" id="features" placeholder="Enter product features" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="imagen" class="form-label">Photo</label>
+                                                            <input name="imagen" type="file" class="form-control" id="imagen" value="">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
-                                                    <div class="demo-zone">
-                                                        <label><b>Tags: </b></label>
-                                                        <select name="tags" id="demoShort">
-                                                            <?php foreach ($tags as $tag) : ?>
-                                                                <option value="<?= $tag->id ?>"><?= $tag->name ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="demo-zone">
-                                                        <label><b>Categories : </b></label>
-                                                        <select name="categories" id="demoShort2">
-                                                            <?php foreach ($categories as $category) : ?>
-                                                                <option value="<?= $category->id ?>"><?= $category->name ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="demo-zone">
-                                                        <label><b>Brands : </b></label>
-                                                        <select name="marca" id="demoShort3">
-                                                            <?php foreach ($brands as $brand) : ?>
+                                                    <div class="col-lg-6">
+                                                        <label><b>Brand: </b></label>
+                                                        <select name="marca" class="form-select form-select-md">
+                                                            <?php foreach ($marcas as $brand) : ?>
                                                                 <option value="<?= $brand->id ?>"><?= $brand->name ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
+                                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                                    Categories
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                                <div class="accordion-body row">
+                                                                    <?php foreach ($categories as $category) : ?>
+                                                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" name="categories[]" id="categories<?= $category->id ?>" value="<?= $category->id ?>">
+                                                                                <label class="form-check-label" for="tags<?= $category->id ?>">
+                                                                                <?= $category->name ?>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="flush-headingTwo">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                                    Tags
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                                <div class="accordion-body row">
+                                                                    <?php foreach ($tags as $tag) : ?>
 
+                                                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" name="tags[]" id="tags<?= $tag->id ?>" value="<?= $tag->id ?>">
+                                                                                <label class="form-check-label" for="tags<?= $tag->id ?>">
+                                                                                <?= $tag->name ?>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Add</button>
+                                                            <button type="submit" class="btn btn-primary">Save</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
                                                             <input type="hidden" name="action" value="create">
                                                             <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
@@ -150,18 +159,16 @@ include '../assets/layouts/includes.php';
                                                     <!--end col-->
                                                 </div>
                                                 <!--end row-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <!--end col-->
-    </div>
-    <!--end row-->
-    </div>
-    </div><!-- End Page-content -->
-    </div>
     </div>
     <?php include '../assets/layouts/footer.template.php' ?>
     <!-- END layout-wrapper -->

@@ -34,6 +34,7 @@
                     </div>
 
                     <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><a href="index.php"><span data-key="t-menu">Inicio</span></a></li>
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
@@ -42,7 +43,7 @@
                             <div class="collapse menu-dropdown" id="sidebarDashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="productos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
+                                        <a href="addproductos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="productos.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>

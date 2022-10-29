@@ -1,12 +1,12 @@
 <?php
 include "../app/config.php";
-include "../app/ProducstController.php";
+
+include "../app/ProductsController.php";
 include '../assets/layouts/includes.php';
 
 $productController = new ProductosController();
 $slug = $_GET['slug'];
 $productDetails = $productController->spcfP($slug);
-
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -52,152 +52,120 @@ $productDetails = $productController->spcfP($slug);
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-
-                    <div class="position-relative mx-n4 mt-n4">
-                        <div class="profile-wid-bg profile-setting-img">
-                            <img src="../assets/images/profile-bg.jpg" class="profile-wid-img" alt="">
-                        </div>
-                    </div>
-
-                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-xxl-3">
-                            <div class="card mt-n5">
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="<?= $productDetails->cover ?>" alt="<?= $productDetails->name ?>" width="300" height="600">
-                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                                <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                                                <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body shadow">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        </div>
+                    <form method="post" action="../app/ProductsController.php" enctype="multipart/form-data">
+                        <div class="row">
+                            <!--end col-->
+                            <div class="col-xxl-9">
+                                <div class="card mt-xxl-n5">
+                                    <div class="card-header">
+                                        <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-bs-toggle="tab" role="tab">
+                                                    <i class="fas fa-home"></i> Product Details
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-xxl-9">
-                            <div class="card mt-xxl-n5">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" role="tab">
-                                                <i class="fas fa-home"></i> Product Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                    <div class="card-body p-4">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="ProductNameInput" class="form-label">Product Name</label>
-                                                            <input name="name" type="text" class="form-control" id="ProductNameInput" placeholder="Enter product name" value="<?= $productDetails->name ?>">
+                                                            <label for="name" class="form-label">Product Name</label>
+                                                            <input name="name" type="text" class="form-control" id="name" placeholder="Enter product name" value="<?= $productDetails->name ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="ProductdescriptionInput" class="form-label">Product description</label>
-                                                            <input name="description" type="text" class="form-control" id="ProductdescriptionInput" placeholder="Enter Product description" value="<?= $productDetails->description ?>">
+                                                            <label for="description" class="form-label">Product description</label>
+                                                            <input name="description" type="text" class="form-control" id="description" placeholder="Enter product description" value="<?= $productDetails->description ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="FeaturesInput" class="form-label">Features</label>
-                                                            <input name="features" type="text" class="form-control" id="FeaturesInput" placeholder="Enter Price" value="<?= $productDetails->features ?>">
+                                                            <label for="features" class="form-label">Features</label>
+                                                            <input name="features" type="text" class="form-control" id="features" placeholder="Enter product features" value="<?= $productDetails->features ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="PriceInput" class="form-label">Price</label>
-                                                            <input type="text" class="form-control" id="PriceInput" placeholder="Enter Price" value="$30.00">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="StockInput" class="form-label">Stock</label>
-                                                            <input type="text" class="form-control" id="StockInput" placeholder="Enter Stock" value="47">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="WeightingramsInput" class="form-label">Weight in grams</label>
-                                                            <input type="text" class="form-control" id="WeightingramsInput" placeholder="Enter Weight" value="10000">
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label for="presentInput" class="form-label">Presentations</label>
-                                                            <div class="col-sm-auto flex-grow-1">
-                                                                <div>
-                                                                    <a href="editpresentations.php">
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal">Edit Presentations</button>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--end col-->
-                                                    <div class="demo-zone">
-                                                        <label><b>Tags: </b></label>
-                                                        <select name="tags" id="demoShort">
-                                                            <?php foreach ($tags as $tag) : ?>
-                                                                <option value="<?= $tag->id ?>"><?= $tag->name ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="demo-zone">
-                                                        <label><b>Categories : </b></label>
-                                                        <select name="categories" id="demoShort2">
-                                                            <?php foreach ($categories as $category) : ?>
-                                                                <option value="<?= $category->id ?>"><?= $category->name ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="demo-zone">
-                                                        <label><b>Brands : </b></label>
-                                                        <select name="marca" id="demoShort3">
-                                                            <?php foreach ($brands as $brand) : ?>
+                                                        <label><b>Brand: </b></label>
+                                                        <select name="marca" class="form-select form-select-md">
+                                                            <?php foreach ($marcas as $brand) : ?>
                                                                 <option value="<?= $brand->id ?>"><?= $brand->name ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
+                                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                                    Categories
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                                <div class="accordion-body row">
+                                                                    <?php foreach ($categories as $category) : ?>
+                                                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" name="categories[]" id="categories<?= $category->id ?>" value="<?= $category->id ?>">
+                                                                                <label class="form-check-label" for="tags<?= $category->id ?>">
+                                                                                <?= $category->name ?>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="flush-headingTwo">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                                    Tags
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                                                <div class="accordion-body row">
+                                                                    <?php foreach ($tags as $tag) : ?>
 
+                                                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" name="tags[]" id="tags<?= $tag->id ?>" value="<?= $tag->id ?>">
+                                                                                <label class="form-check-label" for="tags<?= $tag->id ?>">
+                                                                                <?= $tag->name ?>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
                                                             <button type="submit" class="btn btn-primary">Save</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
                                                             <input type="hidden" name="action" value="update">
+                                                            <input type="hidden" name="objetivo" value="<?= $productDetails->id ?>">
                                                             <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                         </div>
                                                     </div>
                                                     <!--end col-->
                                                 </div>
                                                 <!--end row-->
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--end col-->
-                    </div>
-                    <!--end row-->
+                    </form>
                 </div>
-            </div><!-- End Page-content -->
+            </div>
         </div>
     </div>
     <?php include '../assets/layouts/footer.template.php' ?>
