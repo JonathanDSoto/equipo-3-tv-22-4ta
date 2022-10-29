@@ -2,10 +2,12 @@
 include "../app/config.php";
 include "../app/ProductsController.php";
 include '../assets/layouts/includes.php';
-
+include '../app/PresentationController.php';
+$p = new PresentationController;
 $productController = new ProductosController();
 $slug = $_GET['slug'];
 $productDetails = $productController->spcfP($slug);
+$precentaciones = $p->precentaciones($productDetails->id);
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -60,7 +62,7 @@ $productDetails = $productController->spcfP($slug);
                                                 <div class="swiper product-thumbnail-slider p-2 rounded bg-light">
                                                     <div class="swiper-wrapper">
                                                         <div class="swiper-slide">
-                                                            <img src="<?= $productDetails->cover ?>" alt="<?= $productDetails->name ?>" width="300" height="600">
+                                                            <img src="<?= $productDetails->cover ?>" alt="<?= $productDetails->name ?>" width="300">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,12 +81,7 @@ $productDetails = $productController->spcfP($slug);
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="editproductos.php?slug=<?= $productDetails->slug ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <div>
-                                                            <a href="" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-5-line"></i></a>
+                                                            <a href="addprecentation.php?idp=<?= $productDetails->brand->name ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -100,27 +97,17 @@ $productDetails = $productController->spcfP($slug);
                                                 </div>
                                                 <div class="present">
                                                     <h5>Precentations</h5>
-                                                    <ul>
-
-                                                        <a href=""><img src="../assets/images/granmalohorchatapeque.jpg" alt="bebida alcoholica" width="40" height="40"></a>
-                                                        <a href=""><img src="../assets/images/granmalopeque.jpg" alt="bebida alcoholica" width="40" height="40"></a>
-                                                    </ul>
-                                                </div>
-
-
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="mt-3">
-                                                            <h5 class="fs-14">Price :</h5>
-                                                            <h6>$30.00</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- end row -->
-                                                <div class="col-sm-12">
-                                                    <div class="mt-3">
-                                                        <h5 class="fs-14">Stock :</h5>
-                                                        <h6>47</h6>
+                                                    <div class="row">
+                                                        <?php
+                                                        if (isset($precentaciones)) {
+                                                            foreach ($precentaciones as $pres) : ?>
+                                                                <div class="col-md-3 col-sm-4">
+                                                                    <a href="detailsprecentation.php?idP=<?= $pres->id?>">
+                                                                        <img src="<?= $pres->cover ?>" alt="" class="img-thumbnail" style="width: 200px;" />
+                                                                    </a>
+                                                                </div>
+                                                        <?php endforeach;
+                                                        } ?>
                                                     </div>
                                                 </div>
                                                 <div class="mt-4 text-muted">
@@ -133,22 +120,31 @@ $productDetails = $productController->spcfP($slug);
                                                         <h6><?= $productDetails->features ?></h6>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12">
-                                                    <div class="mt-3">
-                                                        <h5 class="fs-14">Tags :</h5>
-                                                        <?php foreach ($productDetails->tags as $tag) : ?>
-                                                            <h6><?= $tag->name ?></h6>
-                                                        <?php endforeach; ?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="mt-3">
-                                                        <h5 class="fs-14">Categories :</h5>
-                                                        <?php foreach ($productDetails->categories as $category) : ?>
-                                                            <h6><?= $category->name ?></h6></br>
-                                                        <?php endforeach; ?>
-                                                    </div>
-                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-lg-6">
+                                                        <div class="mt-3">
+                                                            <h5 class="fs-14">Tags :</h5>
+                                                            <ul>
+                                                                
+                                                                <?php foreach ($productDetails->tags as $tag) : ?>
+                                                                    <li><a href="pTags.php?tagId=<?php echo $tag->id ?>"><?= $tag->name ?></a></li>
+                                                                    <?php endforeach; ?>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="mt-3">
+                                                                <h5 class="fs-14">Categories :</h5>
+                                                                <ul>
+                                                                    
+                                                                    <?php foreach ($productDetails->categories as $category) : ?>
+                                                                        <li><a href="pCategoria.php?categoria=<?php echo $category->id ?>"><?= $category->name ?></a></li>
+                                                                        <?php endforeach; ?>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                             </div>
                                         </div>
                                         <!-- end col -->
