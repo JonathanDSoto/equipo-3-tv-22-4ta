@@ -1,23 +1,17 @@
 <?php
-include '../app/AuthController.php';
-include '../app/BrandsController.php';
-include '../app/ProductsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+ include '../app/AuthController.php';
+ include '../app/BrandsController.php';
+ include '../app/CategoriesController.php';
+ include '../app/TagsController.php';
+ $tagss = new TagController();
+ $tags = $tagss->getTags();
 
+ $brandss = new BrandController;
+ $marcas = $brandss->getBrands();
+ $categoriess = new CategoryController;
+ $categories = $categoriess->getCategories();
 
-$producto = new ProductosController;
-$products = $producto->productos();
-$brandss = new BrandController;
-$marcas = $brandss->getBrands();
-$categoriess = new CategoryController;
-$categories = $categoriess->getCategories();
-$user = new AuthController;
-
-
-$tagss = new TagController();
-$tags = $tagss->getTags();
-
+ $productos = $tagss->getProducts($_GET['tagId']);
 
 if (!isset($_SESSION['token'])) {
     header("Location:".BASE_PATH."/index.php");
@@ -96,10 +90,17 @@ if (!isset($_SESSION['token'])) {
                                 <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                                 <tbody>
                                         <!-- Producto -->
-                                        <?php foreach ($products as $lista) :
+                                        <?php if (isset($productos) && sizeof($productos) > 0) {
+                                                foreach ($productos as $lista) :
                                                 $srt = $lista->name . '||' . $lista->description . '||' . $lista->features . '||' . $lista->brand_id . '||' . $lista->id;
                                                 include '../assets/layouts/products.template.php';
-                                            endforeach; ?>
+                                            endforeach; }
+                                            else{
+                                                echo '
+                                    <div class="col bg-pink text-center">
+                                    Lo sentimos, no tenemos productos disponibles sobre esta etiqueta :c
+                                </div>';
+                                            }?>
                                         <!-- fin Producto -->
                                     </tbody>
                                 </table>

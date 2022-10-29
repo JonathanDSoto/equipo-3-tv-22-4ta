@@ -5,7 +5,7 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="index.php" class="logo logo-dark">
+                <a href="productos.php" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="../assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -14,7 +14,7 @@
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="index.php" class="logo logo-light">
+                <a href="productos.php" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="../assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -42,7 +42,7 @@
                             <div class="collapse menu-dropdown" id="sidebarDashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="addproductos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
+                                        <a href="productos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="productos.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
@@ -56,7 +56,13 @@
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarTables">
                                 <ul class="nav nav-sm flex-column">
-
+                                    <?php foreach($tags as $t): ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-key="t-line" href="pTags.php?tagId=<?php echo $t->id ?>">
+                                            <?php echo $t->name; ?>
+                                        </a>
+                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </li>
@@ -82,10 +88,13 @@
                             <div class="collapse menu-dropdown" id="sidebarCharts">
                                 <ul class="nav nav-sm flex-column">
                                     <!-- inicio categoria -->
+                                    <?php foreach($categories as $categ): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pCategoria.php?categoria=">
+                                        <a class="nav-link" data-key="t-line" href="pCategoria.php?categoria=<?php echo $categ->id ?>">
+                                            <?php echo $categ->name; ?>
                                         </a>
                                     </li>
+                                    <?php endforeach; ?>
                                     <!-- fin categoria -->
                                 </ul>
                             </div>
@@ -98,12 +107,13 @@
                             <div class="collapse menu-dropdown" id="sidebarIcons">
                                 <ul class="nav nav-sm flex-column">
                                     <!-- inicio marca -->
-
+                                    <?php foreach($marcas as $marca): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pBrand.php?brand=">
-
+                                        <a class="nav-link" data-key="t-line" href="pBrand.php?brand=<?php echo $marca->id ?>">
+                                            <?php echo $marca->name; ?>
                                         </a>
                                     </li>
+                                    <?php endforeach; ?>
                                     <!-- fin marca -->
                                 </ul>
                             </div>
@@ -116,10 +126,10 @@
                             <div class="collapse menu-dropdown" id="sidebarMaps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="adduser.php" class="nav-link" data-key="t-line"> Agregar usuarios </a>
+                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Agregar usuarios </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="users.php" class="nav-link" data-key="t-line"> Ver usuarios </a>
+                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Ver usuarios </a>
                                     </li>
 
                                 </ul>
@@ -133,10 +143,10 @@
                             <div class="collapse menu-dropdown" id="sidebarMultilevel">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="addclient.php" class="nav-link" data-key="t-line"> Agregar clientes </a>
+                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Agregar clientes </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="clients.php" class="nav-link" data-key="t-line"> Ver clientes </a>
+                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Ver clientes </a>
                                     </li>
                                 </ul>
                             </div>
