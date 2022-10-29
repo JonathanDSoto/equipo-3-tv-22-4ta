@@ -126,10 +126,10 @@
                             <div class="collapse menu-dropdown" id="sidebarMaps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Agregar usuarios </a>
+                                        <a href="adduser.php" class="nav-link" data-key="t-line"> Agregar usuarios </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Ver usuarios </a>
+                                        <a href="users.php" class="nav-link" data-key="t-line"> Ver usuarios </a>
                                     </li>
 
                                 </ul>
@@ -143,10 +143,10 @@
                             <div class="collapse menu-dropdown" id="sidebarMultilevel">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Agregar clientes </a>
+                                        <a href="addclient.php" class="nav-link" data-key="t-line"> Agregar clientes </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="charts-apex-line.html" class="nav-link" data-key="t-line"> Ver clientes </a>
+                                        <a href="clients.php" class="nav-link" data-key="t-line"> Ver clientes </a>
                                     </li>
                                 </ul>
                             </div>
