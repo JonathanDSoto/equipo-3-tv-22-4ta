@@ -55,14 +55,11 @@ class ProductosController
 
         );
 
-        $categories = explode(' ', $categories);
-        $tags = explode(' ', $tags);
-
         foreach ($categories as $key => $category) {
-            $data['categories[' . $key . ']'] = $category;
+            $data['categories[' . $key . ']='] = $category;
         }
         foreach ($tags as $key => $tag) {
-            $data['tags[' . $key . ']'] = $tag;
+            $data['tags[' . $key . ']='] = $tag;
         }
 
         curl_setopt_array($curl, array(
@@ -96,17 +93,12 @@ class ProductosController
         $curl = curl_init();
 
         $data = 'name=' . $name . '&slug=' . $slug . '&description=' . $description . '&features=' . $features . '&brand_id=' . $brand_id . '&id=' . $id;
-
-        $categories = explode(' ', $categories);
-        $tags = explode(' ', $tags);
-
         foreach ($categories as $key => $category) {
-            $data .= '&categories[' . $key . ']=' . urlencode($category);
+            $data .= '&categories%5B' . $key . '%5D=' . urlencode($category);
         }
         foreach ($tags as $key => $tag) {
-            $data .= '&tags[' . $key . ']=' . urlencode($tag);
+            $data .= '&tags%5B' . $key . '%5D=' . urlencode($tag);
         }
-
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://crud.jonathansoto.mx/api/products',
             CURLOPT_RETURNTRANSFER => true,

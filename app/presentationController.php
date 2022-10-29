@@ -4,34 +4,34 @@ if (isset($_POST['action'])) {
     if (isset($_POST['super_token']) && $_POST['super_token'] == $_SESSION['super_token']) {
     switch ($_POST['action']) {
         case 'create':
-            $description = strip_tags($_POST['name']);
-            $code = strip_tags(strtr($_POST['name'], " ", "-"));
-            $weight_in_grams = strip_tags($_POST['description']);
-            $status = strip_tags($_POST['description']);
-            $stock = strip_tags($_POST['description']);
-            $stock_min = strip_tags($_POST['description']);
-            $stock_max = strip_tags($_POST['description']);
-            $product_id = strip_tags($_POST['description']);
-            $amount = strip_tags($_POST['features']);
+            $description = strip_tags($_POST['description']);
+            $code = strip_tags($_POST['code']);
+            $weight_in_grams = strip_tags($_POST['weight_in_grams']);
+            $status = strip_tags($_POST['status']);
+            $stock = strip_tags($_POST['stock']);
+            $stock_min = strip_tags($_POST['stock_min']);
+            $stock_max = strip_tags($_POST['stock_max']);
+            $product_id = strip_tags($_POST['product_id']);
+            $amount = strip_tags($_POST['amount']);
             $cover = new CURLFILE($_FILES['imagen']['tmp_name']);
             
             $precentacion = new PresentationController();
-            $precentacion->createPrecentation($description, $code, $weight_in_grams, $status,$cover, $stock,  $stock_min, $stock_max,$product_id,$amount);
+            $precentacion->createPrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$cover);
         break;
         case 'update':
-            $description = strip_tags($_POST['name']);
-            $code = strip_tags(strtr($_POST['name'], " ", "-"));
-            $weight_in_grams = strip_tags($_POST['description']);
-            $status = strip_tags($_POST['description']);
-            $stock = strip_tags($_POST['description']);
-            $stock_min = strip_tags($_POST['description']);
-            $stock_max = strip_tags($_POST['description']);
-            $product_id = strip_tags($_POST['description']);
-            $amount = strip_tags($_POST['features']);
+            $description = strip_tags($_POST['description']);
+            $code = strip_tags($_POST['code']);
+            $weight_in_grams = strip_tags($_POST['weight_in_grams']);
+            $status = strip_tags($_POST['status']);
+            $stock = strip_tags($_POST['stock']);
+            $stock_min = strip_tags($_POST['stock_min']);
+            $stock_max = strip_tags($_POST['stock_max']);
+            $product_id = strip_tags($_POST['product_id']);
+            $amount = strip_tags($_POST['amount']);
             $id = strip_tags($_POST['id']);
             
             $precentacion = new PresentationController();
-            $precentacion->createPrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$id);
+            $precentacion->updatePrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$id);
         break;
         case 'delete':
             $idEl = $_POST['idEliminar'];
@@ -44,7 +44,7 @@ if (isset($_POST['action'])) {
 
 class PresentationController
 {
-    public function createPrecentation($description, $code, $weight_in_grams, $status,$cover, $stock,  $stock_min, $stock_max,$product_id,$amount)
+    public function createPrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$cover)
     {
         $curl = curl_init();
 
@@ -62,25 +62,26 @@ class PresentationController
                 'code' => $code,
                 'weight_in_grams' => $weight_in_grams,
                 'status' => $status,
-                'cover'=> $cover,
+                'cover' => $cover,
                 'stock' => $stock,
                 'stock_min' => $stock_min,
                 'stock_max' => $stock_max,
                 'product_id' => $product_id,
                 'amount' => $amount),
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer ' . $_SESSION['token']
-            ),
-        ));
+                CURLOPT_HTTPHEADER => array(
+                  'Authorization: Bearer ' . $_SESSION['token'],
+                ),
+              ));
 
         $response = curl_exec($curl);
         curl_close($curl);
         $response = json_decode($response);
 
-        if (isset($response->code) && $response->code > 0) {
-
-            header("Location:../products?success");
+        if (isset($response->code) &&  $response->code > 0) {
+            header("Location:" . BASE_PATH . "public/productos.php?success=true");
         } else {
+            // header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            var_dump($_SESSION['token'].' Description = '.$description.' CODE = '.$code.' Weigh = '.$weight_in_grams.' status = '.$status.' stock = '. $stock.' stock min = '. $stock_min.' stock max = '. $stock_max.' obj = '.$product_id.' foto  = ',$amount,$cover);
         }
     }
     public function updatePrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$id)
@@ -106,10 +107,10 @@ class PresentationController
         curl_close($curl);
         $response = json_decode($response);
 
-        if (isset($response->code) && $response->code > 0) {
-
-            header("Location:../products?success");
+        if (isset($response->code) &&  $response->code > 0) {
+            header("Location:" . BASE_PATH . "public/productos.php?success=true");
         } else {
+            header("Location:" . BASE_PATH . "public/productos.php?error=true");
         }
     }
     public function precentaciones($id)
@@ -204,11 +205,9 @@ class PresentationController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            $var = $response->message;
-            header("Location:../products?success=true");
+            header("Location:" . BASE_PATH . "public/productos.php?success=true");
         } else {
-            header("Location:../products?error=true");
-            
+            header("Location:" . BASE_PATH . "public/productos.php?error=true");
         }
     }
 }
