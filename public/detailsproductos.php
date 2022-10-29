@@ -87,7 +87,7 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                             <li>
                                                                 <div class="row">
                                                                     <div>
-                                                                        <a href="addprecentation.php?idp=<?= $productDetails->brand->name ?>" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
+                                                                        <a href="addprecentation.php?idp=<?= $productDetails->id ?>" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
                                                                     </div>
                                                                 </div>
                                                             </li>
