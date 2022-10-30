@@ -131,6 +131,21 @@
                             </div>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="fa-sharp fa-solid fa-circle-plus"></i> <span data-key="t-dashboards">Ordenes</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarDashboards">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="addorders.php" class="nav-link" data-key="t-analytics"> Agregar Orden </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="orders.php" class="nav-link" data-key="t-analytics"> Ver lista de Ordenes </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaps">
                                 <i class="fa-sharp fa-solid fa-face-smile"></i> <span data-key="t-maps">Usuario</span>
                             </a>
