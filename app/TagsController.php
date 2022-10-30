@@ -9,21 +9,21 @@ if (isset($_POST["action"])) {
                 $name = strip_tags($_POST['name']);
                 $description = strip_tags($_POST['description']);
                 $slug = strip_tags(strtr($_POST['name'], " ", "-"));
-                $brand_id = strip_tags($_POST['marca']);
-                $brand = new BrandController();
-                $brand->createBrand($name, $description, $slug, $brand_id);
+                $tag = new TagController();
+                $tag->createTag($name, $description, $slug);
                 break;
             case 'update':
                 $name = strip_tags($_POST['name']);
                 $description = strip_tags($_POST['description']);
                 $slug = strip_tags(strtr($_POST['name'], " ", "-"));
-                $brand = new BrandController();
-                $brand->updateBrand($name, $description,$slug);
+                $id = strip_tags($_POST['id']);
+                $tag = new TagController();
+                $tag->updateTag($name, $description, $slug,$id);
                 break;
             case 'delete':
                 $id = strip_tags($_POST['idBrand']);
-                $brand = new BrandController();
-                $brand->delBrand($id);
+                $tag = new TagController();
+                $tag->delTag($id);
                 break;
         }
     }
@@ -122,17 +122,17 @@ class TagController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-          header("Location:" . BASE_PATH . "/public/productos.php?success=true");
-      } else {
-          header("Location:" . BASE_PATH . "/public/productos.php?error=true");
-      }
+            header("Location:" . BASE_PATH . "/public/productos.php?success=true");
+        } else {
+            header("Location:" . BASE_PATH . "/public/productos.php?error=true");
+        }
     }
     public function delTag($tag_id)
     {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://crud.jonathansoto.mx/api/tags/' + $tag_id,
+            CURLOPT_URL => 'https://crud.jonathansoto.mx/api/tags/' . $tag_id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -152,13 +152,13 @@ class TagController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-          header("Location:" . BASE_PATH . "/public/productos.php?success=true");
-      } else {
-          header("Location:" . BASE_PATH . "/public/productos.php?error=true");
-      }
+            header("Location:" . BASE_PATH . "/public/productos.php?success=true");
+        } else {
+            header("Location:" . BASE_PATH . "/public/productos.php?error=true");
+        }
     }
 
-    public function updateTag($name, $description, $slug)
+    public function updateTag($name, $description, $slug,$id)
     {
         $curl = curl_init();
 
@@ -171,7 +171,7 @@ class TagController
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'PUT',
-            CURLOPT_POSTFIELDS => 'name=' + $name + '&description=' + $description + '&slug=' + $slug,
+            CURLOPT_POSTFIELDS => 'name='.$name.'&description='.$description.'&slug='.$slug.'&id='.$id,
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Bearer ' . $_SESSION['token'],
                 'Content-Type: application/x-www-form-urlencoded'
@@ -185,9 +185,39 @@ class TagController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-          header("Location:" . BASE_PATH . "/public/productos.php?success=true");
-      } else {
-          header("Location:" . BASE_PATH . "/public/productos.php?error=true");
-      }
+            header("Location:" . BASE_PATH . "/public/productos.php?success=true");
+        } else {
+            header("Location:" . BASE_PATH . "/public/productos.php?error=true");
+        }
+    }
+    public function spcf($tag_id)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://crud.jonathansoto.mx/api/tags/'.$tag_id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer ' . $_SESSION['token'],
+            ),
+        ));
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+
+        $response = json_decode($response);
+
+        if (isset($response->code) &&  $response->code > 0) {
+            return $response->data;
+        } else {
+            return array();
+        }
     }
 }
