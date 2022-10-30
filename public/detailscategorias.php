@@ -1,3 +1,20 @@
+<?php
+include '../app/config.php';
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
+
+$brandController = new BrandController;
+$brands = $brandController->getBrands();
+
+$tagController = new TagController();
+$tags = $tagController->getTags();
+
+$categoryController = new CategoryController;
+$categories = $categoryController->getCategories();
+$id = $_GET['id'];
+$productos = $categoryController->getProducts($id);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -60,11 +77,11 @@
                                         <tbody>
                                             <tr>
                                                 <th class="ps-0" scope="row">Category :</th>
-                                                <td class="text-muted">Hogar y Muebles</td>
+                                                <td class="text-muted"><?= $productos->name ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Description :</th>
-                                                <td class="text-muted">Elementos y muebles para el hogar</td>
+                                                <td class="text-muted"><?= $productos->description ?></td>
                                             </tr>
 
                                         </tbody>
@@ -100,48 +117,17 @@
                                 <div class="table-responsive table-card">
                                     <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                                         <tbody>
-                                            <!-- Producto -->
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                            <img src="https://www.elsoldetoluca.com.mx/incoming/qd6gcq-cerveza-caguama.jpg/alternates/LANDSCAPE_768/cerveza-caguama.jpg" alt="" class="img-fluid d-block" />
-                                                        </div>
-                                                        <div>
-                                                            <h5 class="fs-14 my-1"><a href="" class="text-reset">Laptop Gamer Asus ROG G513RC 15.6</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <h5 class="fs-14 my-1 fw-normal">Asus</h5>
-                                                    <span class="text-muted">Brand</span>
-                                                </td>
-                                                <td>
-                                                    <h5 class="fs-14 my-1 fw-normal">Trabaja con un procesador AMD Ryzen 7</h5>
-                                                    <span class="text-muted">Features</span>
-                                                </td>
-                                                <td>
-                                                    <h5 class="fs-14 my-1 fw-normal">Para un ávido jugador de videojuegos, como tú.</h5>
-                                                    <span class="text-muted">Description</span>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <div class="View">
-                                                            <a href="detailsproductos.php">
-                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                            </a>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <a href="editproductos.php">
-                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                            </a>
-                                                        </div>
-                                                        <div class="remove">
-                                                            <button onclick="eliminar()" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Eliminar</button>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <?php if (isset($productos) && sizeof($productos) > 0) {
+                                                foreach ($productos as $lista) :
+                                                $srt = $lista->name . '||' . $lista->description . '||' . $lista->features . '||' . $lista->brand_id . '||' . $lista->id;
+                                                include '../assets/layouts/products.template.php';
+                                            endforeach; }
+                                            else{
+                                                echo '
+                                    <div class="col bg-pink text-center">
+                                    Lo sentimos, no tenemos productos disponibles sobre esta categoria :c
+                                </div>';
+                                            }?>
                                             <!-- fin Producto -->
                                         </tbody>
                                     </table>

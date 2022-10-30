@@ -1,3 +1,20 @@
+<?php
+include '../app/config.php';
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
+
+$tagController = new TagController();
+$tags = $tagController->getTags();
+
+$categoryController = new CategoryController;
+$categories = $categoryController->getCategories();
+
+$brandController = new BrandController;
+$brands = $brandController->getBrands();
+$id = $_GET['id'];
+$productos = $brandController->getProducts($id);
+?>
 <doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -51,7 +68,7 @@
                         </div>
                     </div>
 
-                    <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
+                    <form method="post" action="../app/BrandsController.php" enctype="multipart/form-data" id="form">
                         <div class="row">
                             <div class="col">
                                 <div class="card mt-n5">
@@ -72,7 +89,7 @@
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
                                                                 <label for="brandsInput" class="form-label">Brands Name</label>
-                                                                <input name="name" type="text" class="form-control" id="brandsname" placeholder="Enter brand name" value="Logitech">
+                                                                <input name="name" type="text" class="form-control" id="brandsname" placeholder="Enter brand name" value="<?= $productos->name ?>">
                                                             </div>
                     				                        <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
 
@@ -81,7 +98,7 @@
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
                                                                 <label for="descriptionInput" class="form-label">Description</label>
-                                                                <input name="description" type="text" class="form-control" id="description" placeholder="Enter brand description" value="Articulos de la marca Logitech">
+                                                                <input name="description" type="text" class="form-control" id="description" placeholder="Enter brand description" value="<?= $productos->description ?>">
                                                             </div>
                     				                        <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
 
@@ -93,7 +110,7 @@
                                                                 <button type="submit" class="btn btn-primary" id="send">Save</button>
                                                                 <a href="" type="button" class="btn btn-soft-success">Cancel</a>
                                                                 
-                                                                <input type="hidden" name="action" value="newUser">
+                                                                <input type="hidden" name="action" value="update">
                                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                             </div>
                                                         </div>

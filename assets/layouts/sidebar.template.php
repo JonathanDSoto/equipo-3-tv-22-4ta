@@ -103,7 +103,7 @@
                             <div class="collapse menu-dropdown" id="sidebarIcons">
                                 <ul class="nav nav-sm flex-column">
                                     <!-- inicio marca -->
-                                    <?php foreach($marcas as $marca): ?>
+                                    <?php foreach($brands as $marca): ?>
                                     <li class="nav-item">
                                         <a class="nav-link" data-key="t-line" href="pBrand.php?brand=<?php echo $marca->id ?>">
                                             <?php echo $marca->name; ?>

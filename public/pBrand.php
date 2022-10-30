@@ -98,7 +98,7 @@ if (!isset($_SESSION['token'])) {
                                             else{
                                                 echo '
                                     <div class="col bg-pink text-center">
-                                    Lo sentimos, no tenemos productos disponibles sobre esta etiqueta :c
+                                    Lo sentimos, no tenemos productos disponibles sobre esta marca :c
                                 </div>';
                                             }?>
                                         <!-- fin Producto -->

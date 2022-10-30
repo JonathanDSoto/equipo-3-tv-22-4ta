@@ -1,3 +1,18 @@
+<?php
+include '../app/config.php';
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
+
+$tagController = new TagController();
+$tags = $tagController->getTags();
+
+$categoryController = new CategoryController;
+$categories = $categoryController->getCategories();
+
+$brandController = new BrandController;
+$brands = $brandController->getBrands();
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -75,35 +90,39 @@
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
-                                                    <tr> 
+                                                    <tr>
                                                         <th class="" data-sort="name">Name</th>
                                                         <th class="" data-sort="desc">Description</th>
                                                         <th class="justify-content-end" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
-                                                    <tr>
-                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                        <td class="">Logitech</td>
-                                                        <td class="">Articulos de la marca Logitech</td>
-                                                        <td>
-                                                            <div class="d-flex gap-2">
-                                                                <div class="View">
-                                                                    <a href="detailsbrands.php">
-                                                                        <button class="btn btn-sm btn-primary edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="edit">
-                                                                    <a href="editbrands.php">
-                                                                        <button class="btn btn-sm btn-warning edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="remove">
-                                                                    <a href="" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    <?php if (isset($brands) && count($brands)) : ?>
+                                                        <?php foreach ($brands as $brand) : ?>
+                                                            <tr>
+                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                                <td class=""><?= $brand->name ?></td>
+                                                                <td class=""><?= $brand->description ?></td>
+                                                                <td>
+                                                                    <div class="d-flex gap-2">
+                                                                        <div class="View">
+                                                                            <a href="detailsbrands.php?id=<?= $brand->id ?>">
+                                                                                <button class="btn btn-sm btn-primary edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="edit">
+                                                                            <a href="editbrands.php?id=<?= $brand->id ?>">
+                                                                                <button class="btn btn-sm btn-warning edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="remove">
+                                                                            <a href="eliminar.php?id=<?= $brand->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -146,7 +165,7 @@
     <?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 
