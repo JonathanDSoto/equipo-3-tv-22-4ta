@@ -90,7 +90,7 @@ $source = $tagss->spcf($id);
                                                                     <label for="description" class="form-label">Description</label>
                                                                     <input name="description" type="text" class="form-control" id="description" placeholder="Enter tag description" value="<?= $source->description ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_description">The format only  accepts letters and spaces.</p>
 
                                                             </div>
                                                             <!--end col-->
