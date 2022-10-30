@@ -31,6 +31,7 @@ include '../assets/layouts/includes.php';
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/details.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -49,7 +50,7 @@ include '../assets/layouts/includes.php';
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <form method="post" action="../app/ProductsController.php" enctype="multipart/form-data">
+                    <form method="post" action="../app/ProductsController.php" enctype="multipart/form-data" id="form">
                         <div class="row">
                             <!--end col-->
                             <div class="col-xxl-9">
@@ -72,6 +73,7 @@ include '../assets/layouts/includes.php';
                                                             <label for="name" class="form-label">Product Name</label>
                                                             <input name="name" type="text" class="form-control" id="name" placeholder="Enter product name" value="">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
@@ -79,6 +81,7 @@ include '../assets/layouts/includes.php';
                                                             <label for="description" class="form-label">Product description</label>
                                                             <input name="description" type="text" class="form-control" id="description" placeholder="Enter product description" value="">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
@@ -86,12 +89,14 @@ include '../assets/layouts/includes.php';
                                                             <label for="features" class="form-label">Features</label>
                                                             <input name="features" type="text" class="form-control" id="features" placeholder="Enter product features" value="">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_features">The format only accepts letters and spaces.</p>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="imagen" class="form-label">Photo</label>
                                                             <input name="imagen" type="file" class="form-control" id="imagen" value="">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_imagen">The photo is necesary (just .jpg .png .jpeg .svg)</p>
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
@@ -116,7 +121,7 @@ include '../assets/layouts/includes.php';
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input" type="checkbox" name="categories[]" id="categories<?= $category->id ?>" value="<?= $category->id ?>">
                                                                                 <label class="form-check-label" for="tags<?= $category->id ?>">
-                                                                                <?= $category->name ?>
+                                                                                    <?= $category->name ?>
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -138,7 +143,7 @@ include '../assets/layouts/includes.php';
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input" type="checkbox" name="tags[]" id="tags<?= $tag->id ?>" value="<?= $tag->id ?>">
                                                                                 <label class="form-check-label" for="tags<?= $tag->id ?>">
-                                                                                <?= $tag->name ?>
+                                                                                    <?= $tag->name ?>
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -150,7 +155,7 @@ include '../assets/layouts/includes.php';
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                            <button type="submit" class="btn btn-primary" id="send">Save</button>
                                                             <button type="button" class="btn btn-soft-success">Cancel</button>
                                                             <input type="hidden" name="action" value="create">
                                                             <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
@@ -209,6 +214,7 @@ include '../assets/layouts/includes.php';
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
+    <script src="../assets/js/config/product.js"></script>
 </body>
 
 </html>

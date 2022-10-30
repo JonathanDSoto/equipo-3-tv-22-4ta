@@ -35,6 +35,7 @@ $productDetails = $productController->spcfP($slug);
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/details.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -75,6 +76,8 @@ $productDetails = $productController->spcfP($slug);
                                                             <label for="name" class="form-label">Product Name</label>
                                                             <input name="name" type="text" class="form-control" id="name" placeholder="Enter product name" value="<?= $productDetails->name ?>">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
+
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
@@ -82,6 +85,8 @@ $productDetails = $productController->spcfP($slug);
                                                             <label for="description" class="form-label">Product description</label>
                                                             <input name="description" type="text" class="form-control" id="description" placeholder="Enter product description" value="<?= $productDetails->description ?>">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
+
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
@@ -89,6 +94,8 @@ $productDetails = $productController->spcfP($slug);
                                                             <label for="features" class="form-label">Features</label>
                                                             <input name="features" type="text" class="form-control" id="features" placeholder="Enter product features" value="<?= $productDetails->features ?>">
                                                         </div>
+                                                        <p class="formulario__input-error text-danger" id="grupo_features">The format only accepts letters and spaces.</p>
+
                                                     </div>
                                                     <!--end col-->
                                                     <div class="col-lg-6">
@@ -207,6 +214,7 @@ $productDetails = $productController->spcfP($slug);
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
+    <script src="../assets/js/config/editProd.js "></script>
 </body>
 
 </html>

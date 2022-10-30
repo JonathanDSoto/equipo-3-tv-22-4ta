@@ -132,14 +132,7 @@ if (!isset($_SESSION['token'])) {
     </button>
     <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader ">
-        <div id="status ">
-            <div class="spinner-border text-primary avatar-sm " role="status ">
-                <span class="visually-hidden ">Loading...</span>
-            </div>
-        </div>
-    </div>
+  
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>
