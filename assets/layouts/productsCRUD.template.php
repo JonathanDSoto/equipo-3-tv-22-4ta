@@ -15,7 +15,7 @@
             </div>
         </div>
       </div>
-      <div class="col-sm-3 col-lg-2">
+      <div class="col-sm-6 col-lg-2">
       <?php 
                 if(isset($lista->brand->name )){
                     echo '<h5 class="fs-14 my-1 fw-normal">'.$lista->brand->name.'</h5><span class="text-muted">Marca</span>';
@@ -25,7 +25,7 @@
             ?>
 
       </div>
-      <div class="col-sm-3 col-lg-4">
+      <div class="col-sm-6 col-lg-4 text-end">
       <a class="btn btn-warning" href="editproductos.php?slug=<?php echo $lista->slug ?>" type="button">Edit</a>
     <button class="btn btn-primary" onclick="desc('<?php echo $lista->name ?>','<?php echo $lista->description ?>')" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
     <a class="btn btn-danger" href="eliminar.php?action=deleteP&idP=<?php echo $lista->id ?>" type="button">Delete</a>
