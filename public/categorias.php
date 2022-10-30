@@ -1,17 +1,8 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
 
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
+include '../assets/layouts/includes.php';
 
-$tagController = new TagController();
-$tags = $tagController->getTags();
-
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -94,7 +85,6 @@ $categories = $categoryController->getCategories();
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th class="" data-sort="name">Name</th>
-                                                        <th class="" data-sort="desc">Description</th>
                                                         <th class="justify-content-end" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
@@ -106,7 +96,6 @@ $categories = $categoryController->getCategories();
                                                                 <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
 
                                                                 <td class=""><?= $category->name ?></td>
-                                                                <td class=""><?= $category->description ?></td>
 
                                                                 <td>
                                                                     <div class="d-flex gap-2">
@@ -121,7 +110,7 @@ $categories = $categoryController->getCategories();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar.php?id=<?= $category->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
+                                                                            <a href="eliminar.php?action=delCategory&id=<?= $category->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>

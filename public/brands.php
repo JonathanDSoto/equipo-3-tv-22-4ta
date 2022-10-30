@@ -1,17 +1,7 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+include '../assets/layouts/includes.php';
 
-$tagController = new TagController();
-$tags = $tagController->getTags();
-
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
-
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -92,17 +82,15 @@ $brands = $brandController->getBrands();
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th class="" data-sort="name">Name</th>
-                                                        <th class="" data-sort="desc">Description</th>
                                                         <th class="justify-content-end" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
-                                                    <?php if (isset($brands) && count($brands)) : ?>
-                                                        <?php foreach ($brands as $brand) : ?>
+                                                    <?php if (isset($marcas) && count($marcas)) : ?>
+                                                        <?php foreach ($marcas as $brand) : ?>
                                                             <tr>
                                                                 <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
                                                                 <td class=""><?= $brand->name ?></td>
-                                                                <td class=""><?= $brand->description ?></td>
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
@@ -116,7 +104,7 @@ $brands = $brandController->getBrands();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar.php?id=<?= $brand->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
+                                                                            <a href="eliminar.php?action=delBrand&id=<?= $brand->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>

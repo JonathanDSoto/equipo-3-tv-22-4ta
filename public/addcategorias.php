@@ -1,17 +1,7 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+include '../assets/layouts/includes.php';
 
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
-
-$tagController = new TagController();
-$tags = $tagController->getTags();
-
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
 ?>
 <doctype html>
     <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -86,8 +76,8 @@ $categories = $categoryController->getCategories();
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="categorynameInput" class="form-label">Category Name</label>
-                                                                    <input name="name" type="text" class="form-control" id="categoryname" placeholder="Enter the category name" value="">
+                                                                    <label for="name" class="form-label">Category Name</label>
+                                                                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter the category name" value="">
                                                                 </div>
                                                                 <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
 
@@ -95,10 +85,10 @@ $categories = $categoryController->getCategories();
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Description</label>
+                                                                    <label for="description" class="form-label">Description</label>
                                                                     <input name="description" type="text" class="form-control" id="description" placeholder="Enter the category description" value="">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
 
                                                             </div>
                                                             <!--end col-->

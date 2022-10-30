@@ -1,17 +1,8 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+include '../assets/layouts/includes.php';
 
-$tagController = new TagController();
-$tags = $tagController->getTags();
 
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
-
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
 ?>
 <doctype html>
     <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -86,8 +77,8 @@ $brands = $brandController->getBrands();
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="brandsInput" class="form-label">Brands Name</label>
-                                                                    <input name="name" type="text" class="form-control" id="brandsname" placeholder="Enter brand name" value="">
+                                                                    <label for="name" class="form-label">Brands Name</label>
+                                                                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter brand name" value="">
                                                                 </div>
                                                                 <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
 
@@ -95,10 +86,10 @@ $brands = $brandController->getBrands();
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Description</label>
+                                                                    <label for="description" class="form-label">Description</label>
                                                                     <input name="description" type="text" class="form-control" id="description" placeholder="Enter brand description" value="">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
 
                                                             </div>
                                                             <!--end col-->
@@ -139,16 +130,7 @@ $brands = $brandController->getBrands();
             <i class="ri-arrow-up-line "></i>
         </button>
 
-        <!--end back-to-top-->
-
-        <!--preloader-->
-        <div id="preloader ">
-            <div id="status ">
-                <div class="spinner-border text-primary avatar-sm " role="status ">
-                    <span class="visually-hidden ">Loading...</span>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- JAVASCRIPT -->
         <?php include '../assets/layouts/js.template.php' ?>
@@ -168,7 +150,7 @@ $brands = $brandController->getBrands();
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
-        <script src="../assets/js/config/newAddress.js"></script>
+        <script src="../assets/js/config/dosC.js"></script>
     </body>
 
     </html>

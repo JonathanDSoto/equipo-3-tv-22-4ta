@@ -1,6 +1,3 @@
-<div class="row">
-    <div class="side-bar-menu col-3">
-        <!-- inicia sidebar -->
         <div class="app-menu navbar-menu">
             <!-- LOGO -->
             <div class="navbar-brand-box">
@@ -122,7 +119,7 @@
                                     </li>
                                     
                                     <!-- inicio marca -->
-                                    <?php foreach($brands as $marca): ?>
+                                    <?php foreach($marcas as $marca): ?>
                                     <li class="nav-item">
                                         <a class="nav-link" data-key="t-line" href="pBrand.php?brand=<?php echo $marca->id ?>">
                                             <?php echo $marca->name; ?>
@@ -171,11 +168,3 @@
             </div>
             <!-- termina Sidebar -->
         </div>
-        <!-- Vertical Overlay-->
-        <div class="vertical-overlay"></div>
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <!-- end main content-->
-    </div>
-</div>

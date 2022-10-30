@@ -1,19 +1,10 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
 
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
-
-$tagController = new TagController();
-$tags = $tagController->getTags();
-
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
+include '../assets/layouts/includes.php';
 $id = $_GET['id'];
-$productos = $categoryController->getProducts($id);
+$productos = $categoriess->getProducts($id);
+$source = $categoriess->spcf($id);
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -88,8 +79,8 @@ $productos = $categoryController->getProducts($id);
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="categorynameInput" class="form-label">Category Name</label>
-                                                                <input name="name" type="text" class="form-control" id="categoryname" placeholder="Enter the category name" value="<?= $productos->name ?>">
+                                                                <label for="name" class="form-label">Category Name</label>
+                                                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter the category name" value="<?= $source->name ?>">
                                                             </div>
                                                             <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
 
@@ -97,10 +88,10 @@ $productos = $categoryController->getProducts($id);
                                                         <!--end col-->
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="descriptionInput" class="form-label">Description</label>
-                                                                <input name="description" type="text" class="form-control" id="description" placeholder="Enter the category description" value="<?= $productos->description ?>">
+                                                                <label for="description" class="form-label">Description</label>
+                                                                <input name="description" type="text" class="form-control" id="description" placeholder="Enter the category description" value="<?= $source->description ?>">
                                                             </div>
-                                                            <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                            <p class="formulario__input-error text-danger" id="grupo_description">The format only accepts letters and spaces.</p>
 
                                                         </div>
                                                         <!--end col-->
@@ -110,6 +101,8 @@ $productos = $categoryController->getProducts($id);
                                                                 <button type="submit" class="btn btn-primary">Save</button>
                                                                 <a href="" type="button" class="btn btn-soft-success">Cancel</a>
 
+                                                                <input type="hidden" name="id" value="<?= $source->id?>">
+                                                                <input type="hidden" name="category_id" value="<?= $source->id?>">
                                                                 <input type="hidden" name="action" value="update">
                                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                             </div>
@@ -161,7 +154,7 @@ $productos = $categoryController->getProducts($id);
 
     <!-- App js -->
     <script src="../assets/js/app.js "></script>
-    <script src="../assets/js/config/newAddress.js"></script>
+    <script src="../assets/js/config/dosC.js"></script>
 </body>
 
 </html>

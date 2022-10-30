@@ -1,19 +1,10 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+include '../assets/layouts/includes.php';
 
-$tagController = new TagController();
-$tags = $tagController->getTags();
-
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
-
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
 $id = $_GET['id'];
-$productos = $brandController->getProducts($id);
+$productos = $brandss->getProducts($id);
+$source = $brandss->spcf($id);
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -77,11 +68,11 @@ $productos = $brandController->getProducts($id);
                                         <tbody>
                                             <tr>
                                                 <th class="ps-0" scope="row">Brand :</th>
-                                                <td class="text-muted"><?= $productos->name ?></td>
+                                                <td class="text-muted"><?= $source->name ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Description :</th>
-                                                <td class="text-muted"><?= $productos->description ?></td>
+                                                <td class="text-muted"><?= $source->description ?></td>
                                             </tr>
 
                                         </tbody>
@@ -91,26 +82,7 @@ $productos = $brandController->getProducts($id);
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">Products</h4>
-                                <div class="flex-shrink-0">
-                                    <div class="dropdown card-header-dropdown">
-                                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="fw-semibold text-uppercase fs-12">Sort by:
-                                            </span><span class="text-muted">Today<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#">Today</a>
-                                            <a class="dropdown-item" href="#">Yesterday</a>
-                                            <a class="dropdown-item" href="#">Last 7 Days</a>
-                                            <a class="dropdown-item" href="#">Last 30 Days</a>
-                                            <a class="dropdown-item" href="#">This Month</a>
-                                            <a class="dropdown-item" href="#">Last Month</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
                             <!-- end card header -->
 
                             <div class="card-body">

@@ -4,6 +4,9 @@ include '../app/UsersController.php';
 include '../app/ClientsController.php';
 include '../app/ProductsController.php';
 include '../app/presentationController.php';
+include '../app/BrandsController.php';
+include '../app/CategoriesController.php';
+include '../app/TagsController.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'delUser':
@@ -34,6 +37,21 @@ if (isset($_GET['action'])) {
             $obj = new PresentationController;
             $objt = strip_tags($_GET['idObj']);
             $del = $obj->delete($objt);
+            break;
+        case 'delTag':
+            $obj = new TagController;
+            $objt = strip_tags($_GET['id']);
+            $del = $obj->delTag($objt);
+            break;
+        case 'delBrand':
+            $obj = new BrandController;
+            $objt = strip_tags($_GET['id']);
+            $del = $obj->delBrand($objt);
+            break;
+        case 'delCategory':
+            $obj = new CategoryController;
+            $objt = strip_tags($_GET['id']);
+            $del = $obj->delCat($objt);
             break;
     }
 }

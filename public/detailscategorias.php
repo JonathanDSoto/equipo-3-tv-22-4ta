@@ -1,19 +1,11 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
 
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
+include '../assets/layouts/includes.php';
 
-$tagController = new TagController();
-$tags = $tagController->getTags();
-
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
 $id = $_GET['id'];
-$productos = $categoryController->getProducts($id);
+$productos = $categoriess->getProducts($id);
+$source = $categoriess->spcf($id);
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -77,11 +69,11 @@ $productos = $categoryController->getProducts($id);
                                         <tbody>
                                             <tr>
                                                 <th class="ps-0" scope="row">Category :</th>
-                                                <td class="text-muted"><?= $productos->name ?></td>
+                                                <td class="text-muted"><?= $source->name ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Description :</th>
-                                                <td class="text-muted"><?= $productos->description ?></td>
+                                                <td class="text-muted"><?= $source->description ?></td>
                                             </tr>
 
                                         </tbody>

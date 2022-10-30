@@ -1,17 +1,7 @@
 <?php
 include '../app/config.php';
-include '../app/BrandsController.php';
-include '../app/CategoriesController.php';
-include '../app/TagsController.php';
+include '../assets/layouts/includes.php';
 
-$categoryController = new CategoryController;
-$categories = $categoryController->getCategories();
-
-$brandController = new BrandController;
-$brands = $brandController->getBrands();
-
-$tagController = new TagController();
-$tags = $tagController->getTags();
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -92,7 +82,6 @@ $tags = $tagController->getTags();
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th class="" data-sort="name">Name</th>
-                                                        <th class="" data-sort="desc">Description</th>
                                                         <th class="justify-content-end" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
@@ -102,7 +91,6 @@ $tags = $tagController->getTags();
                                                             <tr>
                                                                 <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
                                                                 <td class=""><?= $tag->name ?></td>
-                                                                <td class=""><?= $tag->description ?></td>
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
@@ -116,7 +104,7 @@ $tags = $tagController->getTags();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar.php?id=<?= $tag->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
+                                                                            <a href="eliminar.php?action=delTag&id=<?= $tag->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>
