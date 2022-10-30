@@ -53,6 +53,12 @@
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarTables">
                                 <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                        <a href="addtags.php" class="nav-link" data-key="t-analytics"> Agregar Etiqueta </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="tags.php" class="nav-link" data-key="t-analytics"> Ver etiquetas y detalles </a>
+                                    </li>
                                     <?php foreach($tags as $t): ?>
                                     <li class="nav-item">
                                         <a class="nav-link" data-key="t-line" href="pTags.php?tagId=<?php echo $t->id ?>">
@@ -84,6 +90,12 @@
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarCharts">
                                 <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                        <a href="addcategorias.php" class="nav-link" data-key="t-analytics"> Agregar categoria </a>
+                                    </li>
+                                <li class="nav-item">
+                                        <a href="categorias.php" class="nav-link" data-key="t-analytics"> Ver categorias y detalles </a>
+                                    </li>
                                     <!-- inicio categoria -->
                                     <?php foreach($categories as $categ): ?>
                                     <li class="nav-item">
@@ -102,6 +114,13 @@
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarIcons">
                                 <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                        <a href="addbrands.php" class="nav-link" data-key="t-analytics">Agregar marca </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="brands.php" class="nav-link" data-key="t-analytics"> Ver marcas y detalles </a>
+                                    </li>
+                                    
                                     <!-- inicio marca -->
                                     <?php foreach($marcas as $marca): ?>
                                     <li class="nav-item">
