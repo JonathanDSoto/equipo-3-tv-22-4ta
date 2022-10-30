@@ -87,9 +87,9 @@ $idP = $_GET['idp'];
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="code" class="form-label"> code</label>
-                                                                    <input name="code" type="text" class="form-control" id="code" placeholder="Enter the weight_in_grams" value="">
+                                                                    <input name="code" type="text" class="form-control" id="code" placeholder="Enter the code" value="">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_weight_in_grams">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_code">Minimun 1 character and maximun 18 .</p>
                                                             </div>
                                                             <div class="col-lg-6 text-start">
                                                                 <label for="status" class="form-label"> Status</label>
@@ -202,6 +202,7 @@ $idP = $_GET['idp'];
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
+        <script src="../assets/js/config/newP.js"></script>
     </body>
 
     </html>

@@ -6,5 +6,5 @@
     }
 
     if(!defined(('BASE_PATH'))){
-        define('BASE_PATH', 'http://localhost/proyecto4/equipo-3-tv-22-4ta/');
+        define('BASE_PATH', 'http://localhost/equipo-3-tv-22-4ta/');
     }

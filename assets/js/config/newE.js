@@ -4,16 +4,18 @@ var inputs = document.querySelectorAll('#form input')
 const expresiones = {
     //usuario: /^[a-zA-Z0-9\_\-]{8,16}$/, // MIN 8 MAX 16 Letras, numeros, guion y guion_bajo
     texto: /^[a-zA-ZÀ-ÿ\s]{2,20}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
-    password: /^.{8,18}$/, // 8 a 12 digitos.
+    code: /^.{1,18}$/, // 8 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    telefono: /^\d{10,14}$/ // 10 a 14 numeros.
+    numero: /^\d{1,18}$/ 
 }
 const campos = {
-    name: true,
-    lastname: true,
-    email: true,
-    phone_number: true,
-    password: false,
+    description: false,
+    weight_in_grams: false,
+    code: false,
+    stock: false,
+    stock_min: false,
+    stock_max: false,
+    amount: false
 }
 
 const validarCampo = (expresion, input, campo) => {
@@ -26,65 +28,61 @@ const validarCampo = (expresion, input, campo) => {
     }
 }
 
-const validarPass = () => {
-    const input1 = document.getElementById('password')
-    const input2 = document.getElementById('password2')
-
-    if (input1.value !== input2.value) {
-        document.querySelector('#grupo_password2').classList.add('formulario__input-error-activo')
-        campos['password'] = false
-    } else {
-        document.querySelector('#grupo_password2').classList.remove('formulario__input-error-activo')
-        campos['password'] = true
-    }
-}
 var validarForm = (e) => {
     switch (e.target.name) {
-        case "name":
-            validarCampo(expresiones.texto, e.target, 'name')
+        case "description":
+            validarCampo(expresiones.texto, e.target, 'description')
             break;
-        case "lastname":
-            validarCampo(expresiones.texto, e.target, 'lastname')
+        case "weight_in_grams":
+            validarCampo(expresiones.numero, e.target, 'weight_in_grams')
             break;
-        case "email":
-            validarCampo(expresiones.correo, e.target, 'email')
+        case "code":
+            validarCampo(expresiones.code, e.target, 'code')
             break;
-        case "phone_number":
-            validarCampo(expresiones.telefono, e.target, 'phone_number')
+        case "stock":
+            validarCampo(expresiones.numero, e.target, 'stock')
             break;
-        case "password":
-            validarCampo(expresiones.password, e.target, 'password')
+        case "stock_min":
+            validarCampo(expresiones.numero, e.target, 'stock_min')
             break;
-        case "password2":
-            validarPass()
+        case "stock_max":
+            validarCampo(expresiones.numero, e.target, 'stock_max')
+            break;
+        case "amount":
+            validarCampo(expresiones.numero, e.target, 'amount')
             break;
     }
 
 }
+
 var validarFormLleno = (e) => {
     switch (e.target.name) {
-        case "name":
-        case "lastname":
-        case "email":
-        case "phone_number":
+        case "description":
+        case "weight_in_grams":
+        case "code":
+        case "stock":
+        case "stock_min":
+        case "stock_max":
+        case "amount":
             if(e.target.value===null || e.target.value===''){
-                // alert('The '+e.target.input+' is necesary')
+                //alert('The '+e.target.input+' is necesary')
             }else{
                 campos[e.target.name] = true
             }
             break;
     }
+
 }
+
 inputs.forEach((input) => {
-    input.addEventListener('keyup', validarForm)
     input.addEventListener('blur', validarForm)
     input.addEventListener('mouseenter', validarFormLleno)
-
+    input.addEventListener('keyup', validarForm)
 })
 
 
 document.addEventListener('mousemove', e => {
-    if (campos.name && campos.email && campos.password && campos.phone_number && campos.lastname) {
+    if (campos.description && campos.weight_in_grams && campos.code && campos.stock && campos.stock_max && campos.stock_min && campos.amount) {
         document.getElementById('send').disabled = false
     } else {
         document.getElementById('send').disabled = true

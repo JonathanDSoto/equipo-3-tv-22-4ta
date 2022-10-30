@@ -90,7 +90,7 @@ $precentacion = $p->spcfP($idPr);
                                                                     <label for="code" class="form-label"> code</label>
                                                                     <input name="code" type="text" class="form-control" id="code" value="<?= $precentacion->code?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_weight_in_grams">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_code">Minimun 1 character and maximun 18 .</p>
                                                             </div>
                                                             <div class="col-lg-6 text-start">
                                                                 <label for="status" class="form-label"> Status</label>
@@ -197,6 +197,7 @@ $precentacion = $p->spcfP($idPr);
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
+        <script src="../assets/js/config/newE.js"></script>
     </body>
 
     </html>
