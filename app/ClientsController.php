@@ -198,7 +198,6 @@ class ClientsController
   public function getEspecificClients($id)
   {
     $curl = curl_init($id);
-    var_dump($id);
     curl_setopt_array($curl, array(
       CURLOPT_URL => 'https://crud.jonathansoto.mx/api/clients/' . $id,
       CURLOPT_RETURNTRANSFER => true,

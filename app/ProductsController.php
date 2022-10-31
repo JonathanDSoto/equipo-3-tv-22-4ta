@@ -1,7 +1,6 @@
 <?php
 include_once 'config.php';
 if (isset($_POST['action'])) {
-    // var_dump($_POST['super_token']+$_SESSION['super_token']);
     if (isset($_POST['super_token']) && $_POST['super_token'] == $_SESSION['super_token']) {
     switch ($_POST['action']) {
         case 'create':
@@ -193,7 +192,6 @@ class ProductosController
 
     public function delete($id)
     {
-        var_dump($id);
         $curl = curl_init();
 
         curl_setopt_array($curl, array(

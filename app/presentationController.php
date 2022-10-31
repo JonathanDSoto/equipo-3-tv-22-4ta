@@ -80,8 +80,7 @@ class PresentationController
         if (isset($response->code) &&  $response->code > 0) {
             header("Location:" . BASE_PATH . "public/productos.php?success=true");
         } else {
-            // header("Location:" . BASE_PATH . "public/productos.php?error=true");
-            var_dump($_SESSION['token'].' Description = '.$description.' CODE = '.$code.' Weigh = '.$weight_in_grams.' status = '.$status.' stock = '. $stock.' stock min = '. $stock_min.' stock max = '. $stock_max.' obj = '.$product_id.' foto  = ',$amount,$cover);
+            header("Location:" . BASE_PATH . "public/productos.php?error=true");
         }
     }
     public function updatePrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$id)

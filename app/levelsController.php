@@ -49,7 +49,6 @@
             $response = curl_exec($curl);
             
             curl_close($curl);
-            echo $response;            
         }
         public function editLevel($id, $name, $percentage_discount){
 
@@ -74,7 +73,7 @@
             $response = curl_exec($curl);
             
             curl_close($curl);
-            echo $response;
+            
             
         }
         public function deleteLevel($id){
@@ -125,12 +124,11 @@
           $response = curl_exec($curl);
           
           curl_close($curl);
-          echo $response;
+          
           
         }
         public function getEspecificLevel($id){
           $curl = curl_init($id);
-          var_dump($id);
           curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://crud.jonathansoto.mx/api/levels/'.$id,
             CURLOPT_RETURNTRANSFER => true,
@@ -148,7 +146,7 @@
           $response = curl_exec($curl);
 
           curl_close($curl);
-          echo $response;
+          
 
         }
     }

@@ -83,7 +83,6 @@ class CouponsController
     $response = curl_exec($curl);
 
     curl_close($curl);
-    echo $response;
   }
   public function editCoupons($name, $code, $percentage_discount, $min_amount_required, $min_product_required, $start_date, $end_date, $max_uses, $count_uses, $valid_only_first_purchase, $status, $id)
   {
@@ -108,7 +107,6 @@ class CouponsController
     $response = curl_exec($curl);
 
     curl_close($curl);
-    echo $response;
 
 
     $response = json_decode($response);

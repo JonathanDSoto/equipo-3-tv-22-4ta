@@ -65,8 +65,6 @@
 
 			if (isset($response->code) && $response->code > 0) {
 				
-                echo 'Si jalo mi apa';
-
 				$_SESSION['id'] = $response->data->id;
 				$_SESSION['name'] = $response->data->name;
                 $_SESSION['email'] = $response->data->email;
@@ -165,7 +163,6 @@
                 header("Location: ../index.php?sucess=true");
             } else {
                 header("Location: ../index.php?error=true");
-                //var_dump('Authorization: Bearer ' .$_SESSION['token']. ' email:'.$_SESSION['email']);
             }
         }
 	}
