@@ -5,8 +5,8 @@ include "../app/ClientsController.php";
 $clientController = new ClientsController();
 $id = $_GET['id'];
 $clientDetails = $clientController->getEspecificClients($id);
-$orders = $clientDetails->orders;
-$addressess = $clientDetails->addresses;
+$orders = $clientController->orders;
+$addressess = $clientController->addresses;
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">

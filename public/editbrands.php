@@ -98,7 +98,7 @@ $source = $brandss->spcf($id);
                                                         <div class="col-lg-12">
                                                             <div class="hstack gap-2 justify-content-end">
                                                                 <button type="submit" class="btn btn-primary" id="send">Save</button>
-                                                                <a href="" type="button" class="btn btn-soft-success">Cancel</a>
+                                                                <a href="brands.php" type="button" class="btn btn-soft-success">Cancel</a>
                                                                 
                                                                 <input type="hidden" name="id" value="<?= $source->id ?>">
                                                                 <input type="hidden" name="action" value="update">

@@ -97,7 +97,7 @@ include '../assets/layouts/includes.php';
                                                             <div class="col-lg-12">
                                                                 <div class="hstack gap-2 justify-content-end">
                                                                     <button type="submit" class="btn btn-primary">Add</button>
-                                                                    <a href="" type="button" class="btn btn-soft-success">Cancel</a>
+                                                                    <a href="brands.php" type="button" class="btn btn-soft-success">Cancel</a>
 
                                                                     <input type="hidden" name="action" value="create">
                                                                     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">

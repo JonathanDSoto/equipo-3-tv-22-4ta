@@ -6,5 +6,5 @@
     }
 
     if(!defined(('BASE_PATH'))){
-        define('BASE_PATH', 'https://e-commerceids.herokuapp.com/');
+        define('BASE_PATH', 'http://localhost/dev/');
     }
