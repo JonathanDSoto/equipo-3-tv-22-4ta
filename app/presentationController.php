@@ -174,10 +174,7 @@ class PresentationController
             return array();
         }
     }
-
-
-
-
+    
     public function delete($id)
     {
         var_dump($id);
