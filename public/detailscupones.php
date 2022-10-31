@@ -1,3 +1,10 @@
+<?php
+include '../app/config.php';
+include '../assets/layouts/includes.php';
+
+$id = $_GET['id'];
+$couponDetails = $couponController->getEspecificCoupons($id);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -50,13 +57,13 @@
                     <div class="row g-4 ">
                         <div class="col-auto">
                             <div class="avatar-lg">
-                                
+
                             </div>
                         </div>
                         <!--end col-->
                         <div class="col">
                             <div class="p-2">
-                                
+
                             </div>
                         </div>
                         <!--end col-->
@@ -76,39 +83,39 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Coupon Name :</th>
-                                                        <td class="text-muted">15% off</td>
+                                                        <td class="text-muted"><?= $couponDetails->name ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Percentage discount :</th>
-                                                        <td class="text-muted">15</td>
+                                                        <td class="text-muted"><?= $couponDetails->percentage_discount ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Amount discount :</th>
-                                                        <td class="text-muted">0</td>
+                                                        <td class="text-muted"><?= $couponDetails->amount_discount ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Min amount required :</th>
-                                                        <td class="text-muted">500</td>
+                                                        <td class="text-muted"><?= $couponDetails->min_amount_required ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Min product required :</th>
-                                                        <td class="text-muted">5</td>
+                                                        <td class="text-muted"><?= $couponDetails->min_product_required ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Max uses :</th>
-                                                        <td class="text-muted">100</td>
+                                                        <td class="text-muted"><?= $couponDetails->max_uses ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Start date :</th>
-                                                        <td class="text-muted">2022-10-29</td>
+                                                        <td class="text-muted"><?= $couponDetails->start_date ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">End date :</th>
-                                                        <td class="text-muted">2022-10-30</td>
+                                                        <td class="text-muted"><?= $couponDetails->end_date ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Couponable type:</th>
-                                                        <td class="text-muted">Cupon por porcentaje</td>
+                                                        <td class="text-muted"><?= $couponDetails->couponable_type ?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

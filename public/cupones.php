@@ -1,3 +1,7 @@
+<?php
+include '../app/config.php';
+include '../assets/layouts/includes.php';
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -59,123 +63,51 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="card card-animate bg-info">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-white-50 mb-0">Compras con este cupon</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-warning fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> 15% off
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="36894">0</span></h4>
-                                            <a href="couponorders.php" class="text-decoration-underline text-white-50">View all
-                                                orders</a>
-                                        </div>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <div class="View">
-                                                    <a href="detailscupones.php">
-                                                        <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                    </a>
+                            <?php if (isset($coupons) && count($coupons)) : ?>
+                                <?php foreach ($coupons as $coupon) : ?>
+                                    <div class="card card-animate bg-info">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-grow-1">
+                                                    <p class="text-uppercase fw-medium text-white-50 mb-0">Compras con este cupon</p>
                                                 </div>
-                                                <div class="edit">
-                                                    <a href="editcupones.php">
-                                                        <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                    </a>
-                                                </div>
-                                                <div class="remove">
-                                                    <a href="" class="btn btn-sm btn-danger">Eliminar</a>
+                                                <div class="flex-shrink-0">
+                                                    <h5 class="text-warning fs-14 mb-0">
+                                                        <i class="ri-arrow-right-down-line fs-13 align-middle"></i><?= $coupon->name ?>
+                                                    </h5>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                            <div class="card card-animate bg-info">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-white-50 mb-0">Compras con este cupon</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-warning fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> 100 MXN off
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="36894">0</span></h4>
-                                            <a href="couponorders.php" class="text-decoration-underline text-white-50">View all
-                                                orders</a>
-                                        </div>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <div class="View">
-                                                    <a href="detailscupones.php">
-                                                        <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                    </a>
+                                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                                <div>
+                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="<?= $coupon->count_uses ?>">0</span></h4>
+                                                    <a href="couponorders.php" class="text-decoration-underline text-white-50">View all
+                                                        orders</a>
                                                 </div>
-                                                <div class="edit">
-                                                    <a href="editcupones.php">
-                                                        <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                    </a>
-                                                </div>
-                                                <div class="remove">
-                                                    <a href="" class="btn btn-sm btn-danger">Eliminar</a>
-                                                </div>
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <div class="View">
+                                                            <a href="detailscupones.php?id=<?= $coupon->id ?>">
+                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="edit">
+                                                            <a href="editcupones.php?id=<?= $coupon->id ?>">
+                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="remove">
+                                                            <a href="eliminar.php?id=<?= $coupon->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </div>
-                                        </td>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                            <div class="card card-animate bg-info">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-white-50 mb-0">Compras con este cupon</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-warning fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> 50 MXN off
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="36894">0</span></h4>
-                                            <a href="couponorders.php" class="text-decoration-underline text-white-50">View all
-                                                orders</a>
-                                        </div>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <div class="View">
-                                                    <a href="detailscupones.php">
-                                                        <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                    </a>
-                                                </div>
-                                                <div class="edit">
-                                                    <a href="editcupones.php">
-                                                        <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                    </a>
-                                                </div>
-                                                <div class="remove">
-                                                    <a href="" class="btn btn-sm btn-danger">Eliminar</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div><!-- end col -->
                     </div>
-                    
+
                     <!-- end row -->
                 </div>
                 <!-- container-fluid -->
@@ -208,7 +140,7 @@
     <?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 
