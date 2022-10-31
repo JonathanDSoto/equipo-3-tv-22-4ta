@@ -5,8 +5,8 @@ include "../app/ClientsController.php";
 $clientController = new ClientsController();
 $id = $_GET['id'];
 $clientDetails = $clientController->getEspecificClients($id);
-$orders = $clientController->orders;
-$addressess = $clientController->addresses;
+$orders = $clientDetails->orders;
+$addressess = $clientDetails->addresses;
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -147,7 +147,8 @@ $addressess = $clientController->addresses;
                                                         <th>Paid</th>
                                                         <th>Details</th>
                                                     </tr>
-                                                    <?php foreach ($orders as $orden) : ?>
+                                                    <?php 
+                                                    if(isset($orders)){foreach ($orders as $orden) : ?>
                                                         <tr>
                                                             <td class="text-muted">#<?= $orden->folio ?></td>
                                                             <td class="text-muted">$<?= $orden->total ?></td>
@@ -164,8 +165,11 @@ $addressess = $clientController->addresses;
                                                                                     } ?></td>
                                                             <td class="text-muted"><a href="detailsOrden.php?idOrden=<?= $orden->id ?>" class="btn btn-info">See</a></td>
                                                         </tr>
-                                                    <?php endforeach; ?>
+                                                    <?php endforeach; }else{
+                                                        echo'<div>Este usuario no tiene ordenes :c</div>';
+                                                        }?>
                                                 </tbody>
+                                                
                                             </table>
                                         </div>
                                     </div>
@@ -204,7 +208,7 @@ $addressess = $clientController->addresses;
                                                     <th>City</th>
                                                     <th>Options</th>
                                                 </tr>
-                                                <?php foreach ($addressess as $address) : ?>
+                                                <?php if(isset($orders)){foreach ($addressess as $address) : ?>
                                                     <tr>
                                                         <td class="text-muted"><?= $address-> first_name?></td>
                                                         <td class="text-muted"><?= $address->last_name ?></td>
@@ -214,7 +218,9 @@ $addressess = $clientController->addresses;
                                                         <td class="text-muted"><?= $address->city ?></td>
                                                         <td class="text-muted"><a href="eliminar.php?action=delAdd&idAddress=<?= $address->id ?>" class="btn btn-danger">Delete</a></td>
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php endforeach;  }else{
+                                                        echo'<div>Este usuario no tiene ordenes :c</div>';
+                                                        }?>
                                             </tbody>
                                         </table>
 
@@ -242,15 +248,6 @@ $addressess = $clientController->addresses;
     </button>
 
     <!--end back-to-top-->
-
-    <!--preloader-->
-    <div id="preloader ">
-        <div id="status ">
-            <div class="spinner-border text-primary avatar-sm " role="status ">
-                <span class="visually-hidden ">Loading...</span>
-            </div>
-        </div>
-    </div>
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>

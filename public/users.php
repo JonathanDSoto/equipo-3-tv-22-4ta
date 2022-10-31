@@ -63,8 +63,50 @@ $users = $userController->getAllUsers();
                             </div>
                         </div>
                     </div>
-                    <!-- end page title -->
+                    <div class="d-sm-block d-md-none row">
+                        <div class="row">
 
+                            <?php if (isset($users) && count($users)) : ?>
+                                <?php foreach ($users as $user) : ?>
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="card" style="width: 100%;">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Name : <?= $user->name ?></li>
+
+                                                <li class="list-group-item">Phone : <?= $user->phone_number ?></li>
+                                                <li class="list-group-item">
+                                                    <div class="row text-center">
+                                                        <div class="col">
+
+                                                            <div class="View">
+                                                                <a href="detailsusers.php?id=<?= $user->id ?>">
+                                                                    <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="edit">
+                                                                <a href="edituser.php?id=<?= $user->id ?>">
+                                                                    <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="remove">
+                                                                <a href="<?= BASE_PATH ?>public/eliminar.php?action=delUser&id<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -82,55 +124,53 @@ $users = $userController->getAllUsers();
 
                                         </div>
 
-                                        <div class="table-responsive table-card mt-3 mb-1">
-                                            <table class="table align-middle table-nowrap" id="customerTable">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th class="" data-sort="id">ID</th>
-                                                        <th class="" data-sort="name">Name</th>
-                                                        <th class="" data-sort="lastname">Last name</th>
-                                                        <th class="" data-sort="phone">Phone number</th>
-                                                        <th class="" data-sort="email">Email</th>
-                                                        <th class="" data-sort="rol">Role</th>
-                                                        <th class="" data-sort="action">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="list form-check-all">
-                                                    <?php if (isset($users) && count($users)) : ?>
-                                                        <?php foreach ($users as $user) : ?>
-                                                            <tr> 
-                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                                 
-                                                                <td class="id"><?= $user->id ?></td>
-                                                                <td class="name"><?= $user->name ?></td>
-                                                                <td class="lastname"><?= $user->lastname ?></td>
-                                                                <td class="phone"><?= $user->phone_number ?></td>
-                                                                <td class="email"><?= $user->email ?></td>
-                                                                <td class="rol"><?= $user->role ?></td>
+                                        <div class="d-none d-lg-block d-md-block">
+                                            <div class="table-responsive table-card mt-3 mb-1">
+                                                <table class="table align-middle table-nowrap" id="customerTable">
 
-                                                                <td>
-                                                                    <div class="d-flex gap-2">
-                                                                        <div class="View">
-                                                                            <a href="detailsusers.php?id=<?= $user->id ?>">
-                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                                            </a>
+                                                    <tbody class="list form-check-all">
+                                                        <?php if (isset($users) && count($users)) : ?>
+                                                            <?php foreach ($users as $user) : ?>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="row p-1">
+                                                                            <div class="col-md-12 col-lg-9">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-1 col-md-1"><?= $user->id ?></div>
+                                                                                    <div class="col-lg-3 col-md-3"><?= $user->name ?> <br><?= $user->lastname ?></div>
+                                                                                    <div class="col-lg-3 col-md-3"><?= $user->email ?></div>
+                                                                                    <div class="col-lg-3 col-md-3"><?= $user->phone_number ?></div>
+                                                                                    <div class="col-lg-2 col-md-2"><?= $user->role ?></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 col-lg-3">
+                                                                                <div class="col-lg-3">
+                                                                                    <div class="d-flex gap-2 text-center">
+                                                                                        <div class="View">
+                                                                                            <a href="detailsusers.php?id=<?= $user->id ?>">
+                                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="edit">
+                                                                                            <a href="edituser.php?id=<?= $user->id ?>">
+                                                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="remove">
+                                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delUser&id=<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="edit">
-                                                                            <a href="edituser.php?id=<?= $user->id ?>">
-                                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="remove">
-                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delUser&id=<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    <?php endif; ?>
-                                                </tbody>
-                                            </table>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
+                                                    </tbody>
+                                                </table>
 
+                                            </div>
                                         </div>
                                     </div>
 
@@ -160,20 +200,11 @@ $users = $userController->getAllUsers();
     </button>
     <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader ">
-        <div id="status ">
-            <div class="spinner-border text-primary avatar-sm " role="status ">
-                <span class="visually-hidden ">Loading...</span>
-            </div>
-        </div>
-    </div>
-
     <!-- JAVASCRIPT -->
-    <<?php include '../assets/layouts/js.template.php' ?>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- apexcharts -->
+    <<?php include '../assets/layouts/js.template.php' ?> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+        </script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- apexcharts -->
         <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
         <!-- Vector map-->
         <script src="../assets/libs/jsvectormap/js/jsvectormap.min.js "></script>

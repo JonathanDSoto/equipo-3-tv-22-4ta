@@ -2,7 +2,7 @@
 <tr>
   <td>
     <div class="row">
-      <div class="col-sm-12 col-lg-6">
+      <div class="col-sm-12 col-md-12 col-lg-6" style="overflow:hidden;">
         <div class="d-flex align-items-center">
             <div class="avatar-sm bg-light rounded p-1 me-2">
               <a href="detailsproductos.php?slug=<?php echo $lista->slug ?>" style="width:100%;">
@@ -16,7 +16,7 @@
             </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-2">
+      <div class="col-sm-12 col-md-3 col-lg-2">
       <?php 
                 if(isset($lista->brand->name )){
                     echo '<h5 class="fs-14 my-1 fw-normal">'.$lista->brand->name.'</h5><span class="text-muted">Marca</span>';
@@ -26,7 +26,7 @@
             ?>
 
       </div>
-      <div class="col-sm-6 col-lg-4 text-end">
+      <div class="col-sm-12 col-md-3 col-lg-4 text-center">
       <button class="btn btn-primary" onclick="desc('<?php echo $lista->name ?>','<?php echo $lista->description ?>')" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Description</button>
 
       </div>
