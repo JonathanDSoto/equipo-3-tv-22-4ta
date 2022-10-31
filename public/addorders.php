@@ -1,3 +1,7 @@
+<?php
+include "../app/config.php";
+include '../assets/layouts/includes.php';
+?>
 <doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -51,7 +55,7 @@
                         </div>
                     </div>
 
-                    <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
+                    <form method="post" action="../app/OrdersController.php" id="form">
                         <div class="row">
                             <div class="col">
                                 <div class="card mt-n5">
@@ -71,7 +75,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="couponInput" class="form-label">folio</label>
+                                                                <label for="couponInput" class="form-label">Folio</label>
                                                                 <input name="name" type="text" class="form-control" id="couponname" placeholder="Enter Folio" value="">
                                                             </div>
                     				                        <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
@@ -80,8 +84,8 @@
                                                         <!--end col-->
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
-                                                                <label for="descriptionInput" class="form-label">price</label>
-                                                                <input name="description" type="text" class="form-control" id="description" placeholder="Enter price" value="">
+                                                                <label for="descriptionInput" class="form-label">Price</label>
+                                                                <input name="total" type="text" class="form-control" id="description" placeholder="Enter price" value="">
                                                             </div>
                     				                        <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
 
@@ -94,7 +98,7 @@
                                                                 <button type="submit" class="btn btn-primary" id="send">Add</button>
                                                         <a href="" type="button" class="btn btn-soft-success">Cancel</a>
                                                                 
-                                                                <input type="hidden" name="action" value="newUser">
+                                                                <input type="hidden" name="action" value="create">
                                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                             </div>
                                                         </div>

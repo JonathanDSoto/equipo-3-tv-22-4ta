@@ -4,6 +4,8 @@ include '../assets/layouts/includes.php';
 include "../app/ClientsController.php";
 $clientController = new ClientsController();
 $clients = $clientController->getAllClients();
+$id = $_GET['id'];
+$couponOrders = $orderController->getOrdersByCoupon($id);
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -73,7 +75,7 @@ $clients = $clientController->getAllClients();
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
-                                                    <tr> 
+                                                    <tr>
                                                         <th class="" data-sort="id">ID</th>
                                                         <th class="" data-sort="folio">Folio</th>
                                                         <th class="" data-sort="total">Total</th>
@@ -81,21 +83,25 @@ $clients = $clientController->getAllClients();
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
-                                                    <tr>
-                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                        <td class="id">1</td>
-                                                        <td class="folio">82718</td>
-                                                        <td class="total">9599.969</td>
-                                                        <td>
-                                                            <div class="d-flex gap-2">
-                                                                <div class="View">
-                                                                    <a href="detailsorders.php">
-                                                                        <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    <?php if (isset($couponOrders) && count($couponOrders)) : ?>
+                                                        <?php foreach ($couponOrders as $couponOrder) : ?>
+                                                            <tr>
+                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                                <td class="id"><?= $couponOrder->id ?></td>
+                                                                <td class="folio"><?= $couponOrder->folio ?></td>
+                                                                <td class="total"><?= $couponOrder->total ?></td>
+                                                                <td>
+                                                                    <div class="d-flex gap-2">
+                                                                        <div class="View">
+                                                                            <a href="detailsorders.php?id=<?= $couponOrder->id ?>">
+                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -128,13 +134,13 @@ $clients = $clientController->getAllClients();
     <!--end back-to-top-->
 
     <!--preloader-->
-    
+
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 

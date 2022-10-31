@@ -1,3 +1,10 @@
+<?php
+include '../app/config.php';
+include '../assets/layouts/includes.php';
+
+$id = $_GET['id'];
+$orderDetails = $orderController->getOrden($id);
+?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
@@ -69,20 +76,20 @@
                                             <table class="table table-borderless mb-0">
                                                 <tbody>
                                                     <tr>
-                                                        <th class="ps-0" scope="row">id :</th>
-                                                        <td class="text-muted">1</td>
+                                                        <th class="ps-0" scope="row">Id :</th>
+                                                        <td class="text-muted"><?= $orderDetails->id ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="ps-0" scope="row">folio :</th>
-                                                        <td class="text-muted">82713</td>
+                                                        <th class="ps-0" scope="row">Folio :</th>
+                                                        <td class="text-muted"><?= $orderDetails->folio ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="ps-0" scope="row">total :</th>
-                                                        <td class="text-muted">$8999.989</td>
+                                                        <th class="ps-0" scope="row">Total :</th>
+                                                        <td class="text-muted"><?= $orderDetails->total ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="ps-0" scope="row">order status :</th>
-                                                        <td class="text-muted">Cancelada</td>
+                                                        <th class="ps-0" scope="row">Order status :</th>
+                                                        <td class="text-muted"><?= $orderDetails->order_status_id ?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -105,19 +112,22 @@
                                             <table class="table table-borderless mb-0">
                                                 <tbody>
                                                     <tr>
-                                                        <th>id</th>
-                                                        <th>description</th>
+                                                        <th>Id</th>
+                                                        <th>Description</th>
                                                         <th>Status</th>
                                                         <th>Details</th>
                                                     </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="text-muted">1</td>
-                                                        <td class="text-muted">Comedor Miguel con 4 Sillas</td>
-                                                        <td class="text-muted">activo</td>
-                                                        <td class="text-muted"><a href="productos.php" class="btn btn-info">See</a></td>
-                                                    </tr>
-                                                    
+                                                    <?php if (isset($orderDetails->presentations) && sizeof($orderDetails->presentations) > 0) {
+                                                        foreach ($orderDetails->presentations as $lista) :
+                                                            $srt = $lista->id . '||' . $lista->description . '||' . $lista->status . '||' . $lista->code;
+                                                            include '../assets/layouts/products.template.php';
+                                                        endforeach;
+                                                    } else {
+                                                        echo '
+                                                    <div class="col bg-pink text-center">
+                                                        Lo sentimos, no tenemos productos disponibles sobre esta etiqueta :c
+                                                    </div>';
+                                                    } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -139,21 +149,23 @@
                                             <table class="table table-borderless mb-0">
                                                 <tbody>
                                                     <tr>
-                                                        <th>id</th>
-                                                        <th>name</th>
-                                                        <th>email</th>
-                                                        <th>phone number</th>
-                                                        <th>action</th>
+                                                        <th>Id</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Phone number</th>
+                                                        <th>Action</th>
                                                     </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="text-muted">10</td>
-                                                        <td class="text-muted">Dredgen Yor</td>
-                                                        <td class="text-muted">dredyor@gmail.com</td>
-                                                        <td class="text-muted">6123127371</td>
-                                                        <td class="text-muted"><a href="detailsclient.php" class="btn btn-info">See</a></td>
-                                                    </tr>
-                                                    
+                                                    <?php if (isset($orderDetails)) : ?>
+                                                        <?php foreach ($orderDetails as $orderClient) : ?>
+                                                            <tr>
+                                                                <td class="text-muted"><?= $orderClient->client->id ?></td>
+                                                                <td class="text-muted"><?= $orderClient->client->name ?></td>
+                                                                <td class="text-muted"><?= $orderClient->client->email ?></td>
+                                                                <td class="text-muted"><?= $orderClient->client->phone_number ?></td>
+                                                                <td class="text-muted"><a href="detailsclient.php?id=<?= $orderClient->client->id ?>" class="btn btn-info">See</a></td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -186,16 +198,18 @@
                                                     <th>Postal Code</th>
                                                     <th>Actions</th>
                                                 </tr>
-                                                
-                                                <tr>
-                                                    <td class="text-muted">Dredgen</td>
-                                                    <td class="text-muted">Yor</td>
-                                                    <td class="text-muted">Calle El Diseño, 11</td>
-                                                    <td class="text-muted">19200</td>
-                                                    <td class="text-muted"><a href="detailsaddress.php" class="btn btn-info">See</a></td>
-                                                    
-                                                </tr>
-                                                
+                                                <?php if (isset($orderDetails)) : ?>
+                                                    <?php foreach ($orderDetails as $orderAddress) : ?>
+                                                        <tr>
+                                                            <td class="text-muted"><?= $orderAddress->address->first_name ?></td>
+                                                            <td class="text-muted"><?= $orderAddress->address->last_name ?></td>
+                                                            <td class="text-muted"><?= $orderAddress->address->street_and_use_number ?></td>
+                                                            <td class="text-muted"><?= $orderAddress->address->postal_code ?></td>
+                                                            <td class="text-muted"><a href="detailsaddress.php?id=<?= $orderAddress->address->id ?>" class="btn btn-info">See</a></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+
                                             </tbody>
                                         </table>
 
@@ -226,24 +240,26 @@
                                         <table class="table align-middle table-nowrap" id="customerTable">
                                             <tbody>
                                                 <tr>
-                                                    <th>id</th>
+                                                    <th>Id</th>
                                                     <th>Name</th>
-                                                    <th>percentage discount</th>
-                                                    <th>amount discount</th>
-                                                    <th>couponable type</th>
+                                                    <th>Percentage discount</th>
+                                                    <th>Amount discount</th>
+                                                    <th>Couponable type</th>
                                                     <th>Action</th>
                                                 </tr>
-                                                
-                                                <tr>
-                                                    <td class="text-muted">9</td>
-                                                    <td class="text-muted">200 MXN off</td>
-                                                    <td class="text-muted">0</td>
-                                                    <td class="text-muted">200</td>
-                                                    <td class="text-muted">Cupon de descuento fijo</td>
-                                                    <td class="text-muted"><a href="detailscoupon.php" class="btn btn-info">See</a></td>
-                                                    
-                                                </tr>
-                                                
+
+                                                <?php if (isset($orderDetails)) : ?>
+                                                    <?php foreach ($orderDetails as $orderCoupon) : ?>
+                                                        <tr>
+                                                            <td class="text-muted"><?= $orderCoupon->coupon->id ?></td>
+                                                            <td class="text-muted"><?= $orderCoupon->coupon->name ?></td>
+                                                            <td class="text-muted"><?= $orderCoupon->coupon->percentage_discount ?></td>
+                                                            <td class="text-muted"><?= $orderCoupon->coupon->amount_discount ?></td>
+                                                            <td class="text-muted"><?= $orderCoupon->coupon->couponable_type ?></td>
+                                                            <td class="text-muted"><a href="detailscupones.php?id=<?= $orderCoupon->coupon->id ?>" class="btn btn-info">See</a></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
                                             </tbody>
                                         </table>
 

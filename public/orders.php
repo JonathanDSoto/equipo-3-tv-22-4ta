@@ -1,9 +1,8 @@
 <?php
 include "../app/config.php";
 include '../assets/layouts/includes.php';
-include "../app/ClientsController.php";
-$clientController = new ClientsController();
-$clients = $clientController->getAllClients();
+$orderController = new OrdenController();
+$orders = $orderController->getOrders();
 ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -53,7 +52,7 @@ $clients = $clientController->getAllClients();
 
             <div class="page-content">
                 <div class="container-fluid">
-                    
+
 
                     <!-- start page title -->
                     <div class="row">
@@ -83,7 +82,7 @@ $clients = $clientController->getAllClients();
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
-                                                    <tr> 
+                                                    <tr>
                                                         <th class="" data-sort="id">ID</th>
                                                         <th class="" data-sort="folio">Folio</th>
                                                         <th class="" data-sort="total">Total</th>
@@ -91,29 +90,33 @@ $clients = $clientController->getAllClients();
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
-                                                    <tr>
-                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                                        <td class="id">1</td>
-                                                        <td class="folio">82718</td>
-                                                        <td class="total">9599.969</td>
-                                                        <td>
-                                                            <div class="d-flex gap-2">
-                                                                <div class="View">
-                                                                    <a href="detailsorders.php">
-                                                                        <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="edit">
-                                                                    <a href="editorders.php">
-                                                                        <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="remove">
-                                                                    <a href="" class="btn btn-sm btn-danger">Eliminar</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    <?php if (isset($orders) && count($orders)) : ?>
+                                                        <?php foreach ($orders as $order) : ?>
+                                                            <tr>
+                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                                <td class="id"><?= $order->id ?></td>
+                                                                <td class="folio"><?= $order->folio ?></td>
+                                                                <td class="total"><?= $order->total ?></td>
+                                                                <td>
+                                                                    <div class="d-flex gap-2">
+                                                                        <div class="View">
+                                                                            <a href="detailsorders.php?id=<?= $order->id ?>">
+                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="edit">
+                                                                            <a href="editorders.php?id=<?= $order->id ?>">
+                                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="remove">
+                                                                            <a href="eliminar.php?id=<?= $order->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -146,13 +149,13 @@ $clients = $clientController->getAllClients();
     <!--end back-to-top-->
 
     <!--preloader-->
-    
+
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 
