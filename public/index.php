@@ -96,7 +96,7 @@ if (!isset($_SESSION['token'])) {
                                         <!-- Producto -->
                                         <?php foreach ($products as $lista) :
                                                 $srt = $lista->name . '||' . $lista->description . '||' . $lista->features . '||' . $lista->brand_id . '||' . $lista->id;
-                                                include '../assets/layouts/products.template.php';
+                                                include '../assets/layouts/productsCRUD.template.php';
                                             endforeach; ?>
                                         <!-- fin Producto -->
                                     </tbody>

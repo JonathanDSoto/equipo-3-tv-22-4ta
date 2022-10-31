@@ -125,30 +125,7 @@ $source = $categoriess->spcf($id);
                                     </table>
                                 </div>
 
-                                <div class="align-items-center mt-4 pt-2 justify-content-between d-flex ">
-                                    <div class="flex-shrink-0 ">
-                                        <div class="text-muted ">
-                                            Showing <span class="fw-semibold ">1</span> of <span class="fw-semibold ">25</span> Results
-                                        </div>
-                                    </div>
-                                    <ul class="pagination pagination-separated pagination-sm mb-0 ">
-                                        <li class="page-item disabled ">
-                                            <a href="# " class="page-link ">←</a>
-                                        </li>
-                                        <li class="page-item ">
-                                            <a href="# " class="page-link ">1</a>
-                                        </li>
-                                        <li class="page-item active ">
-                                            <a href="# " class="page-link ">2</a>
-                                        </li>
-                                        <li class="page-item ">
-                                            <a href="# " class="page-link ">3</a>
-                                        </li>
-                                        <li class="page-item ">
-                                            <a href="# " class="page-link ">→</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
 
                             </div>
                         </div>
@@ -169,19 +146,17 @@ $source = $categoriess->spcf($id);
 
     <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader ">
-        <div id="status ">
-            <div class="spinner-border text-primary avatar-sm " role="status ">
-                <span class="visually-hidden ">Loading...</span>
-            </div>
-        </div>
-    </div>
+  
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>
 
     <!-- apexcharts -->
+    <script>
+            function desc(name, target) {
+                swal(name, target);
+            }
+        </script>
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 
     <!-- Vector map-->

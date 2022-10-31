@@ -63,9 +63,52 @@ $clients = $clientController->getAllClients();
                         </div>
                     </div>
                     <!-- end page title -->
+                    <div class="d-sm-block d-md-none row">
+                        <div class="row">
 
+                            <?php if (isset($clients) && count($clients)) : ?>
+                                <?php foreach ($clients as $client) : ?>
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="card" style="width: 100%;">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Name : <?= $client->name ?></li>
+                                                
+                                                <li class="list-group-item">Phone : <?= $client->phone_number ?></li>
+                                                <li class="list-group-item">
+                                                    <div class="row text-center">
+                                                        <div class="col">
+
+                                                            <div class="View">
+                                                                <a href="detailsclient.php?id=<?= $client->id ?>">
+                                                                    <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="edit">
+                                                                <a href="editclient.php?id=<?= $client->id ?>">
+                                                                    <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+
+                                                            <div class="remove">
+                                                                <a href="<?= BASE_PATH ?>public/eliminar.php?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 ">
                             <div class="card">
 
                                 <div class="card-body">
@@ -81,57 +124,59 @@ $clients = $clientController->getAllClients();
 
                                         </div>
 
-                                        <div class="table-responsive table-card mt-3 mb-1">
-                                            <table class="table align-middle table-nowrap" id="customerTable">
-                                                <thead class="table-light">
-                                                    <tr> 
-                                                        <th class="" data-sort="id">ID</th>
-                                                        <th class="" data-sort="name">Name</th>
-                                                        <th class="" data-sort="email">Email</th>
-                                                        <th class="" data-sort="phone_number">Phone number</th>
-                                                        <th class="" data-sort="level">Subscription</th>
-                                                        <th class="" data-sort="action">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="list form-check-all">
-                                                    <?php if (isset($clients) && count($clients)) : ?>
-                                                        <?php foreach ($clients as $client) : ?>
-                                                            <tr>
 
-                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                            
-                                                                <td class="id"><?= $client->id ?></td>
-                                                                <td class="name"><?= $client->name ?></td>
-                                                                <td class="email"><?= $client->email ?></td>
-                                                                <td class="phone_number"><?= $client->phone_number ?></td>
-                                                                <td class="level"><?= $client->level->name ?></td>
 
-                                                                <td>
-                                                                    <div class="d-flex gap-2">
-                                                                        <div class="View">
-                                                                            <a href="detailsclient.php?id=<?= $client->id ?>">
-                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="edit">
-                                                                            <a href="editclient.php?id=<?= $client->id?>">
-                                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="remove">
-                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    <?php endif; ?>
-                                                </tbody>
-                                            </table>
+                                        <div class="d-none d-lg-block d-md-block">
+                                            <div class="table-responsive table-card mt-3 mb-1">
+                                                <table class="table align-middle table-nowrap" id="customerTable">
 
+                                                    <tbody class="list form-check-all">
+                                                        <?php if (isset($clients) && count($clients)) : ?>
+                                                            <?php foreach ($clients as $client) : ?>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="row p-1">
+                                                                            <div class="col-md-12 col-lg-9">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-1 col-md-1"><?= $client->id ?></div>
+                                                                                    <div class="col-lg-3 col-md-3"><?= $client->name ?></div>
+                                                                                    <div class="col-lg-3 col-md-3"><?= $client->email ?></div>
+                                                                                    <div class="col-lg-3 col-md-3"><?= $client->phone_number ?></div>
+                                                                                    <div class="col-lg-2 col-md-2"><?= $client->level->name ?></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 col-lg-3">
+                                                                                <div class="col-lg-3">
+                                                                                    <div class="d-flex gap-2 text-center">
+                                                                                        <div class="View">
+                                                                                            <a href="detailsclient.php?id=<?= $client->id ?>">
+                                                                                                <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="edit">
+                                                                                            <a href="editclient.php?id=<?= $client->id ?>">
+                                                                                                <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="remove">
+                                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
                                         </div>
 
-                                         
+
+
                                     </div>
 
                                 </div><!-- end card -->
@@ -161,13 +206,13 @@ $clients = $clientController->getAllClients();
     <!--end back-to-top-->
 
     <!--preloader-->
-    
+
 
     <!-- JAVASCRIPT -->
     <?php include '../assets/layouts/js.template.php' ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <!-- apexcharts -->
     <script src="../assets/libs/apexcharts/apexcharts.min.js "></script>
 
