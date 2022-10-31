@@ -100,7 +100,7 @@ $orders = $orderController->getOrders();
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="detailsorders.php?id=<?= $order->id ?>">
+                                                                            <a href="ordenSp.php?idOrden=<?= $order->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>

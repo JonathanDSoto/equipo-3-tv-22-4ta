@@ -127,6 +127,7 @@ if (!isset($_SESSION['token'])) {
                                 <div class="card">
                                     <div class="card-body">
                                         <h3>Client</h3>
+                                        <a href="detailsclient.php?id=<?= $orden->client->id ?>" class="btn btn-info">See</a>
                                         <div class="table-responsive">
                                             <table class="table table-borderless mb-0">
                                                 <tbody>
