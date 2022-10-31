@@ -52,7 +52,7 @@ $idP = $_GET['idp'];
                 <div class="page-content">
                     <div class="container-fluid">
 
-                        <form method="post" action="../app/presentationController.php" enctype="multipart/form-data" id="form">
+                        <form method="post" action="<?= BASE_PATH ?>presentation" enctype="multipart/form-data" id="form">
                             <div class="row">
                                 <div class="col">
                                     <div class="card mt-n5">

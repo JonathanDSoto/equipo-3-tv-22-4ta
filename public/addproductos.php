@@ -50,7 +50,7 @@ include '../assets/layouts/includes.php';
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <form method="post" action="../app/ProductsController.php" enctype="multipart/form-data" id="form">
+                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data" id="form">
                         <div class="row">
                             <!--end col-->
                             <div class="col-xxl-9">

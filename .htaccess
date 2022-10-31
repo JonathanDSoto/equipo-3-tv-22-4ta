@@ -2,7 +2,14 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine on
 #Rutas
 RewriteRule ^auth$ app/AuthController.php
-RewriteRule ^prod$ app/ProductController.php
+RewriteRule ^user$ app/UsersController.php
+RewriteRule ^prod$ app/ProductsController.php
+RewriteRule ^presentation$ app/PresentationController.php
+RewriteRule ^brand$ app/BrandsController.php
+RewriteRule ^tag$ app/TagsController.php
+RewriteRule ^category$ app/CategoriesController.php
+RewriteRule ^client$ app/ClientsController.php
+RewriteRule ^cupon$ app/CouponsController.php
 RewriteRule ^public/inicio$ public/index.php
 RewriteRule ^public/passreset$ public/passreset.php
 RewriteRule ^public/cerrarsesion$ public/logout.php

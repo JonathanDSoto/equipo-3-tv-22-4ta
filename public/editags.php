@@ -58,7 +58,7 @@ $source = $tagss->spcf($id);
                             </div>
                         </div>
 
-                        <form method="post" action="../app/TagsController.php" enctype="multipart/form-data" id="form">
+                        <form method="post" action="<?= BASE_PATH ?>tag" enctype="multipart/form-data" id="form">
                             <div class="row">
                                 <div class="col">
                                     <div class="card mt-n5">

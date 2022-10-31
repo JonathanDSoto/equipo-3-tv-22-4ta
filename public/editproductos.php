@@ -53,7 +53,7 @@ $productDetails = $productController->spcfP($slug);
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-                    <form method="post" action="../app/ProductsController.php" enctype="multipart/form-data">
+                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data">
                         <div class="row">
                             <!--end col-->
                             <div class="col-xxl-9">

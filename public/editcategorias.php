@@ -59,7 +59,7 @@ $source = $categoriess->spcf($id);
                         </div>
                     </div>
 
-                    <form method="post" action="../app/CategoriesController.php" id="form">
+                    <form method="post" action="<?= BASE_PATH ?>categories" id="form">
                         <div class="row">
                             <div class="col">
                                 <div class="card mt-n5">

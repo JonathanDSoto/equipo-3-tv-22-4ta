@@ -65,7 +65,7 @@ $id = $_GET['user'];
                                 <div class="card-body p-4">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                            <form action="../app/ClientsController.php" method="POST" id="form">
+                                            <form action="<?= BASE_PATH ?>client" method="POST" id="form">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">

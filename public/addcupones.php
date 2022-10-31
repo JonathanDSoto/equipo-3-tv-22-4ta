@@ -55,7 +55,7 @@ include '../assets/layouts/includes.php';
                             </div>
                         </div>
 
-                        <form method="post" action="../app/CouponsController.php" id="form">
+                        <form method="post" action="<?= BASE_PATH ?>cupon" id="form">
                             <div class="row">
                                 <div class="col">
                                     <div class="card mt-n5">

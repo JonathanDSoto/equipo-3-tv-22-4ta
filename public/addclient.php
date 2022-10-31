@@ -63,7 +63,7 @@ include '../assets/layouts/includes.php';
                             <div class="card-body p-4">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                        <form method="post" action="../app/ClientsController.php" id="form">
+                                        <form method="post" action="<?= BASE_PATH ?>client" id="form">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">

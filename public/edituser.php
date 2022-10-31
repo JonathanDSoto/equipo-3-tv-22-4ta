@@ -59,7 +59,7 @@ $userDetails = $userController->getEspecificUser($id);
                         </div>
                     </div>
 
-                    <form method="post" action="../app/UsersController.php" enctype="multipart/form-data" id="form">
+                    <form method="post" action="<?= BASE_PATH ?>user" enctype="multipart/form-data" id="form">
                         <div class="row">
                             <div class="col">
                                 <div class="card mt-n5">
