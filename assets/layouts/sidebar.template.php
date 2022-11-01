@@ -73,7 +73,7 @@
                             <div class="collapse menu-dropdown" id="sidebarnft">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="cupones" class="nav-link" data-key="t-marketplace"> Agregar cupon </a>
+                                        <a href="addcupones" class="nav-link" data-key="t-marketplace"> Agregar cupon </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="cupones" class="nav-link" data-key="t-explore-now"> Ver lista de cupones </a>

@@ -87,110 +87,106 @@ $couponDetails = $couponController->getEspecificCoupons($id);
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Percentage discount</label>
-                                                                    <input name="percentage_discount" type="text" class="form-control" id="description" placeholder="Enter Percentage discount" value="<?= $couponDetails->percentage_discount ?>">
+                                                                    <label for="percentage_discount" class="form-label">Percentage discount</label>
+                                                                    <input name="percentage_discount" type="text" class="form-control" id="percentage_discount" placeholder="Enter Percentage discount" value="<?= $couponDetails->percentage_discount ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_percentage_discount">The format only accepts numbers 0-99.</p>
 
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="descriptionInput" class="form-label">Code</label>
-                                                                    <input name="code" type="text" class="form-control" id="description" placeholder="Enter Amount discount" value="<?= $couponDetails->code ?>">
+                                                                    <input name="code" type="text" class="form-control" id="code" placeholder="Enter Amount discount" value="<?= $couponDetails->code ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_code">Is necesary no symbols.</p>
 
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Amount discount</label>
-                                                                    <input name="amount_discount" type="text" class="form-control" id="description" placeholder="Enter Amount discount" value="<?= $couponDetails->amount_discount ?>">
+                                                                    <label for="min_amount_required" class="form-label">Min amount required</label>
+                                                                    <input name="min_amount_required" type="text" class="form-control" id="min_amount_required" value="<?= $couponDetails->min_amount_required ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_min_amount_required">The format only numbers.</p>
 
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Min amount required</label>
-                                                                    <input name="min_amount_required" type="text" class="form-control" id="description" placeholder="Enter Min amount required" value="<?= $couponDetails->min_amount_required ?>">
+                                                                    <label for="min_product_required" class="form-label">Min product required</label>
+                                                                    <input name="min_product_required" type="text" class="form-control" id="min_product_required" value="<?= $couponDetails->min_product_required ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_min_product_required">The format only accepts numbers.</p>
 
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Min product required</label>
-                                                                    <input name="min_product_required" type="text" class="form-control" id="description" placeholder="Enter Min product required" value="<?= $couponDetails->min_product_required ?>">
+                                                                    <label for="count_uses" class="form-label">Count uses</label>
+                                                                    <input name="count_uses" type="text" class="form-control" id="count_uses" placeholder="Enter Max uses" value="<?= $couponDetails->count_uses ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
-
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Count uses</label>
-                                                                    <input name="count_uses" type="text" class="form-control" id="description" placeholder="Enter Max uses" value="<?= $couponDetails->count_uses ?>">
-                                                                </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
-
+                                                                <p class="formulario__input-error text-danger" id="grupo_count_uses">The format only accepts numbers.</p>
                                                             </div>
                                                             <!--end col COUNT USES TIENE QUE SER DEFAULT 0-->
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Status</label>
-                                                                    <input name="status" type="text" class="form-control" id="description" placeholder="Enter Max uses" value="<?= $couponDetails->status ?>">
-                                                                </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
 
+                                                            <div class="col-md-6">
+                                                                <label for="status" class="form-label">Status</label>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="status" value="1" id="status1" checked>
+                                                                    <label class="form-check-label" for="status1">
+                                                                        Active
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="status" id="status2">
+                                                                    <label class="form-check-label" for="status2">
+                                                                        Inactive
+                                                                    </label>
+                                                                </div>
                                                             </div>
                                                             <!--end col STATUS TIENE QUE SER DEFAULT 1-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Max uses</label>
-                                                                    <input name="max_uses" type="text" class="form-control" id="description" placeholder="Enter Max uses" value="<?= $couponDetails->max_uses ?>">
+                                                                    <label for="max_uses" class="form-label">Max uses</label>
+                                                                    <input name="max_uses" type="text" class="form-control" id="max_uses" value="<?= $couponDetails->max_uses ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
+                                                                <p class="formulario__input-error text-danger" id="grupo_max_uses">The format only accepts numbers.</p>
 
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Start date</label>
-                                                                    <input name="start_date" type="text" class="form-control" id="description" placeholder="Enter Start date, example: 2022-08-15" value="<?= $couponDetails->start_date ?>">
+                                                                    <label for="start_date" class="form-label">Start date</label>
+                                                                    <input name="start_date" type="text" class="form-control" id="start_date" value="<?= $couponDetails->start_date ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
-
+                                                                <p class="formulario__input-error text-danger" id="grupo_start_date">The format only accepts numbers and mid dash.</p>
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">End date</label>
-                                                                    <input name="end_date" type="text" class="form-control" id="description" placeholder="Enter End date, example: 2022-09-28" value="<?= $couponDetails->end_date ?>">
+                                                                    <label for="end_date" class="form-label">End date</label>
+                                                                    <input name="end_date" type="text" class="form-control" id="end_date" value="<?= $couponDetails->end_date ?>">
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
-
+                                                                <p class="formulario__input-error text-danger" id="grupo_end_date">The format only accepts numbers and mid dash.</p>
+                                                            </div>
+                                                            <div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="1" name="valid_only_first_purchase" id="valid_only_first_purchase">
+                                                                    <label class="form-check-label" for="billing">
+                                                                        Valid only first purchase
+                                                                    </label>
+                                                                </div>
                                                             </div>
                                                             <!--end col-->
 
-                                                            <div class="col-lg-6">
-                                                                <label><b>Couponable type: </b></label>
-                                                                <select name="valid_only_first_purchase" class="form-select form-select-md">
-                                                                    <option value="Cupón por porcentaje">Cupón por porcentaje</option>
-                                                                    <option value="Cupón de descuento fijo">Cupón de descuento fijo</option>
-
-                                                                </select>
-                                                            </div>
-                                                            <!--end col-->
 
                                                             <div class="col-lg-12">
                                                                 <div class="hstack gap-2 justify-content-end">
-                                                                    <button type="submit" class="btn btn-primary">Save</button>
-                                                                    <a href="coupon" type="button" class="btn btn-soft-success">Cancel</a>
+                                                                    <button type="submit" class="btn btn-primary" id="send">Add</button>
+                                                                    <a href="cupones" type="button" class="btn btn-soft-success">Cancel</a>
 
+                                                                    <input type="hidden" name="id" value="<?= $id ?>">
                                                                     <input type="hidden" name="action" value="editCoupons">
                                                                     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                                 </div>
@@ -202,10 +198,8 @@ $couponDetails = $couponController->getEspecificCoupons($id);
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
                         </form>
                         <!--end row-->
                     </div>
@@ -251,7 +245,7 @@ $couponDetails = $couponController->getEspecificCoupons($id);
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
-        <script src="../assets/js/config/newAddress.js"></script>
+        <script src="../assets/js/config/cuponE.js"></script>
     </body>
 
     </html>

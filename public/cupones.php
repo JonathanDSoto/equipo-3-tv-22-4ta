@@ -96,7 +96,7 @@ include '../assets/layouts/includes.php';
                                                             </a>
                                                         </div>
                                                         <div class="remove">
-                                                            <a href="eliminar?id=<?= $coupon->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                            <a href="eliminar?action=delCupon&id=<?= $coupon->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                         </div>
                                                     </div>
                                                 </td>

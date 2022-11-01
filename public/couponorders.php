@@ -93,7 +93,7 @@ $couponOrders = $orderController->getOrdersByCoupon($id);
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="detailsorders.php?id=<?= $couponOrder->id ?>">
+                                                                            <a href="ordenSp?idOrden=<?= $couponOrder->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>

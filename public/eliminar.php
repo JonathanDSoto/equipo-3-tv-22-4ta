@@ -7,6 +7,7 @@ include '../app/presentationController.php';
 include '../app/BrandsController.php';
 include '../app/CategoriesController.php';
 include '../app/TagsController.php';
+include '../app/CouponsController.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'delUser':
@@ -52,6 +53,11 @@ if (isset($_GET['action'])) {
             $obj = new CategoryController;
             $objt = strip_tags($_GET['id']);
             $del = $obj->delCat($objt);
+            break;
+        case 'delCupon':
+            $obj = new CouponsController;
+            $objt = strip_tags($_GET['id']);
+            $del = $obj->deleteCoupons($objt);
             break;
     }
 }
