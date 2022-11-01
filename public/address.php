@@ -132,7 +132,7 @@ $id = $_GET['user'];
                                                             <input type="hidden" value="<?= $id ?>" name="id">
                                                             <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                             <button type="submit" class="btn btn-primary" id="send">Add</button>
-                                                            <a href="clients.php" type="button" class="btn btn-soft-success">Cancel</a>
+                                                            <a href="clients" type="button" class="btn btn-soft-success">Cancel</a>
                                                         </div>
                                                     </div>
                                                     <!--end col-->

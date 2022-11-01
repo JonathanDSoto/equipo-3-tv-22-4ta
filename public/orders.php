@@ -100,17 +100,17 @@ $orders = $orderController->getOrders();
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="ordenSp.php?idOrden=<?= $order->id ?>">
+                                                                            <a href="ordenSp?idOrden=<?= $order->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="editorders.php?id=<?= $order->id ?>">
+                                                                            <a href="editorders?id=<?= $order->id ?>">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar.php?id=<?= $order->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                            <a href="eliminar?id=<?= $order->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>

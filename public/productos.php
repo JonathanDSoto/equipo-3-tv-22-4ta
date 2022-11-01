@@ -20,7 +20,7 @@ $user = new AuthController;
 
 
 if (!isset($_SESSION['token'])) {
-    header("Location:".BASE_PATH."/index.php");
+    header("Location:".BASE_PATH."/index");
 }?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
@@ -83,7 +83,7 @@ if (!isset($_SESSION['token'])) {
                         <div class="card-header align-items-center d-flex">
                             <div class="col-sm-auto flex-grow-1">
                                 <div>
-                                    <a href="addproductos.php">
+                                    <a href="addproductos">
                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                     </a>
                                 </div>

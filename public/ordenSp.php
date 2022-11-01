@@ -18,7 +18,7 @@ $orden = $ordenes->getOrden($_GET['idOrden']);
 $productos = $orden->presentations;
 
 if (!isset($_SESSION['token'])) {
-    header("Location:" . BASE_PATH . "/index.php");
+    header("Location:" . BASE_PATH . "/index");
 } ?>
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">

@@ -5,13 +5,13 @@
       <div class="col-sm-12 col-md-12 col-lg-6" style="overflow:hidden;">
         <div class="d-flex align-items-center">
             <div class="avatar-sm bg-light rounded p-1 me-2">
-              <a href="detailsproductos.php?slug=<?php echo $lista->slug ?>" style="width:100%;">
+              <a href="detailsproductos?slug=<?php echo $lista->slug ?>" style="width:100%;">
               <img src="<?php echo $lista->cover ?>" alt="" class="img-fluid d-block" />
 
               </a>
             </div>
             <div>
-                <h5 class="fs-14 my-1"><a href="detailsproductos.php?slug=<?php echo $lista->slug ?>" class="text-reset"><?php echo $lista->name?></a></h5>
+                <h5 class="fs-14 my-1"><a href="detailsproductos?slug=<?php echo $lista->slug ?>" class="text-reset"><?php echo $lista->name?></a></h5>
                 <span class="text-muted">24 Apr 2021</span>
             </div>
         </div>

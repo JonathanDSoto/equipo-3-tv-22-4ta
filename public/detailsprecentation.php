@@ -76,12 +76,12 @@ $precentacion = $p->spcfP($idP);
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="updateprecentation.php?idPr=<?= $precentacion->id ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
+                                                            <a href="updateprecentation?idPr=<?= $precentacion->id ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="ri-pencil-fill align-bottom"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div>
-                                                            <a href="eliminar.php?action=delPres&idObj=<?= $precentacion->id ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-5-line"></i></a>
+                                                            <a href="eliminar?action=delPres&idObj=<?= $precentacion->id ?>" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-5-line"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>

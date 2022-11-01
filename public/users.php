@@ -79,7 +79,7 @@ $users = $userController->getAllUsers();
                                                         <div class="col">
 
                                                             <div class="View">
-                                                                <a href="detailsusers.php?id=<?= $user->id ?>">
+                                                                <a href="detailsusers?id=<?= $user->id ?>">
                                                                     <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                 </a>
                                                             </div>
@@ -87,7 +87,7 @@ $users = $userController->getAllUsers();
                                                         <div class="col">
 
                                                             <div class="edit">
-                                                                <a href="edituser.php?id=<?= $user->id ?>">
+                                                                <a href="edituser?id=<?= $user->id ?>">
                                                                     <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                 </a>
                                                             </div>
@@ -95,7 +95,7 @@ $users = $userController->getAllUsers();
                                                         <div class="col">
 
                                                             <div class="remove">
-                                                                <a href="<?= BASE_PATH ?>public/eliminar.php?action=delUser&id<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                <a href="<?= BASE_PATH ?>public/eliminar?action=delUser&id<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -116,7 +116,7 @@ $users = $userController->getAllUsers();
                                         <div class="row g-4 mb-3">
                                             <div class="col-sm-auto">
                                                 <div>
-                                                    <a href="adduser.php">
+                                                    <a href="adduser">
                                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                                     </a>
                                                 </div>
@@ -147,17 +147,17 @@ $users = $userController->getAllUsers();
                                                                                 <div class="col-lg-3">
                                                                                     <div class="d-flex gap-2 text-center">
                                                                                         <div class="View">
-                                                                                            <a href="detailsusers.php?id=<?= $user->id ?>">
+                                                                                            <a href="detailsusers?id=<?= $user->id ?>">
                                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                                             </a>
                                                                                         </div>
                                                                                         <div class="edit">
-                                                                                            <a href="edituser.php?id=<?= $user->id ?>">
+                                                                                            <a href="edituser?id=<?= $user->id ?>">
                                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                                             </a>
                                                                                         </div>
                                                                                         <div class="remove">
-                                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delUser&id=<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                                            <a href="<?= BASE_PATH ?>public/eliminar?action=delUser&id=<?= $user->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>

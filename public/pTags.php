@@ -77,7 +77,7 @@ if (!isset($_SESSION['token'])) {
                         <div class="card-header align-items-center d-flex">
                             <div class="col-sm-auto flex-grow-1">
                                 <div>
-                                    <a href="addproductos.php">
+                                    <a href="addproductos">
                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                     </a>
                                 </div>

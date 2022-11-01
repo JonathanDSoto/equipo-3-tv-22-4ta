@@ -95,7 +95,7 @@
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Wait, I remember my password... <a href="index.html" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
+                                            <p class="mb-0">Wait, I remember my password... <a href="index" class="fw-semibold text-primary text-decoration-underline"> Click here </a> </p>
                                         </div>
                                     </div>
                                 </div>

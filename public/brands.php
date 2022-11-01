@@ -94,17 +94,17 @@ include '../assets/layouts/includes.php';
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="detailsbrands.php?id=<?= $brand->id ?>">
+                                                                            <a href="detailsbrands?id=<?= $brand->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="editbrands.php?id=<?= $brand->id ?>">
+                                                                            <a href="editbrands?id=<?= $brand->id ?>">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar.php?action=delBrand&id=<?= $brand->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
+                                                                            <a href="eliminar?action=delBrand&id=<?= $brand->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>

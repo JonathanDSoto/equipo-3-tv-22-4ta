@@ -192,7 +192,7 @@ $addressess = $clientDetails->addresses;
                                             </div>
                                         </div>
                                         <div class="col-sm-2">
-                                            <a href="address.php?user=<?= $clientDetails->id?>" class="btn btn-secondary"> Add</a>
+                                            <a href="address?user=<?= $clientDetails->id?>" class="btn btn-secondary"> Add</a>
                                         </div>
                                     </div>
 
@@ -216,7 +216,7 @@ $addressess = $clientDetails->addresses;
                                                         <td class="text-muted"><?= $address->apartment ?></td>
                                                         <td class="text-muted"><?= $address->postal_code ?></td>
                                                         <td class="text-muted"><?= $address->city ?></td>
-                                                        <td class="text-muted"><a href="eliminar.php?action=delAdd&idAddress=<?= $address->id ?>" class="btn btn-danger">Delete</a></td>
+                                                        <td class="text-muted"><a href="eliminar?action=delAdd&idAddress=<?= $address->id ?>" class="btn btn-danger">Delete</a></td>
                                                     </tr>
                                                 <?php endforeach;  }else{
                                                         echo'<div>Este usuario no tiene ordenes :c</div>';

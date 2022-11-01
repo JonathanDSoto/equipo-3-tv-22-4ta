@@ -76,7 +76,7 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                     <div class="flex-grow-1">
                                                         <h4><?= $productDetails->name ?></h4>
                                                         <div class="hstack gap-3 flex-wrap">
-                                                            <div><a href="Marcas.php" class="text-primary d-block"><?= $productDetails->brand->name ?></a></div>
+                                                            <div><a href="" class="text-primary d-block"><?= $productDetails->brand->name ?></a></div>
                                                         </div>
                                                     </div>
                                                     <div class="dropdown">
@@ -87,21 +87,21 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                             <li>
                                                                 <div class="row">
                                                                     <div>
-                                                                        <a href="addprecentation.php?idp=<?= $productDetails->id ?>" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
+                                                                        <a href="addprecentation?idp=<?= $productDetails->id ?>" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Add precentations">Add precentation</a>
                                                                     </div>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div class="row">
                                                                     <div>
-                                                                        <a href="eliminar.php?action=deleteP&idP=<?php echo $productDetails->id ?>" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="delete">Delete Product</a>
+                                                                        <a href="eliminar?action=deleteP&idP=<?php echo $productDetails->id ?>" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="delete">Delete Product</a>
                                                                     </div>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div class="row">
                                                                     <div>
-                                                                        <a href="editproductos.php?slug=<?php echo $productDetails->slug ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">Edit Product</a>
+                                                                        <a href="editproductos?slug=<?php echo $productDetails->slug ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">Edit Product</a>
                                                                     </div>
                                                                 </div>
                                                             </li>
@@ -128,7 +128,7 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                         if (isset($precentaciones)) {
                                                             foreach ($precentaciones as $pres) : ?>
                                                                 <div class="col-md-3 col-sm-4">
-                                                                    <a href="detailsprecentation.php?idP=<?= $pres->id ?>">
+                                                                    <a href="detailsprecentation?idP=<?= $pres->id ?>">
                                                                         <img src="<?= $pres->cover ?>" alt="" class="img-thumbnail" style="width: 200px;" />
                                                                     </a>
                                                                 </div>
@@ -154,7 +154,7 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                             <ul>
 
                                                                 <?php foreach ($productDetails->tags as $tag) : ?>
-                                                                    <li><a href="pTags.php?tagId=<?php echo $tag->id ?>"><?= $tag->name ?></a></li>
+                                                                    <li><a href="pTags?tagId=<?php echo $tag->id ?>"><?= $tag->name ?></a></li>
                                                                 <?php endforeach; ?>
                                                             </ul>
                                                         </div>
@@ -165,7 +165,7 @@ $precentaciones = $p->precentaciones($productDetails->id);
                                                             <ul>
 
                                                                 <?php foreach ($productDetails->categories as $category) : ?>
-                                                                    <li><a href="pCategoria.php?categoria=<?php echo $category->id ?>"><?= $category->name ?></a></li>
+                                                                    <li><a href="pCategoria?categoria=<?php echo $category->id ?>"><?= $category->name ?></a></li>
                                                                 <?php endforeach; ?>
                                                             </ul>
                                                         </div>

@@ -72,7 +72,7 @@ include '../assets/layouts/includes.php';
                                         <div class="row g-4 mb-3">
                                             <div class="col-sm-auto">
                                                 <div>
-                                                    <a href="addcategorias.php">
+                                                    <a href="addcategorias">
                                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                                     </a>
                                                 </div>
@@ -100,17 +100,17 @@ include '../assets/layouts/includes.php';
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="View">
-                                                                            <a href="detailscategorias.php?id=<?= $category->id ?>">
+                                                                            <a href="detailscategorias?id=<?= $category->id ?>">
                                                                                 <button class="btn btn-sm btn-primary edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="edit">
-                                                                            <a href="editcategorias.php?id=<?= $category->id ?>">
+                                                                            <a href="editcategorias?id=<?= $category->id ?>">
                                                                                 <button class="btn btn-sm btn-warning edit-item-btn justify-content-end" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar.php?action=delCategory&id=<?= $category->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
+                                                                            <a href="eliminar?action=delCategory&id=<?= $category->id ?>" class="btn btn-sm btn-danger justify-content-end">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>

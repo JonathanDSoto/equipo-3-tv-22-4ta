@@ -2,7 +2,7 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="productos.php" class="logo logo-dark">
+                <a href="productos" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="../assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -11,7 +11,7 @@
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="productos.php" class="logo logo-light">
+                <a href="productos" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="../assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -36,10 +36,10 @@
                             <div class="collapse menu-dropdown" id="sidebarDashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="addproductos.php" class="nav-link" data-key="t-analytics"> Agregar producto </a>
+                                        <a href="addproductos" class="nav-link" data-key="t-analytics"> Agregar producto </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="index.php" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
+                                        <a href="index" class="nav-link" data-key="t-analytics"> Ver lista de productos </a>
                                     </li>
                                 </ul>
                             </div>
@@ -51,14 +51,14 @@
                             <div class="collapse menu-dropdown" id="sidebarTables">
                                 <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                        <a href="addtags.php" class="nav-link" data-key="t-analytics"> Agregar Etiqueta </a>
+                                        <a href="addtags" class="nav-link" data-key="t-analytics"> Agregar Etiqueta </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="tags.php" class="nav-link" data-key="t-analytics"> Ver etiquetas y detalles </a>
+                                        <a href="tags" class="nav-link" data-key="t-analytics"> Ver etiquetas y detalles </a>
                                     </li>
                                     <?php foreach($tags as $t): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pTags.php?tagId=<?php echo $t->id ?>">
+                                        <a class="nav-link" data-key="t-line" href="pTags?tagId=<?php echo $t->id ?>">
                                             <?php echo $t->name; ?>
                                         </a>
                                     </li>
@@ -73,10 +73,10 @@
                             <div class="collapse menu-dropdown" id="sidebarnft">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="cupones.php" class="nav-link" data-key="t-marketplace"> Agregar cupon </a>
+                                        <a href="cupones" class="nav-link" data-key="t-marketplace"> Agregar cupon </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="cupones.php" class="nav-link" data-key="t-explore-now"> Ver lista de cupones </a>
+                                        <a href="cupones" class="nav-link" data-key="t-explore-now"> Ver lista de cupones </a>
                                     </li>
                                 </ul>
                             </div>
@@ -88,15 +88,15 @@
                             <div class="collapse menu-dropdown" id="sidebarCharts">
                                 <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                        <a href="addcategorias.php" class="nav-link" data-key="t-analytics"> Agregar categoria </a>
+                                        <a href="addcategorias" class="nav-link" data-key="t-analytics"> Agregar categoria </a>
                                     </li>
                                 <li class="nav-item">
-                                        <a href="categorias.php" class="nav-link" data-key="t-analytics"> Ver categorias y detalles </a>
+                                        <a href="categorias" class="nav-link" data-key="t-analytics"> Ver categorias y detalles </a>
                                     </li>
                                     <!-- inicio categoria -->
                                     <?php foreach($categories as $categ): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pCategoria.php?categoria=<?php echo $categ->id ?>">
+                                        <a class="nav-link" data-key="t-line" href="pCategoria?categoria=<?php echo $categ->id ?>">
                                             <?php echo $categ->name; ?>
                                         </a>
                                     </li>
@@ -112,16 +112,16 @@
                             <div class="collapse menu-dropdown" id="sidebarIcons">
                                 <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                        <a href="addbrands.php" class="nav-link" data-key="t-analytics">Agregar marca </a>
+                                        <a href="addbrands" class="nav-link" data-key="t-analytics">Agregar marca </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="brands.php" class="nav-link" data-key="t-analytics"> Ver marcas y detalles </a>
+                                        <a href="brands" class="nav-link" data-key="t-analytics"> Ver marcas y detalles </a>
                                     </li>
                                     
                                     <!-- inicio marca -->
                                     <?php foreach($marcas as $marca): ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-key="t-line" href="pBrand.php?brand=<?php echo $marca->id ?>">
+                                        <a class="nav-link" data-key="t-line" href="pBrand?brand=<?php echo $marca->id ?>">
                                             <?php echo $marca->name; ?>
                                         </a>
                                     </li>
@@ -137,10 +137,10 @@
                             <div class="collapse menu-dropdown" id="sidebarDashboards">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="addorders.php" class="nav-link" data-key="t-analytics"> Agregar Orden </a>
+                                        <a href="addorders" class="nav-link" data-key="t-analytics"> Agregar Orden </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="orders.php" class="nav-link" data-key="t-analytics"> Ver lista de Ordenes </a>
+                                        <a href="orders" class="nav-link" data-key="t-analytics"> Ver lista de Ordenes </a>
                                     </li>
                                 </ul>
                             </div>
@@ -152,10 +152,10 @@
                             <div class="collapse menu-dropdown" id="sidebarMaps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="adduser.php" class="nav-link" data-key="t-line"> Agregar usuarios </a>
+                                        <a href="adduser" class="nav-link" data-key="t-line"> Agregar usuarios </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="users.php" class="nav-link" data-key="t-line"> Ver usuarios </a>
+                                        <a href="users" class="nav-link" data-key="t-line"> Ver usuarios </a>
                                     </li>
 
                                 </ul>
@@ -168,10 +168,10 @@
                             <div class="collapse menu-dropdown" id="sidebarMultilevel">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="addclient.php" class="nav-link" data-key="t-line"> Agregar clientes </a>
+                                        <a href="addclient" class="nav-link" data-key="t-line"> Agregar clientes </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="clients.php" class="nav-link" data-key="t-line"> Ver clientes </a>
+                                        <a href="clients" class="nav-link" data-key="t-line"> Ver clientes </a>
                                     </li>
                                 </ul>
                             </div>

@@ -80,23 +80,23 @@ include '../assets/layouts/includes.php';
                                             <div class="d-flex align-items-end justify-content-between mt-4">
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="<?= $coupon->count_uses ?>">0</span></h4>
-                                                    <a href="couponorders.php?id=<?= $coupon->id ?>" class="text-decoration-underline text-white-50">View all
+                                                    <a href="couponorders?id=<?= $coupon->id ?>" class="text-decoration-underline text-white-50">View all
                                                         orders</a>
                                                 </div>
                                                 <td>
                                                     <div class="d-flex gap-2">
                                                         <div class="View">
-                                                            <a href="detailscupones.php?id=<?= $coupon->id ?>">
+                                                            <a href="detailscupones?id=<?= $coupon->id ?>">
                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                             </a>
                                                         </div>
                                                         <div class="edit">
-                                                            <a href="editcupones.php?id=<?= $coupon->id ?>">
+                                                            <a href="editcupones?id=<?= $coupon->id ?>">
                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                             </a>
                                                         </div>
                                                         <div class="remove">
-                                                            <a href="eliminar.php?id=<?= $coupon->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                            <a href="eliminar?id=<?= $coupon->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                         </div>
                                                     </div>
                                                 </td>

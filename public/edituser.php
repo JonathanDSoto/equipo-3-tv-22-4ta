@@ -130,7 +130,7 @@ $userDetails = $userController->getEspecificUser($id);
                                                         <div class="col-lg-12">
                                                             <div class="hstack gap-2 justify-content-end">
                                                                 <button type="submit" class="btn btn-primary" id="send">Add</button>
-                                                                <a href="users.php" type="button" class="btn btn-soft-success">Cancel</a>
+                                                                <a href="users" type="button" class="btn btn-soft-success">Cancel</a>
                                                                 <input type="hidden" name="id" value="<?= $userDetails->id ?>">
                                                                 <input type="hidden" name="action" value="editUser">
                                                                 <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">

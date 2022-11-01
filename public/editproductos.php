@@ -155,7 +155,7 @@ $productDetails = $productController->spcfP($slug);
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
                                                             <button type="submit" class="btn btn-primary">Save</button>
-                                                            <a type="button" href="<?= BASE_PATH ?>public/index.php" class="btn btn-soft-success">Cancel</a>
+                                                            <a type="button" href="index" class="btn btn-soft-success">Cancel</a>
                                                             <input type="hidden" name="action" value="update">
                                                             <input type="hidden" name="objetivo" value="<?= $productDetails->id ?>">
                                                             <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">

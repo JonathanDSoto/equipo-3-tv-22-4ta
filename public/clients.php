@@ -79,7 +79,7 @@ $clients = $clientController->getAllClients();
                                                         <div class="col">
 
                                                             <div class="View">
-                                                                <a href="detailsclient.php?id=<?= $client->id ?>">
+                                                                <a href="detailsclient?id=<?= $client->id ?>">
                                                                     <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                 </a>
                                                             </div>
@@ -87,7 +87,7 @@ $clients = $clientController->getAllClients();
                                                         <div class="col">
 
                                                             <div class="edit">
-                                                                <a href="editclient.php?id=<?= $client->id ?>">
+                                                                <a href="editclient?id=<?= $client->id ?>">
                                                                     <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                 </a>
                                                             </div>
@@ -95,7 +95,7 @@ $clients = $clientController->getAllClients();
                                                         <div class="col">
 
                                                             <div class="remove">
-                                                                <a href="<?= BASE_PATH ?>public/eliminar.php?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                <a href="<?= BASE_PATH ?>public/eliminar?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -116,7 +116,7 @@ $clients = $clientController->getAllClients();
                                         <div class="row g-4 mb-3">
                                             <div class="col-sm-auto">
                                                 <div>
-                                                    <a href="addclient.php">
+                                                    <a href="addclient">
                                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Agregar</button>
                                                     </a>
                                                 </div>
@@ -149,17 +149,17 @@ $clients = $clientController->getAllClients();
                                                                                 <div class="col-lg-3">
                                                                                     <div class="d-flex gap-2 text-center">
                                                                                         <div class="View">
-                                                                                            <a href="detailsclient.php?id=<?= $client->id ?>">
+                                                                                            <a href="detailsclient?id=<?= $client->id ?>">
                                                                                                 <button class="btn btn-sm btn-primary edit-item-btn" data-bs-toggle="modal" data-bs-target="">Ver</button>
                                                                                             </a>
                                                                                         </div>
                                                                                         <div class="edit">
-                                                                                            <a href="editclient.php?id=<?= $client->id ?>">
+                                                                                            <a href="editclient?id=<?= $client->id ?>">
                                                                                                 <button class="btn btn-sm btn-warning edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Editar</button>
                                                                                             </a>
                                                                                         </div>
                                                                                         <div class="remove">
-                                                                                            <a href="<?= BASE_PATH ?>public/eliminar.php?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                                            <a href="<?= BASE_PATH ?>public/eliminar?action=delClient&id=<?= $client->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
