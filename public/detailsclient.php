@@ -163,7 +163,7 @@ $addressess = $clientDetails->addresses;
                                                                                     } else {
                                                                                         echo 'No';
                                                                                     } ?></td>
-                                                            <td class="text-muted"><a href="ordenSp.php?idOrden=<?= $orden->id ?>" class="btn btn-info">See</a></td>
+                                                            <td class="text-muted"><a href="ordenSp?idOrden=<?= $orden->id ?>" class="btn btn-info">See</a></td>
                                                         </tr>
                                                     <?php endforeach; }else{
                                                         echo'<div>Este usuario no tiene ordenes :c</div>';
