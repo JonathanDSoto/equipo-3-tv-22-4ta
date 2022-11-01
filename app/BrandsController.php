@@ -122,9 +122,9 @@ class BrandController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:../public/productos.php?success=true");
+            header("Location:../public/productos?success=true");
         } else {
-            header("Location:../public/productos.php?error=true");
+            header("Location:../public/productos?error=true");
         }
     }
     public function delBrand($brand_id)
@@ -152,9 +152,9 @@ class BrandController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:../public/productos.php?success=true");
+            header("Location:../public/productos?success=true");
         } else {
-            header("Location:../public/productos.php?error=true");
+            header("Location:../public/productos?error=true");
         }
     }
     public function spcf($brand_id)
@@ -215,9 +215,9 @@ class BrandController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:../public/productos.php?success=true");
+            header("Location:../public/productos?success=true");
         } else {
-            header("Location:../public/productos.php?error=true");
+            header("Location:../public/productos?error=true");
         }
     }
 }

@@ -82,9 +82,9 @@ class ProductosController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos.php?success=true");
+            header("Location:" . BASE_PATH . "public/productos?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            header("Location:" . BASE_PATH . "public/productos?error=true");
         }
     }
     public function updateProduct($name, $slug, $description, $features, $brand_id, $id, $categories, $tags)
@@ -119,9 +119,9 @@ class ProductosController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos.php?success=true");
+            header("Location:" . BASE_PATH . "public/productos?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            header("Location:" . BASE_PATH . "public/productos?error=true");
         }
     }
     public function productos()
@@ -215,9 +215,9 @@ class ProductosController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos.php?success=true");
+            header("Location:" . BASE_PATH . "public/productos?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            header("Location:" . BASE_PATH . "public/productos?error=true");
         }
     }
 

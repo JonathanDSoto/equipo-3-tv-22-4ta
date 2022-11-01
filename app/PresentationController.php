@@ -78,9 +78,9 @@ class PresentationController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos.php?success=true");
+            header("Location:" . BASE_PATH . "public/productos?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            header("Location:" . BASE_PATH . "public/productos?error=true");
         }
     }
     public function updatePrecentation($description, $code, $weight_in_grams, $status, $stock,  $stock_min, $stock_max,$product_id,$amount,$id)
@@ -107,9 +107,9 @@ class PresentationController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos.php?success=true");
+            header("Location:" . BASE_PATH . "public/productos?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            header("Location:" . BASE_PATH . "public/productos?error=true");
         }
     }
     public function precentaciones($id)
@@ -201,9 +201,9 @@ class PresentationController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos.php?success=true");
+            header("Location:" . BASE_PATH . "public/productos?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos.php?error=true");
+            header("Location:" . BASE_PATH . "public/productos?error=true");
         }
     }
 }

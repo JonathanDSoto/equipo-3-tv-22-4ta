@@ -113,10 +113,10 @@ class CouponsController
 
     if (isset($response->code) && $response->code > 0) {
 
-      header("Location:../cupones.php?success=true");
+      header("Location:../cupones?success=true");
     } else {
 
-      header("Location:../cupones.php?error=true");
+      header("Location:../cupones?error=true");
     }
   }
   public function deleteCoupons($id)
@@ -145,10 +145,10 @@ class CouponsController
 
     if (isset($response->code) && $response->code > 0) {
 
-      header("Location:../cupones.php?success=true");
+      header("Location:../cupones?success=true");
     } else {
 
-      header("Location:../cupones.php?error=true");
+      header("Location:../cupones?error=true");
     }
   }
   public function getAllCoupons()

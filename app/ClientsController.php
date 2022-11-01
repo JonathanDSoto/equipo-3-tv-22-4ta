@@ -101,9 +101,9 @@ class ClientsController
     $response = json_decode($response);
 
     if (isset($response->code) &&  $response->code > 0) {
-      header("Location:" . BASE_PATH . "/public/clients.php?success=true");
+      header("Location:" . BASE_PATH . "/public/clients?success=true");
     } else {
-      header("Location:" . BASE_PATH . "/public/clients.php?error=true");
+      header("Location:" . BASE_PATH . "/public/clients?error=true");
     }
   }
   public function editClients($name, $email, $phone_number, $password, $is_suscribed, $level_id, $id)
@@ -132,9 +132,9 @@ class ClientsController
     $response = json_decode($response);
 
     if (isset($response->code) &&  $response->code > 0) {
-      header("Location:" . BASE_PATH . "/public/clients.php?success=true");
+      header("Location:" . BASE_PATH . "/public/clients?success=true");
     } else {
-      header("Location:" . BASE_PATH . "/public/clients.php?error=true");
+      header("Location:" . BASE_PATH . "/public/clients?error=true");
     }
   }
   public function deleteClients($id)
@@ -161,7 +161,7 @@ class ClientsController
     $response = json_decode($response);
 
     if (isset($response->code) &&  $response->code > 0) {
-      header("Location:" . BASE_PATH . "/public/clients.php?success=true");
+      header("Location:" . BASE_PATH . "/public/clients?success=true");
     } else {
       return $response;
     }
@@ -255,9 +255,9 @@ class ClientsController
         curl_close($curl);
         $response = json_decode($response);
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/clients.php?success=true");
+            header("Location:" . BASE_PATH . "public/clients?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/clients.php?error=true");
+            header("Location:" . BASE_PATH . "public/clients?error=true");
         }
     }
     public function editAddress($name, $lastname, $street, $postal_code, $city, $province, $phone_number, $is_billing_address, $client_id, $address_id)
@@ -282,9 +282,9 @@ class ClientsController
         curl_close($curl);
         $response = json_decode($response);
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/clients.php?success=true");
+            header("Location:" . BASE_PATH . "public/clients?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/clients.php?error=true");
+            header("Location:" . BASE_PATH . "public/clients?error=true");
         }
     }
     public function getAddress($id)
@@ -344,9 +344,9 @@ class ClientsController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/clients.php?success=true");
+            header("Location:" . BASE_PATH . "public/clients?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/clients.php?error=true");
+            header("Location:" . BASE_PATH . "public/clients?error=true");
         }
     }
 }

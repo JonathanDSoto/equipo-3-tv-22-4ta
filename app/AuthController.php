@@ -73,7 +73,7 @@
 				$_SESSION['role'] = $response->data->role;
 				$_SESSION['token'] = $response->data->token;
 
-                header("Location:".BASE_PATH."public?sucess=true");
+                header("Location:".BASE_PATH."public/index?sucess=true");
 
 			}else{
 
@@ -130,7 +130,7 @@
             curl_close($curl);
             $response = json_decode($response);
             if (isset($response->code) &&  $response->code > 0) {
-                header("Location:".BASE_PATH."index=true");
+                header("Location:".BASE_PATH."index?success=true");
             } else {
                 header("Location:".BASE_PATH."?error=true");
             }
