@@ -53,7 +53,7 @@ $productDetails = $productController->spcfP($slug);
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data">
+                    <form method="post" action="<?= BASE_PATH ?>prod" enctype="multipart/form-data" id="form">
                         <div class="row">
                             <!--end col-->
                             <div class="col-xxl-9">
@@ -154,7 +154,7 @@ $productDetails = $productController->spcfP($slug);
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="hstack gap-2 justify-content-end">
-                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                            <button type="submit" class="btn btn-primary" id="send">Save</button>
                                                             <a type="button" href="index" class="btn btn-soft-success">Cancel</a>
                                                             <input type="hidden" name="action" value="update">
                                                             <input type="hidden" name="objetivo" value="<?= $productDetails->id ?>">

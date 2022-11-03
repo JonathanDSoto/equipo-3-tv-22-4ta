@@ -96,7 +96,7 @@ include '../assets/layouts/includes.php';
 
                                                             <div class="col-lg-12">
                                                                 <div class="hstack gap-2 justify-content-end">
-                                                                    <button type="submit" class="btn btn-primary">Add</button>
+                                                                    <button type="submit" class="btn btn-primary" id="send">Add</button>
                                                                     <a href="brands" type="button" class="btn btn-soft-success">Cancel</a>
 
                                                                     <input type="hidden" name="action" value="create">
@@ -150,7 +150,7 @@ include '../assets/layouts/includes.php';
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
-        <script src="../assets/js/config/dosC.js"></script>
+        <script src="../assets/js/config/dosCa.js"></script>
     </body>
 
     </html>

@@ -3,10 +3,11 @@ var inputs = document.querySelectorAll('#form input')
 
 const expresiones = {
     //usuario: /^[a-zA-Z0-9\_\-]{8,16}$/, // MIN 8 MAX 16 Letras, numeros, guion y guion_bajo
-    texto: /^[a-zA-ZÀ-ÿ\s]{2,20}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
+    texto: /^[a-zA-ZÀ-ÿ0-9\s]{2,200}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
     code: /^.{1,18}$/, // 8 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    numero: /^\d{1,18}$/ 
+    numero: /^\d{1,18}$/,
+    price: /^[\d.+]{1,18}$/
 }
 const campos = {
     description: false,
@@ -49,7 +50,7 @@ var validarForm = (e) => {
             validarCampo(expresiones.numero, e.target, 'stock_max')
             break;
         case "amount":
-            validarCampo(expresiones.numero, e.target, 'amount')
+            validarCampo(expresiones.price, e.target, 'amount')
             break;
     }
 
@@ -64,9 +65,9 @@ var validarFormLleno = (e) => {
         case "stock_min":
         case "stock_max":
         case "amount":
-            if(e.target.value===null || e.target.value===''){
+            if (e.target.value === null || e.target.value === '') {
                 //alert('The '+e.target.input+' is necesary')
-            }else{
+            } else {
                 campos[e.target.name] = true
             }
             break;

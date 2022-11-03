@@ -80,7 +80,7 @@ include '../assets/layouts/includes.php';
                                             <div class="d-flex align-items-end justify-content-between mt-4">
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4 text-white"><span class="counter-value" data-target="<?= $coupon->count_uses ?>">0</span></h4>
-                                                    <a href="couponorders?id=<?= $coupon->id ?>" class="text-decoration-underline text-white-50">View all
+                                                    <a href="couponorders?id=<?= $coupon->id ?>" class="text-decoration-underline text-white-50">View <?=count($orderController->getOrdersByCoupon($coupon->id))?>
                                                         orders</a>
                                                 </div>
                                                 <td>

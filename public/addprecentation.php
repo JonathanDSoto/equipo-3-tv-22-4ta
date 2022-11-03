@@ -196,7 +196,7 @@ $idP = $_GET['idp'];
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
-        <script src="../assets/js/config/newP.js"></script>
+        <script src="../assets/js/config/newPres.js"></script>
     </body>
 
     </html>

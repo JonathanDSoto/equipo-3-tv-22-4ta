@@ -1,13 +1,13 @@
 var form = document.getElementById('form')
 var inputs = document.querySelectorAll('#form input')
 
-const expresiones = {
+const regex = {
     //usuario: /^[a-zA-Z0-9\_\-]{8,16}$/, // MIN 8 MAX 16 Letras, numeros, guion y guion_bajo
-    texto: /^[a-zA-ZÀ-ÿ\s]{2,200}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
-    desc: /^[a-z0-9A-ZÀ-ÿ\s]{2,200}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
+    texto: /^[a-z0-9A-ZÀ-ÿ\s]{2,200}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
+    desc: /^[,.a-z0-9A-ZÀ-ÿ\s]{2,200}$/, // MIN 2 MAX 120 Letras y espacios, pueden llevar acentos.
     code: /^.{1,18}$/, // 8 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    numero: /^\d{1,18}$/ 
+    numero: /^\d{1,18}$/
 }
 const campos = {
     name: false,
@@ -44,13 +44,13 @@ const validarFoto = () => {
 var validarForm = (e) => {
     switch (e.target.name) {
         case "description":
-            validarCampo(expresiones.desc, e.target, 'description')
+            validarCampo(regex.desc, e.target, 'description')
             break;
         case "name":
-            validarCampo(expresiones.texto, e.target, 'name')
+            validarCampo(regex.texto, e.target, 'name')
             break;
         case "features":
-            validarCampo(expresiones.texto, e.target, 'features')
+            validarCampo(regex.desc, e.target, 'features')
             break;
         case "imagen":
             validarFoto()
