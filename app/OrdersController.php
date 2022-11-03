@@ -4,7 +4,7 @@ if (isset($_POST['action'])) {
     if (isset($_POST['super_token']) && $_POST['super_token'] == $_SESSION['super_token']) {
     switch ($_POST['action']) {
         case 'create':
-            $total =  '1222';
+            $total =  '2545';
             if(isset($_POST['is_paid'])){
                 $is_paid = strip_tags($_POST['is_paid']);
             }else{
@@ -242,8 +242,7 @@ class OrdenController
         if (isset($response->code) &&  $response->code > 0) {
             header("Location:" . BASE_PATH . "public/orders?success=true");
         } else {
-            // header("Location:" . BASE_PATH . "public/orders?error=true");
-            var_dump($total, $is_paid, $client_id, $address_id, $order_status_id, $payment_type_id, $coupon_id, $presentation, $quantity);
+            header("Location:" . BASE_PATH . "public/orders?error=true");
         }
     }
     public function editOrden($id, $order_status_id){
