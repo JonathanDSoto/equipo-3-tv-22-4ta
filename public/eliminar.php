@@ -8,6 +8,7 @@ include '../app/BrandsController.php';
 include '../app/CategoriesController.php';
 include '../app/TagsController.php';
 include '../app/CouponsController.php';
+include '../app/OrdersController.php';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'delUser':
@@ -58,6 +59,11 @@ if (isset($_GET['action'])) {
             $obj = new CouponsController;
             $objt = strip_tags($_GET['id']);
             $del = $obj->deleteCoupons($objt);
+            break;
+        case 'delOr':
+            $obj = new OrdenController;
+            $objt = strip_tags($_GET['id']);
+            $del = $obj->delete($objt);
             break;
     }
 }

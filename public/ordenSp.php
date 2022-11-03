@@ -101,10 +101,10 @@ if (!isset($_SESSION['token'])) {
                                                     <tr>
                                                         <th class="ps-0" scope="row">Paid :</th>
                                                         <td class="text-muted"><?php if (($orden->is_paid) == 1) {
-                                                            echo 'Yes';
-                                                        } else {
-                                                            echo 'No';
-                                                        } ?></td>
+                                                                                    echo 'Yes';
+                                                                                } else {
+                                                                                    echo 'No';
+                                                                                } ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="ps-0" scope="row">Payment type :</th>
@@ -119,104 +119,111 @@ if (!isset($_SESSION['token'])) {
                         </div>
                     </div>
                 </div><!-- .row-->
-                <div class="row">
-                    <!-- Tab panes -->
-                    <div class="tab-content pt-4 text-muted ">
-                        <div class="tab-pane active" id="overview-tab" role="tabpanel">
-                            <div class="row">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3>Client</h3>
-                                        <a href="detailsclient.php?id=<?= $orden->client->id ?>" class="btn btn-info">See</a>
-                                        <div class="table-responsive">
-                                            <table class="table table-borderless mb-0">
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Name :</th>
-                                                        <td class="text-muted"><?= $orden->client-> name ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">email :</th>
-                                                        <td class="text-muted"><?= $orden->client->email?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Phone :</th>
-                                                        <td class="text-muted"><?= $orden->client->phone_number?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Suscribed :</th>
-                                                        <td class="text-muted"><?php if (($orden->client->is_suscribed) == 1) {
-                                                            echo 'Yes';
-                                                        } else {
-                                                            echo 'No';
-                                                        } ?></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+
+                <?php if (isset($orden->client)) { ?>
+
+                    <div class="row">
+                        <!-- Tab panes -->
+                        <div class="tab-content pt-4 text-muted ">
+                            <div class="tab-pane active" id="overview-tab" role="tabpanel">
+                                <div class="row">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Client</h3>
+                                            <a href="detailsclient.php?id=<?= $orden->client->id ?>" class="btn btn-info">See</a>
+                                            <div class="table-responsive">
+                                                <table class="table table-borderless mb-0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Name :</th>
+                                                            <td class="text-muted"><?= $orden->client->name ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">email :</th>
+                                                            <td class="text-muted"><?= $orden->client->email ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Phone :</th>
+                                                            <td class="text-muted"><?= $orden->client->phone_number ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Suscribed :</th>
+                                                            <td class="text-muted"><?php if (($orden->client->is_suscribed) == 1) {
+                                                                                        echo 'Yes';
+                                                                                    } else {
+                                                                                        echo 'No';
+                                                                                    } ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div><!-- .row-->
-                <div class="row">
-                    <!-- Tab panes -->
-                    <div class="tab-content pt-4 text-muted ">
-                        <div class="tab-pane active" id="overview-tab" role="tabpanel">
-                            <div class="row">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3>Address</h3>
-                                        <div class="table-responsive">
-                                            <table class="table table-borderless mb-0">
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Name :</th>
-                                                        <td class="text-muted"><?= $orden->address->first_name.' '.$orden->address->last_name?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Street and number :</th>
-                                                        <td class="text-muted"><?= $orden->address->street_and_use_number ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Apartment :</th>
-                                                        <td class="text-muted"><?= $orden->address->apartment?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Postal code :</th>
-                                                        <td class="text-muted"><?= $orden->address->postal_code ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">City :</th>
-                                                        <td class="text-muted"><?= $orden->address->city ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Province :</th>
-                                                        <td class="text-muted"><?= $orden->address->province ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Phone :</th>
-                                                        <td class="text-muted"><?= $orden->address->phone_number ?></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <th class="ps-0" scope="row">Billing address :</th>
-                                                        <td class="text-muted"><?php if (($orden->address->is_billing_address) == 1) {
-                                                            echo 'Yes';
-                                                        } else {
-                                                            echo 'No';
-                                                        } ?></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                    </div><!-- .row-->
+                <?php } ?>
+
+                <?php if (isset($orden->address)) { ?>
+                    <div class="row">
+                        <!-- Tab panes -->
+                        <div class="tab-content pt-4 text-muted ">
+                            <div class="tab-pane active" id="overview-tab" role="tabpanel">
+                                <div class="row">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Address</h3>
+                                            <div class="table-responsive">
+                                                <table class="table table-borderless mb-0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Name :</th>
+                                                            <td class="text-muted"><?= $orden->address->first_name . ' ' . $orden->address->last_name ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Street and number :</th>
+                                                            <td class="text-muted"><?= $orden->address->street_and_use_number ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Apartment :</th>
+                                                            <td class="text-muted"><?= $orden->address->apartment ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Postal code :</th>
+                                                            <td class="text-muted"><?= $orden->address->postal_code ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">City :</th>
+                                                            <td class="text-muted"><?= $orden->address->city ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Province :</th>
+                                                            <td class="text-muted"><?= $orden->address->province ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Phone :</th>
+                                                            <td class="text-muted"><?= $orden->address->phone_number ?></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th class="ps-0" scope="row">Billing address :</th>
+                                                            <td class="text-muted"><?php if (($orden->address->is_billing_address) == 1) {
+                                                                                        echo 'Yes';
+                                                                                    } else {
+                                                                                        echo 'No';
+                                                                                    } ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div><!-- .row-->
+                    </div><!-- .row-->
+                <?php } ?>
                 <!-- end page title -->
 
                 <div class="col-sm-12">
@@ -225,10 +232,10 @@ if (!isset($_SESSION['token'])) {
 
                         <div class="card-body">
                             <div class="table-responsive table-card">
-                                
+
                                 <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                                     <tbody>
-                                    <h3>Products</h3>
+                                        <h3>Products</h3>
 
                                         <!-- Producto -->
                                         <?php if (isset($productos) && sizeof($productos) > 0) {

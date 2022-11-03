@@ -85,6 +85,7 @@ $orders = $orderController->getOrders();
                                                     <tr>
                                                         <th class="" data-sort="id">ID</th>
                                                         <th class="" data-sort="folio">Folio</th>
+                                                        <th class="" data-sort="total">Status</th>
                                                         <th class="" data-sort="total">Total</th>
                                                         <th class="" data-sort="action">Action</th>
                                                     </tr>
@@ -96,6 +97,29 @@ $orders = $orderController->getOrders();
                                                                 <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
                                                                 <td class="id"><?= $order->id ?></td>
                                                                 <td class="folio"><?= $order->folio ?></td>
+                                                                <td class="total"><?php
+                                                                
+                                                                switch ($order->order_status_id) {
+                                                                    case 1:
+                                                                        echo '<p class="text-info">Pendiente de pago</p>';
+                                                                        break;
+                                                                    case 2:
+                                                                        echo '<p class="text-success">Pagada</p>';
+                                                                        break;
+                                                                    case 3:
+                                                                        echo '<p class="text-primary">Enviada</p>';
+                                                                        break;
+                                                                    case 4:
+                                                                        echo '<p class="text-danger">Abandonada</p>';
+                                                                        break;
+                                                                    case 5:
+                                                                        echo '<p class="text-warning">Pendiente de envio</p>';
+                                                                        break;
+                                                                    case 6:
+                                                                        echo '<p class="text-dark">Cancelada</p>';
+                                                                        break;
+                                                                    
+                                                                }?></td>
                                                                 <td class="total"><?= $order->total ?></td>
                                                                 <td>
                                                                     <div class="d-flex gap-2">
@@ -110,7 +134,7 @@ $orders = $orderController->getOrders();
                                                                             </a>
                                                                         </div>
                                                                         <div class="remove">
-                                                                            <a href="eliminar?id=<?= $order->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
+                                                                            <a href="eliminar?action=delOr&id=<?= $order->id ?>" class="btn btn-sm btn-danger">Eliminar</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>

@@ -58,7 +58,7 @@ $orderDetails = $orderController->getOrden($id);
                             </div>
                         </div>
 
-                        <form method="post" action="../app/OrdenController.php" enctype="multipart/form-data" id="form">
+                        <form method="post" action="<?= BASE_PATH?>orden" enctype="multipart/form-data" id="form">
                             <div class="row">
                                 <div class="col">
                                     <div class="card mt-n5">
@@ -76,22 +76,20 @@ $orderDetails = $orderController->getOrden($id);
                                                 <div class="tab-content">
                                                     <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                                         <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="couponInput" class="form-label">Folio</label>
-                                                                    <input name="name" type="text" class="form-control" id="couponname" placeholder="Enter Folio" value="<?= $orderDetails->folio ?>">
-                                                                </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_name">The format only accepts letters and spaces.</p>
-
-                                                            </div>
+                                                            
                                                             <!--end col-->
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-12">
                                                                 <div class="mb-3">
-                                                                    <label for="descriptionInput" class="form-label">Price</label>
-                                                                    <input name="total" type="text" class="form-control" id="description" placeholder="Enter price" value="<?= $orderDetails->total ?>">
+                                                                    <label for="order_status_id" class="form-label">Status</label>
+                                                                    <select name="order_status_id" class="form-select form-select-md" id="order_status_id">
+                                                                        <option value="1">Pendiente de pago</option>
+                                                                        <option value="2">Pagada</option>
+                                                                        <option value="3">Enviada</option>
+                                                                        <option value="4">Abandonada</option>
+                                                                        <option value="5">Pagada</option>
+                                                                        <option value="6">Cancelada</option>
+                                                                    </select>
                                                                 </div>
-                                                                <p class="formulario__input-error text-danger" id="grupo_lastname">The format only accepts letters and spaces.</p>
-
                                                             </div>
                                                             <!--end col-->
 
@@ -102,6 +100,7 @@ $orderDetails = $orderController->getOrden($id);
                                                                     <a href="" type="button" class="btn btn-soft-success">Cancel</a>
 
                                                                     <input type="hidden" name="action" value="update">
+                                                                    <input type="hidden" name="id" value="<?=$id ?>">
                                                                     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
                                                                 </div>
                                                             </div>
@@ -132,17 +131,7 @@ $orderDetails = $orderController->getOrden($id);
             <i class="ri-arrow-up-line "></i>
         </button>
 
-        <!--end back-to-top-->
-
-        <!--preloader-->
-        <div id="preloader ">
-            <div id="status ">
-                <div class="spinner-border text-primary avatar-sm " role="status ">
-                    <span class="visually-hidden ">Loading...</span>
-                </div>
-            </div>
-        </div>
-
+       
         <!-- JAVASCRIPT -->
         <?php include '../assets/layouts/js.template.php' ?>
 
@@ -161,7 +150,6 @@ $orderDetails = $orderController->getOrden($id);
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
-        <script src="../assets/js/config/newAddress.js"></script>
     </body>
 
     </html>

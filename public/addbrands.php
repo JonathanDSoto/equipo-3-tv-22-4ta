@@ -150,7 +150,7 @@ include '../assets/layouts/includes.php';
 
         <!-- App js -->
         <script src="../assets/js/app.js "></script>
-        <script src="../assets/js/config/dosCa.js"></script>
+        <script src="../assets/js/config/dosC.js"></script>
     </body>
 
     </html>
