@@ -90,9 +90,9 @@ class CategoryController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "/public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/categorias?success=true");
         } else {
-            header("Location:" . BASE_PATH . "/public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/categorias?error=true");
         }
     }
 
@@ -121,9 +121,9 @@ class CategoryController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "/public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/categorias?success=true");
         } else {
-            header("Location:" . BASE_PATH . "/public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/categorias?error=true");
         }
     }
 
@@ -154,9 +154,9 @@ class CategoryController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "/public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/categorias?success=true");
         } else {
-            header("Location:" . BASE_PATH . "/public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/categorias?error=true");
         }
     }
 

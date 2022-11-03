@@ -122,9 +122,9 @@ class TagController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "/public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/tags?success=true");
         } else {
-            header("Location:" . BASE_PATH . "/public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/tags?error=true");
         }
     }
     public function delTag($tag_id)
@@ -152,9 +152,9 @@ class TagController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "/public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/tags?success=true");
         } else {
-            header("Location:" . BASE_PATH . "/public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/tags?error=true");
         }
     }
 
@@ -185,9 +185,9 @@ class TagController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "/public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/tags?success=true");
         } else {
-            header("Location:" . BASE_PATH . "/public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/tags?error=true");
         }
     }
     public function spcf($tag_id)

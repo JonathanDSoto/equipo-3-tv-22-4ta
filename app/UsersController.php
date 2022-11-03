@@ -58,9 +58,9 @@
             $response = json_decode($response);
   
           if( isset($response->code) &&  $response->code > 0) {
-              header ("Location:../public/users?success=true");
+              header ("Location:".BASE_PATH."public/users?success=true");
             } else{
-              header ("Location:../public/users?error=true");
+              header ("Location:".BASE_PATH."public/users?error=true");
           }
         }
         public function getAllUsers() {
@@ -143,9 +143,9 @@
             $response = json_decode($response);
   
             if( isset($response->code) &&  $response->code > 0) {
-                header ("Location:../public/users?success=true");
+                header ("Location:".BASE_PATH."public/users?success=true");
               } else{
-                header ("Location:../public/users?error=true");
+                header ("Location:".BASE_PATH."public/users?error=true");
             }
         }
         public function deleteUser($id){
@@ -171,9 +171,9 @@
           $response = json_decode($response);
   
           if( isset($response->code) &&  $response->code > 0) {
-              header ("Location:../public/users?success=true");
+              header ("Location:".BASE_PATH."public/users?success=true");
             } else{
-              header ("Location:../public/users?error=true");
+              header ("Location:".BASE_PATH."public/users?error=true");
           }
         }
     }

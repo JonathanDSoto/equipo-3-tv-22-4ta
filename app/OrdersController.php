@@ -189,9 +189,9 @@ class OrdenController
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
-            header("Location:" . BASE_PATH . "public/productos?success=true");
+            header("Location:" . BASE_PATH . "public/orders?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/productos?error=true");
+            header("Location:" . BASE_PATH . "public/orders?error=true");
         }
     }
 

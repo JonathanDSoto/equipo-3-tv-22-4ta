@@ -101,9 +101,9 @@ class ClientsController
     $response = json_decode($response);
 
     if (isset($response->code) &&  $response->code > 0) {
-      header("Location:" . BASE_PATH . "/public/clients?success=true");
+      header("Location:" . BASE_PATH . "public/clients?success=true");
     } else {
-      header("Location:" . BASE_PATH . "/public/clients?error=true");
+      header("Location:" . BASE_PATH . "public/clients?error=true");
     }
   }
   public function editClients($name, $email, $phone_number, $password, $is_suscribed, $level_id, $id)
@@ -132,9 +132,9 @@ class ClientsController
     $response = json_decode($response);
 
     if (isset($response->code) &&  $response->code > 0) {
-      header("Location:" . BASE_PATH . "/public/clients?success=true");
+      header("Location:" . BASE_PATH . "public/clients?success=true");
     } else {
-      header("Location:" . BASE_PATH . "/public/clients?error=true");
+      header("Location:" . BASE_PATH . "public/clients?error=true");
     }
   }
   public function deleteClients($id)
@@ -161,7 +161,7 @@ class ClientsController
     $response = json_decode($response);
 
     if (isset($response->code) &&  $response->code > 0) {
-      header("Location:" . BASE_PATH . "/public/clients?success=true");
+      header("Location:" . BASE_PATH . "public/clients?success=true");
     } else {
       return $response;
     }
