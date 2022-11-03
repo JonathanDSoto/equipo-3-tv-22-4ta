@@ -2,8 +2,32 @@
 include "../app/config.php";
 include '../assets/layouts/includes.php';
 include "../app/ClientsController.php";
+include "../app/ProductsController.php";
+include "../app/PresentationController.php";
+$p = new PresentationController;
+$producto = new ProductosController();
+$products = $producto->productos();
 $clientController = new ClientsController();
 $clients = $clientController->getAllClients();
+
+$direcciones = array();
+foreach($clients as $c){
+    if(isset($c->addresses)){
+        foreach($c->addresses as $dir){
+            array_push($direcciones,$dir);
+        }
+    }
+}
+$presentacionesP = array();
+foreach($products as $c){
+    if(isset($c->presentations)){
+        foreach($c->presentations as $dir){
+            array_push($presentacionesP,$dir);
+        }
+    }
+}
+
+
 
 ?>
 <doctype html>
@@ -97,14 +121,21 @@ $clients = $clientController->getAllClients();
                                                                 <div class="mb-3">
                                                                     <label for="presentations" class="form-label">Product</label>
                                                                     <select name="presentations" class="form-select form-select-md" id="presentations">
-                                                                        <option value="190">Prueba</option>
+                                                                    <?php
+                                                                            foreach($presentacionesP as $p){
+                                                                                if($p->stock > 0){
+                                                                                ?>
+                                                                                <option value="<?= $p->id ?>">Stock : <?= $p->stock ?> Description: <?= $p->description ?></option>
+                                                                                <?php
+                                                                            }}
+                                                                        ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="quantity" class="form-label">Quantity</label>
-                                                                    <input name="quantity" type="number" class="form-control" id="quantity" value="10" required>
+                                                                    <input name="quantity" type="number" class="form-control" id="quantity" value="1" required>
                                                                 </div>
                                                             </div>
 
@@ -124,7 +155,14 @@ $clients = $clientController->getAllClients();
                                                                 <div class="mb-3">
                                                                     <label for="address_id" class="form-label">Address</label>
                                                                     <select name="address_id" class="form-select form-select-md" id="address_id">
-                                                                        <option value="184">Pendiente de pago</option>
+                                                                        
+                                                                        <?php
+                                                                            foreach($direcciones as $dir){
+                                                                                ?>
+                                                                                <option value="<?= $dir->id ?>"><?= $dir->first_name ?> <?= $dir->last_name ?></option>
+                                                                                <?php
+                                                                            }
+                                                                        ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -151,7 +189,7 @@ $clients = $clientController->getAllClients();
                                                             <div class="col-lg-12">
                                                                 <div class="hstack gap-2 justify-content-end">
                                                                     <button type="submit" class="btn btn-primary" id="send">Add</button>
-                                                                    <a href="" type="button" class="btn btn-soft-success">Cancel</a>
+                                                                    <a href="orders" type="button" class="btn btn-soft-success">Cancel</a>
 
                                                                     <input type="hidden" name="action" value="create">
                                                                     <input type="hidden" name="super_token" value="<?= $_SESSION['super_token'] ?>">
