@@ -4,18 +4,22 @@ if (isset($_POST['action'])) {
     if (isset($_POST['super_token']) && $_POST['super_token'] == $_SESSION['super_token']) {
     switch ($_POST['action']) {
         case 'create':
-            $folio = strip_tags($_POST['folio']);
-            $total = strip_tags($_POST['total']);
-            $is_paid = strip_tags($_POST['is_paid']);
+            $total =  '1222';
+            if(isset($_POST['is_paid'])){
+                $is_paid = strip_tags($_POST['is_paid']);
+            }else{
+                $is_paid=0;
+            }
             $client_id = strip_tags($_POST['client_id']);
             $address_id = strip_tags($_POST['address_id']);
-            $order_status = strip_tags($_POST['order_status_id']);
+            $order_status_id = '1';
             $payment_type_id =strip_tags($_POST['payment_type_id']);
             $coupon_id = strip_tags($_POST['coupon_id']);
             $presentations = strip_tags($_POST['presentations']);
+            $quantity = strip_tags($_POST['quantity']);
 
             $orderController = new OrdenController();
-            $orderController -> createOrden($folio, $total, $is_paid, $client_id, $address_id, $order_status_id, $payment_type_id, $coupon_id, $presentations);
+            $orderController -> create($total, $is_paid, $client_id, $address_id, $order_status_id, $payment_type_id, $coupon_id, $presentations, $quantity);
         break;
         case 'edit':
             $id = strip_tags($_POST['id']);
@@ -28,6 +32,12 @@ if (isset($_POST['action'])) {
             $idEl = $_POST['idEliminar'];
             $orderController = new OrdenController();
             $orderController->delete($idEl);
+        break;
+        case 'update':
+            $id = $_POST['id'];
+            $obj = $_POST['order_status_id'];
+            $orderController = new OrdenController();
+            $orderController->editOrden($id,$obj);
         break;
     }
     }
@@ -195,47 +205,46 @@ class OrdenController
         }
     }
 
-    public function createOrden($folio, $total, $is_paid, $client_id, $address_id, $order_status_id, $payment_type_id, $coupon_id, $presentations){
-        $data = array(
-            'folio' => $folio,
-            'total' => $total,
-            'is_paid' => $is_paid,
-            'client_id' => $client_id,
-            'address_id' => $address_id,
-            'order_status_id' => $order_status_id,
-            'payment_type_id' => $payment_type_id,
-            'coupon_id' => $coupon_id,
-        );
-        foreach ($presentations as $key => $presentation) {
-            $data['presentations[' . $key . ']='] = $presentation;
-        }
+    public function create($total, $is_paid, $client_id, $address_id, $order_status_id, $payment_type_id, $coupon_id, $presentation, $quantity) {
         $curl = curl_init();
+
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://crud.jonathansoto.mx/api/orders',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => array($data),
-        CURLOPT_HTTPHEADER => array(
-            'Authorization: Bearer '. $_SESSION['token']
-        ),
+            CURLOPT_URL => 'https://crud.jonathansoto.mx/api/orders',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array(
+                'folio' => rand(100000,999999), 
+                'total' => $total,
+                'is_paid' => $is_paid, 
+                'client_id' => $client_id, 
+                'address_id' => $address_id,
+                'order_status_id' => $order_status_id, 
+                'payment_type_id' => $payment_type_id, 
+                'coupon_id' => $coupon_id,
+                'presentations[0][id]' => $presentation, 
+                'presentations[0][quantity]' => $quantity
+            ),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer ' . $_SESSION['token'],
+            ),
         ));
-
         $response = curl_exec($curl);
-        curl_close($curl);
 
+        curl_close($curl);
+        echo $response;
         $response = json_decode($response);
 
         if (isset($response->code) &&  $response->code > 0) {
             header("Location:" . BASE_PATH . "public/orders?success=true");
         } else {
-            header("Location:" . BASE_PATH . "public/orders?error=true");
+            // header("Location:" . BASE_PATH . "public/orders?error=true");
+            var_dump($total, $is_paid, $client_id, $address_id, $order_status_id, $payment_type_id, $coupon_id, $presentation, $quantity);
         }
-
     }
     public function editOrden($id, $order_status_id){
         $curl = curl_init();
@@ -265,6 +274,34 @@ class OrdenController
             header("Location:" . BASE_PATH . "public/orders?success=true");
         } else {
             header("Location:" . BASE_PATH . "public/orders?error=true");
+        }
+    }
+
+    public function getBetween($date, $date2) {
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://crud.jonathansoto.mx/api/orders/' . $date . '/' . $date2,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer ' . $_SESSION['token'],
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+        echo $response;
+
+        $response = json_decode($response);
+        if (isset($response->code) && $response->code > 0) {
+            return $response->data;
         }
     }
 }
