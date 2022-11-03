@@ -104,7 +104,7 @@ $clients = $clientController->getAllClients();
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3">
                                                                     <label for="quantity" class="form-label">Quantity</label>
-                                                                    <input name="quantity" type="text" class="form-control" id="quantity" value="10">
+                                                                    <input name="quantity" type="number" class="form-control" id="quantity" value="10" required>
                                                                 </div>
                                                             </div>
 
